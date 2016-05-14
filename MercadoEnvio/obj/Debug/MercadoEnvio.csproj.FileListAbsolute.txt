@@ -1,0 +1,10 @@
+C:\Jesi\UTN\3er Año\Gestión de Datos\2do TP\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Jesi\UTN\3er Año\Gestión de Datos\2do TP\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvio.csproj.GenerateResource.Cache
+C:\Jesi\UTN\3er Año\Gestión de Datos\2do TP\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Jesi\UTN\3er Año\Gestión de Datos\2do TP\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Jesi\UTN\3er Año\Gestión de Datos\2do TP\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvio.csprojResolveAssemblyReference.cache
+C:\Jesi\UTN\3er Año\Gestión de Datos\2do TP\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Jesi\UTN\3er Año\Gestión de Datos\2do TP\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvio.BasedeDatos.resources
+C:\Jesi\UTN\3er Año\Gestión de Datos\2do TP\MercadoEnvio\WindowsFormsApplication1\bin\Debug\MercadoEnvio.exe.config
+C:\Jesi\UTN\3er Año\Gestión de Datos\2do TP\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvio.Properties.Resources.resources
+C:\Jesi\UTN\3er Año\Gestión de Datos\2do TP\MercadoEnvio\WindowsFormsApplication1\obj\Debug\AerolineaFrba.BasedeDatos.resources
