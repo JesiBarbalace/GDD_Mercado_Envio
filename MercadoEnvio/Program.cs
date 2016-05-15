@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using MercadoEnvio.Mappings;
 using System.IO;
+using MercadoEnvio.Mappings;
 
 namespace MercadoEnvio
 {
@@ -17,21 +17,19 @@ namespace MercadoEnvio
         [STAThread]
         static void Main()
         {
+            //La fecha del sistema está en el archivo de configuración (MercadoEnvio/Properties/Settings.settings), y se accede así:
+            //Properties.Settings.Default.FechaSistema;
 
-            //La fecha del sistema se debe modificar desde acá-
-            //Properties.Settings.Default.FechaSistema = DateTime.Now;
-            BasedeDatos bd = new BasedeDatos();
+            // Estos métodos hay que llamarlos en primer lugar porque, si no, tira excepción:
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            Mappings.BasedeDatosForm bd = new BasedeDatosForm();
 
             string a = bd.GetConnectionString("conexion");
             bd.SaveConnectionString("MercadoEnvio.Properties.Settings.GD1C2016ConnectionString", a);
             bd.SaveConnectionString("MercadoEnvio.Properties.Settings.GD1C2016ConnectionStringJ", a);
 
-            Properties.Settings.Default.FechaSistema = Convert.ToDateTime("2017-01-31");
-            Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
     }

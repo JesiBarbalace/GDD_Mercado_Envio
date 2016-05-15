@@ -11,16 +11,16 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 
-namespace AerolineaFrba
+namespace MercadoEnvio.Mappings
 {
-    public partial class BasedeDatos : Form
+    public partial class BasedeDatosForm : Form
     {
-        public BasedeDatos()
+        public BasedeDatosForm()
         {
             InitializeComponent();
         }
 
-      
+
 
         public SqlConnection conexion = new SqlConnection("Data Source=JESICAB-PC\\SQLSERVER2012;" + "Initial Catalog=GD1C2016;" + "Integrated Security=true;"
                 + "UID=gd" + "PWD=gd2016");

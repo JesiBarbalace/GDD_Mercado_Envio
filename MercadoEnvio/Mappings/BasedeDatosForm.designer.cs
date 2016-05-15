@@ -1,6 +1,6 @@
-﻿namespace MercadoEnvio
+﻿namespace MercadoEnvio.Mappings
 {
-    partial class BasedeDatos
+    partial class BasedeDatosForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,8 +35,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Name = "BasedeDatos";
-            this.Text = "BasedeDatos";
+            this.Name = "BasedeDatosForm";
+            this.Text = "BasedeDatosForm";
             this.Load += new System.EventHandler(this.BasedeDatos_Load);
             this.ResumeLayout(false);
 

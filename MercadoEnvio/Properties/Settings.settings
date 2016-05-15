@@ -42,5 +42,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=JESICAB-PC\SQLSERVER2012;Initial Catalog=GD1C2016;Persist Security Info=True;User ID=gd;Password=gd2016</Value>
     </Setting>
+    <Setting Name="FechaSistema" Type="System.DateTime" Scope="Application">
+      <Value Profile="(Default)">2015-01-02</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
