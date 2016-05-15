@@ -132,11 +132,11 @@
     <Compile Include="Listado Estadistico\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mappings\BasedeDatos.cs">
+    <Compile Include="Mappings\BasedeDatosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mappings\BasedeDatos.designer.cs">
-      <DependentUpon>BasedeDatos.cs</DependentUpon>
+    <Compile Include="Mappings\BasedeDatosForm.designer.cs">
+      <DependentUpon>BasedeDatosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\MenuPpal.cs">
       <SubType>Form</SubType>
@@ -146,8 +146,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Mappings\BasedeDatos.resx">
-      <DependentUpon>BasedeDatos.cs</DependentUpon>
+    <EmbeddedResource Include="Mappings\BasedeDatosForm.resx">
+      <DependentUpon>BasedeDatosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
