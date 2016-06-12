@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace MercadoEnvio.Listado_Estadistico
 {
-    public partial class Form1 : Form
+    public partial class Listado : Form
     {
-        public Form1()
+        public Listado()
         {
             InitializeComponent();
         }
+
+        public void Listado_Load(object sender, EventArgs e)
+        {
+            CargarDatosTops();
+        }
+
+        private void CargarDatosTops()
+        { 
+        
+        
+        }
+
     }
 }
