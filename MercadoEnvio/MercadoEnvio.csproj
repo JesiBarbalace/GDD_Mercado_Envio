@@ -66,11 +66,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABM Rol\Form1.cs">
+    <Compile Include="ABM Rol\AltaRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ABM Rol\AltaRol.Designer.cs">
+      <DependentUpon>AltaRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Rol\BajaRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\BajaRol.Designer.cs">
+      <DependentUpon>BajaRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Rol\ModificacionRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\ModificacionRol.Designer.cs">
+      <DependentUpon>ModificacionRol.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Rubro\Form1.cs">
       <SubType>Form</SubType>
@@ -90,11 +102,18 @@
     <Compile Include="ABM Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Calificar\Form1.cs">
+    <Compile Include="Auxiliares\FuncionesAuxiliares.cs" />
+    <Compile Include="Calificar\AgregarCalificacionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calificar\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Calificar\AgregarCalificacionForm.Designer.cs">
+      <DependentUpon>AgregarCalificacionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calificar\CalificarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificar\CalificarForm.Designer.cs">
+      <DependentUpon>CalificarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ComprarOfertar\Form1.cs">
       <SubType>Form</SubType>
@@ -120,17 +139,17 @@
     <Compile Include="Generar Publicación\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.cs">
+    <Compile Include="Historial Cliente\HistorialClienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Historial Cliente\HistorialClienteForm.Designer.cs">
+      <DependentUpon>HistorialClienteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.cs">
+    <Compile Include="Listado Estadistico\Listado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Listado Estadistico\Listado.Designer.cs">
+      <DependentUpon>Listado.cs</DependentUpon>
     </Compile>
     <Compile Include="Mappings\BasedeDatosForm.cs">
       <SubType>Form</SubType>
@@ -138,6 +157,8 @@
     <Compile Include="Mappings\BasedeDatosForm.designer.cs">
       <DependentUpon>BasedeDatosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\Rol.cs" />
+    <Compile Include="Mappings\Usuario.cs" />
     <Compile Include="Menu\MenuPpal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,8 +167,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ABM Rol\AltaRol.resx">
+      <DependentUpon>AltaRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\BajaRol.resx">
+      <DependentUpon>BajaRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\ModificacionRol.resx">
+      <DependentUpon>ModificacionRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\AgregarCalificacionForm.resx">
+      <DependentUpon>AgregarCalificacionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\CalificarForm.resx">
+      <DependentUpon>CalificarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Historial Cliente\HistorialClienteForm.resx">
+      <DependentUpon>HistorialClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado Estadistico\Listado.resx">
+      <DependentUpon>Listado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mappings\BasedeDatosForm.resx">
       <DependentUpon>BasedeDatosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\MenuPpal.resx">
+      <DependentUpon>MenuPpal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -26,8 +26,8 @@ namespace MercadoEnvio.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JESICAB-PC\\SQLSERVER2012;Initial Catalog=GD1C2016;Persist Security In" +
-            "fo=True;User ID=gd;Password=gd2016")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\SQLSERVER2012;Initial Catalog=GD1C2016;Persist Security Inf" +
+            "o=True;User ID=gd;Password=gd2016")]
         public string GD1C2016ConnectionString {
             get {
                 return ((string)(this["GD1C2016ConnectionString"]));
@@ -36,50 +36,7 @@ namespace MercadoEnvio.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JESICAB-PC\\SQLSERVER2012;Initial Catalog=GD2C2015;Persist Security In" +
-            "fo=True;User ID=gd;Password=gd2016")]
-        public string G12C2016ConnectionStringJ {
-            get {
-                return ((string)(this["G12C2016ConnectionStringJ"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=|DataDirectory|\\Database1.sdf")]
-        public string Database1ConnectionString {
-            get {
-                return ((string)(this["Database1ConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database1.mdf;Integr" +
-            "ated Security=True")]
-        public string Database1ConnectionString1 {
-            get {
-                return ((string)(this["Database1ConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JESICAB-PC\\SQLSERVER2012;Initial Catalog=GD1C2016;Persist Security In" +
-            "fo=True;User ID=gd;Password=gd2016")]
-        public string GD1C2016ConnectionStringJ {
-            get {
-                return ((string)(this["GD1C2016ConnectionStringJ"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2015-01-02")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2017-01-31")]
         public global::System.DateTime FechaSistema {
             get {
                 return ((global::System.DateTime)(this["FechaSistema"]));

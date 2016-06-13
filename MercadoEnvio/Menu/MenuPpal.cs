@@ -7,23 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using MercadoEnvio.Mappings;
 using MercadoEnvio.Auxiliares;
 
-//using AerolineaFrba.Registro_Llegada_Destino;
 using MercadoEnvio.ABM_Rol;
-//using AerolineaFrba.Generacion_Viaje;
-
+using MercadoEnvio.Calificar;
+using MercadoEnvio.Historial_Cliente;
 
 namespace MercadoEnvio.Menu
 {
     public partial class MenuPpal : Form
     {
+        public Usuario usuario;
+
         Int32 idRol;
         public MenuPpal(Usuario usu)
         {
             InitializeComponent();
             idRol = usu.rolId;
+            usuario = usu;
         }
         FuncionesAuxiliares func = new FuncionesAuxiliares();
 
@@ -68,6 +71,33 @@ namespace MercadoEnvio.Menu
             {
                 Listado_Estadistico.Listado listado = new Listado_Estadistico.Listado();
                 listado.Show();
+            }
+            else
+                MessageBox.Show("Permiso inválido para realizar esta operación");
+        }
+
+        private void MenuPpal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calificarAlVendedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (func.permiso(idRol, "Calificar al Vendedor"))
+            {
+                Calificar.CalificarForm calificar = new Calificar.CalificarForm(usuario);
+                calificar.Show();
+            }
+            else
+                MessageBox.Show("Permiso inválido para realizar esta operación");
+        }
+
+        private void historialClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (func.permiso(idRol, "Historial del Cliente"))
+            {
+                Historial_Cliente.HistorialClienteForm historial = new Historial_Cliente.HistorialClienteForm(usuario);
+                historial.Show();
             }
             else
                 MessageBox.Show("Permiso inválido para realizar esta operación");
