@@ -22,7 +22,7 @@ namespace MercadoEnvio.Mappings
 
 
 
-        public SqlConnection conexion = new SqlConnection("Data Source=localhost\\SQLSERVER2012;" + "Initial Catalog=GD1C2016;" + "Integrated Security=true;"
+        public SqlConnection conexion = new SqlConnection("Data Source=JESICAB-PC\\SQLSERVER2012;" + "Initial Catalog=GD1C2016;" + "Integrated Security=true;"
                 + "UID=gd" + "PWD=gd2016");
 
 

@@ -53,31 +53,9 @@ namespace MercadoEnvio.Auxiliares
             }
 
             return retorno;
-        }
 
-        public int CantidadCompras(int usuarioID, string tipo)
-        {
-            BasedeDatosForm bd = new BasedeDatosForm();
 
-            SqlCommand CantidadCompras_F = new SqlCommand();
 
-            CantidadCompras_F.Connection = bd.conexion;
-
-            if (tipo == "inmediatas")
-            {
-                CantidadCompras_F.CommandText = "SELECT RECUR.CantidadComprasInmediatas (" + usuarioID.ToString() + ")";
-            }
-            else
-            {
-                CantidadCompras_F.CommandText = "SELECT RECUR.CantidadSubastas (" + usuarioID.ToString() + ")";
-            }
-            CantidadCompras_F.CommandType = CommandType.Text;
-
-            bd.openConnection();
-
-            int CantidadCompras = Convert.ToInt32(CantidadCompras_F.ExecuteScalar());
-
-            return CantidadCompras;
         }
 
     }

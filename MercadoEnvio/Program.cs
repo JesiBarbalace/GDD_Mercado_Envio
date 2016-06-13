@@ -28,6 +28,7 @@ namespace MercadoEnvio
 
             string a = bd.GetConnectionString("conexion");
             bd.SaveConnectionString("MercadoEnvio.Properties.Settings.GD1C2016ConnectionString", a);
+            bd.SaveConnectionString("MercadoEnvio.Properties.Settings.GD1C2016ConnectionStringJ", a);
 
             Application.Run(new Form1());
         }
