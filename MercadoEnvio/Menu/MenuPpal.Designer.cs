@@ -178,6 +178,7 @@
             this.calificarAlVendedorToolStripMenuItem.Name = "calificarAlVendedorToolStripMenuItem";
             this.calificarAlVendedorToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.calificarAlVendedorToolStripMenuItem.Text = "Calificar al Vendedor";
+            this.calificarAlVendedorToolStripMenuItem.Click += new System.EventHandler(this.calificarAlVendedorToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -194,6 +195,7 @@
             this.historialClienteToolStripMenuItem.Name = "historialClienteToolStripMenuItem";
             this.historialClienteToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.historialClienteToolStripMenuItem.Text = "Historial Cliente";
+            this.historialClienteToolStripMenuItem.Click += new System.EventHandler(this.historialClienteToolStripMenuItem_Click);
             // 
             // consultaDeFacturasToolStripMenuItem
             // 
@@ -215,6 +217,7 @@
             this.MainMenuStrip = this.menuStrip2;
             this.Name = "MenuPpal";
             this.Text = "Menú";
+            this.Load += new System.EventHandler(this.MenuPpal_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
