@@ -103,6 +103,18 @@ namespace MercadoEnvio.Menu
                 MessageBox.Show("Permiso inválido para realizar esta operación");
         }
 
+        private void MenuPpal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Desea cerrar la aplicación?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+                e.Cancel = true;
+        
+        }
+
+
             
     }
 }

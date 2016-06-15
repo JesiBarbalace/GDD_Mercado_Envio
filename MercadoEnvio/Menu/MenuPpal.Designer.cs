@@ -217,6 +217,7 @@
             this.MainMenuStrip = this.menuStrip2;
             this.Name = "MenuPpal";
             this.Text = "Menú";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuPpal_FormClosing);
             this.Load += new System.EventHandler(this.MenuPpal_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
@@ -226,24 +227,6 @@
             }
 
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem aBMAeronaveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aBMAeronaveToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aBMRolToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aBMRutaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aBMRolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem canjeMillasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem comprarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem devoluciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem generarViajeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registroDeUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registroDeLlegadaADestinoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultaMillasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultaMillasToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem listadoEstadísticoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem altaRolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificaciónRolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bajaRolToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem aBMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
