@@ -475,5 +475,35 @@ namespace MercadoEnvio.Mappings
             return dt;
         }
 
+
+        public int ExisteRol(string funcionalidades)
+        {
+            BasedeDatosForm bd = new BasedeDatosForm();
+            SqlCommand cmd = new SqlCommand("[RECUR].[SPCHECKROL]", bd.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            int existe = 0;
+            try
+            {
+                bd.openConnection();
+
+                cmd.Parameters.Add("@FUNCIONALIDADES", SqlDbType.NVarChar,4000).Value = funcionalidades;
+                cmd.Parameters.Add("@EXISTE", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd.ExecuteNonQuery();
+
+                existe = cmd.Parameters["@EXISTE"].Value == DBNull.Value ? 0 : Convert.ToInt32(cmd.Parameters["@EXISTE"].Value);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                bd.closeConnection();
+                cmd.Dispose();
+            }
+            return existe;
+        }
+      
+
     }
 }

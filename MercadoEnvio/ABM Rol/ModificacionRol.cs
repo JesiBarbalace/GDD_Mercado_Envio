@@ -201,6 +201,13 @@ namespace MercadoEnvio.ABM_Rol
                 }
                 int resultado = 0;
                 resultado = new Rol().VerificarAgregarRol(Func_chequeadas);
+                string sfuncionalidades = string.Empty;
+                Func_chequeadas = OrderFunciones(Func_chequeadas);
+                foreach (int f in Func_chequeadas)
+                {
+                    sfuncionalidades += f.ToString() + ",";
+                }
+                resultado = new Rol().ExisteRol(sfuncionalidades);
                 if (resultado == 0)
                 {
                     //El nuevo rol tiene funcionalidades distintas, es decir que lo tengo que agregar
@@ -320,6 +327,28 @@ namespace MercadoEnvio.ABM_Rol
             cmbRoles.DisplayMember = "Seleccionar Rol";
             cmbRoles.Text = "Seleccionar Rol";
         }
-
+        private List<int> OrderFunciones(List<int> lista)
+        {
+            bool NoEstabaOrdenado = true;
+            while (NoEstabaOrdenado)
+            {
+                NoEstabaOrdenado = false;
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    for (int j = i + 1; j < lista.Count; j++)
+                    {
+                        if (lista[i] > lista[j])
+                        {
+                            int funcionI = lista[i];
+                            int funcionJ = lista[j];
+                            lista[i] = funcionJ;
+                            lista[j] = funcionI;
+                            NoEstabaOrdenado = true;
+                        }
+                    }
+                }
+            }
+            return lista;
+        }
     }
 }
