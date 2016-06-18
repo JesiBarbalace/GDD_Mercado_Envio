@@ -110,18 +110,21 @@
             this.altaUsuariosToolStripMenuItem.Name = "altaUsuariosToolStripMenuItem";
             this.altaUsuariosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.altaUsuariosToolStripMenuItem.Text = "Alta Usuarios";
+            this.altaUsuariosToolStripMenuItem.Click += new System.EventHandler(this.altaUsuariosToolStripMenuItem_Click);
             // 
             // modificaciónUsuariosToolStripMenuItem
             // 
             this.modificaciónUsuariosToolStripMenuItem.Name = "modificaciónUsuariosToolStripMenuItem";
             this.modificaciónUsuariosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.modificaciónUsuariosToolStripMenuItem.Text = "Modificación Usuarios";
+            this.modificaciónUsuariosToolStripMenuItem.Click += new System.EventHandler(this.modificaciónUsuariosToolStripMenuItem_Click);
             // 
             // bajaUsuariosToolStripMenuItem
             // 
             this.bajaUsuariosToolStripMenuItem.Name = "bajaUsuariosToolStripMenuItem";
             this.bajaUsuariosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.bajaUsuariosToolStripMenuItem.Text = "Baja Usuarios";
+            this.bajaUsuariosToolStripMenuItem.Click += new System.EventHandler(this.bajaUsuariosToolStripMenuItem_Click);
             // 
             // aBMVisibilidadPublicaciónToolStripMenuItem
             // 

@@ -105,6 +105,7 @@ namespace MercadoEnvio.Menu
 
         private void MenuPpal_FormClosing(object sender, FormClosingEventArgs e)
         {
+          
             if (MessageBox.Show("Desea cerrar la aplicación?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Application.Exit();
@@ -112,6 +113,42 @@ namespace MercadoEnvio.Menu
             else
                 e.Cancel = true;
         
+        }
+
+        private void altaUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (func.permiso(idRol, "Alta Usuarios"))
+            {
+                ABM_Usuario.AltaUsuario altausu = new ABM_Usuario.AltaUsuario ();
+                altausu.Show();
+            }
+            else
+                MessageBox.Show("Permiso inválido para realizar esta operación");
+        }
+
+        private void modificaciónUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (func.permiso(idRol, "Modificación Usuarios"))
+            {
+               
+             ABM_Usuario.ModificarUsuario modifusu = new ABM_Usuario.ModificarUsuario ();
+              modifusu.Show();
+            }
+            else
+                MessageBox.Show("Permiso inválido para realizar esta operación");
+        }
+
+        private void bajaUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (func.permiso(idRol, "Baja Usuarios"))
+            {
+
+                ABM_Usuario.BajaUsuario bajausu = new ABM_Usuario.BajaUsuario();
+                bajausu.Show();
+            }
+            else
+                MessageBox.Show("Permiso inválido para realizar esta operación");
         }
 
 
