@@ -22,13 +22,14 @@ namespace MercadoEnvio.ABM_Usuario
         {
             if (e.ColumnIndex == 0)
             {
+                ModificarEmpresa(e.RowIndex);
 
-                if ((Convert.ToInt32(dgvBusqEmp.Rows[e.RowIndex].Cells["HABILITADOE"].Value) == 1))
-                    ModificarEmpresa(Convert.ToString(dgvBusqEmp.Rows[e.RowIndex].Cells["USERNAME"].Value));
-                else
+                if ((Convert.ToInt32(dgvBusqEmp.Rows[e.RowIndex].Cells["HABILITADOEMP"].Value) == 0))
                 {
-                    MessageBox.Show("El Usuario no se puede eliminar porque ya se encuentra inhabilitado");
+                    btnHabilitar.Enabled = true;
+                    btnHabilitar.Visible = true;
                 }
+               
 
             }
         }
@@ -37,13 +38,14 @@ namespace MercadoEnvio.ABM_Usuario
        {
            if (e.ColumnIndex == 0)
            {
+               ModificarCliente(e.RowIndex);
 
-               if ((Convert.ToInt32(dgvBusqCli.Rows[e.RowIndex].Cells["HABILITADOCLI"].Value) == 1))
-                   ModificarCliente(Convert.ToString(dgvBusqCli.Rows[e.RowIndex].Cells["USERNAMECLI"].Value));
-               else
+               if ((Convert.ToInt32(dgvBusqCli.Rows[e.RowIndex].Cells["HABILITADOCLI"].Value) == 0))
                {
-                   MessageBox.Show("El Usuario no se puede eliminar porque ya se encuentra inhabilitado");
+                   btnHabilitar.Enabled = true;
+                   btnHabilitar.Visible = true;
                }
+
 
            }
        }
@@ -66,6 +68,8 @@ namespace MercadoEnvio.ABM_Usuario
             dgvBusqEmp.Visible = false;
             cmbRoles.DisplayMember = "Seleccionar Rol";
             cmbRoles.Text = "Seleccionar Rol";
+            btnHabilitar.Enabled = true;
+            btnHabilitar.Visible = true;
         }
 
         private void cmbRoles_SelectedValueChanged(object sender, EventArgs e)
@@ -141,6 +145,15 @@ namespace MercadoEnvio.ABM_Usuario
                 MessageBox.Show("Debe seleccionar un Rol para comenzar la búsqueda");
 
             }
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtDoc.Clear();
+            txtMail.Clear();
+            txtRazonSocial.Clear();
+            txtDocE.Clear();
+            txtMailE.Clear();
+            btnHabilitar.Enabled = true;
+            btnHabilitar.Visible = true;
         }
 
         private void txtDoc_KeyPress(object sender, KeyPressEventArgs e)
@@ -214,16 +227,43 @@ namespace MercadoEnvio.ABM_Usuario
                     dgvBusqCli.Rows[renglon].Cells["DNI"].Value = Convert.ToInt32(dtRow["CLI_NRO_DOC"]);
                     dgvBusqCli.Rows[renglon].Cells["HABILITADOCLI"].Value = Convert.ToInt32(dtRow["USUARIO_HABILITADO"]);
                     dgvBusqCli.Rows[renglon].Cells["USERNAMECLI"].Value = Convert.ToInt32(dtRow["USUARIO_USERNAME"]);
-                    dgvBusqCli.Rows[renglon].Cells["FECHANACLI"].Value = Convert.ToDateTime(dtRow["CLI_FECHA_NAC"]);
+                    dgvBusqCli.Rows[renglon].Cells["FECHANAC"].Value = Convert.ToDateTime(dtRow["CLI_FECHA_NAC"]);
+                    if (dtRow["USUARIO_CALLE"] == DBNull.Value)
+                        dgvBusqCli.Rows[renglon].Cells["CALLECLI"].Value = "";
+                    else
                     dgvBusqCli.Rows[renglon].Cells["CALLECLI"].Value = Convert.ToString(dtRow["USUARIO_CALLE"]);
+                    if (dtRow["USUARIO_CALLE_NRO"] == DBNull.Value)
+                        dgvBusqCli.Rows[renglon].Cells["CALLENROCLI"].Value = "";
+                    else
                     dgvBusqCli.Rows[renglon].Cells["CALLENROCLI"].Value = Convert.ToInt32(dtRow["USUARIO_CALLE_NRO"]);
+                    if (dtRow["USUARIO_CP"] == DBNull.Value)
+                        dgvBusqCli.Rows[renglon].Cells["CPCLI"].Value = "";
+                    else
                     dgvBusqCli.Rows[renglon].Cells["CPCLI"].Value = Convert.ToInt32(dtRow["USUARIO_CP"]);
-                    dgvBusqCli.Rows[renglon].Cells["DEPTOCLI"].Value = Convert.ToInt32(dtRow["USUARIO_DEPTO"]);
+                    if (dtRow["USUARIO_DEPTO"] == DBNull.Value)
+                        dgvBusqCli.Rows[renglon].Cells["DEPTOCLI"].Value = "";
+                    else
+                    dgvBusqCli.Rows[renglon].Cells["DEPTOCLI"].Value = Convert.ToString(dtRow["USUARIO_DEPTO"]);
+                    if (dtRow["USUARIO_LOCALIDAD"] == DBNull.Value)
+                        dgvBusqCli.Rows[renglon].Cells["LOCALIDADCLI"].Value = "";
+                    else
                     dgvBusqCli.Rows[renglon].Cells["LOCALIDADCLI"].Value = Convert.ToString(dtRow["USUARIO_LOCALIDAD"]);
+                    if (dtRow["USUARIO_MAIL"] == DBNull.Value)
+                        dgvBusqCli.Rows[renglon].Cells["MAILCLI"].Value = "";
+                    else
                     dgvBusqCli.Rows[renglon].Cells["MAILCLI"].Value = Convert.ToString(dtRow["USUARIO_MAIL"]);
+                    if (dtRow["USUARIO_PASS"] == DBNull.Value)
+                        dgvBusqCli.Rows[renglon].Cells["PASSCLI"].Value = "";
+                    else
                     dgvBusqCli.Rows[renglon].Cells["PASSCLI"].Value = Convert.ToString(dtRow["USUARIO_PASS"]);
+                    if (dtRow["USUARIO_PISO"] == DBNull.Value)
+                        dgvBusqCli.Rows[renglon].Cells["PISOCLI"].Value = "";
+                    else
                     dgvBusqCli.Rows[renglon].Cells["PISOCLI"].Value = Convert.ToInt32(dtRow["USUARIO_PISO"]);
-                    dgvBusqCli.Rows[renglon].Cells["TELCLI"].Value = Convert.ToInt32(dtRow["USUARIO_TELEFONO"]);
+                    if (dtRow["USUARIO_TELEFONO"] == DBNull.Value)
+                        dgvBusqCli.Rows[renglon].Cells["TELCLI"].Value = "";
+                    else
+                    dgvBusqCli.Rows[renglon].Cells["TELCLI"].Value = Convert.ToString(dtRow["USUARIO_TELEFONO"]);
                 }
             }
         }
@@ -271,29 +311,222 @@ namespace MercadoEnvio.ABM_Usuario
                     dgvBusqEmp.Rows[renglon].Cells["HABILITADOEMP"].Value = Convert.ToInt32(dtRow["USUARIO_HABILITADO"]);
                     dgvBusqEmp.Rows[renglon].Cells["USERNAMEEMP"].Value = Convert.ToString(dtRow["USUARIO_USERNAME"]);
                     dgvBusqEmp.Rows[renglon].Cells["CALLEEMP"].Value = Convert.ToString(dtRow["USUARIO_CALLE"]);
-                    dgvBusqEmp.Rows[renglon].Cells["CALLENROEMP"].Value = Convert.ToInt32(dtRow["USUARIO_CALLE_NRO"]);
+                    if (dtRow["USUARIO_CALLE_NRO"] == DBNull.Value)
+                        dgvBusqEmp.Rows[renglon].Cells["CALLENROEMP"].Value = "";
+                    else
+                        dgvBusqEmp.Rows[renglon].Cells["CALLENROEMP"].Value = Convert.ToInt32(dtRow["USUARIO_CALLE_NRO"]);
+                    if (dtRow["USUARIO_CP"] == DBNull.Value)
+                        dgvBusqEmp.Rows[renglon].Cells["CPEMP"].Value = "";
+                    else
                     dgvBusqEmp.Rows[renglon].Cells["CPEMP"].Value = Convert.ToString(dtRow["USUARIO_CP"]);
+                    if (dtRow["USUARIO_DEPTO"] == DBNull.Value)
+                        dgvBusqEmp.Rows[renglon].Cells["DEPTOEMP"].Value = "";
+                    else
                     dgvBusqEmp.Rows[renglon].Cells["DEPTOEMP"].Value = Convert.ToString(dtRow["USUARIO_DEPTO"]);
+                    if (dtRow["USUARIO_LOCALIDAD"] == DBNull.Value)
+                        dgvBusqEmp.Rows[renglon].Cells["LOCALIDADEMP"].Value = "";
+                    else
                     dgvBusqEmp.Rows[renglon].Cells["LOCALIDADEMP"].Value = Convert.ToString(dtRow["USUARIO_LOCALIDAD"]);
+
                     dgvBusqEmp.Rows[renglon].Cells["MAILEMP"].Value = Convert.ToString(dtRow["USUARIO_MAIL"]);
                     dgvBusqEmp.Rows[renglon].Cells["PASSEMP"].Value = Convert.ToString(dtRow["USUARIO_PASS"]);
                     dgvBusqEmp.Rows[renglon].Cells["PISOEMP"].Value = Convert.ToInt32(dtRow["USUARIO_PISO"]);
-                    dgvBusqEmp.Rows[renglon].Cells["TELEMP"].Value = Convert.ToInt32(dtRow["USUARIO_TELEFONO"]);
-                    dgvBusqEmp.Rows[renglon].Cells["CIUDADEMP"].Value = Convert.ToString(dtRow["EMPRESA_CIUDAD"]);
+                    if (dtRow["USUARIO_TELEFONO"] == DBNull.Value)
+                        dgvBusqEmp.Rows[renglon].Cells["TELEMP"].Value = "";
+                    else
+                        dgvBusqEmp.Rows[renglon].Cells["TELEMP"].Value = Convert.ToInt32(dtRow["USUARIO_TELEFONO"]);
+                    if (dtRow["EMPRESA_CIUDAD"] == DBNull.Value)
+                        dgvBusqEmp.Rows[renglon].Cells["CIUDADEMP"].Value = "";
+                    else
+                        dgvBusqEmp.Rows[renglon].Cells["CIUDADEMP"].Value = Convert.ToString(dtRow["EMPRESA_CIUDAD"]);
+                    if (dtRow["EMPRESA_CONTACTO"] == DBNull.Value)
+                        dgvBusqEmp.Rows[renglon].Cells["CONTACTOEMP"].Value = "";
+                    else
                     dgvBusqEmp.Rows[renglon].Cells["CONTACTOEMP"].Value = Convert.ToString(dtRow["EMPRESA_CONTACTO"]);
                     dgvBusqEmp.Rows[renglon].Cells["TIPODOCEMP"].Value = Convert.ToString(dtRow["EMPRESA_TIPO_DOC"]);
-                    dgvBusqEmp.Rows[renglon].Cells["RUBROCEMP"].Value = Convert.ToString(dtRow["RUBRO_DESC_CORTA"]);  
+                    dgvBusqEmp.Rows[renglon].Cells["RUBROEMP"].Value = Convert.ToString(dtRow["Column1"]);  
 
                 }
             }
         }
 
-        public void ModificarCliente (string bla)
+        public void ModificarEmpresa (int fila)
         {
+            groupBoxDatosPersonales.Visible = true;
+            groupBoxDireccion.Visible = true;
+            txtRazonEmp.Visible = true;
+            txtDocE1.Visible = true;
+            txtDocE2.Visible = true;
+            txtDocE3.Visible = true;
+            txtContacto.Visible = true;
+            txtPassE.Visible = true;
+            cmbRubros.Visible = true;
+            txtCalle.Visible = true;
+            txtNroCalle.Visible = true;
+            txtPiso.Visible = true;
+            txtDepto.Visible = true;
+            txtLocalidad.Visible = true;
+            txtCP.Visible = true;
+            txtCiudad.Visible = true;
+            txtTelefono.Visible = true;
+            txtMailB.Visible = true;
+
+            txtRazonEmp.Enabled = true;
+            txtDocE1.Enabled = false;
+            txtDocE2.Enabled = false;
+            txtDocE3.Enabled = false;
+            txtContacto.Enabled = true;
+            txtPassE.Enabled = true;
+            cmbRubros.Enabled = true;
+            txtCalle.Enabled = true;
+            txtNroCalle.Enabled = true;
+            txtPiso.Enabled = true;
+            txtDepto.Enabled = true;
+            txtLocalidad.Enabled = true;
+            txtCP.Enabled = true;
+            txtCiudad.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtMailB.Enabled = true;
+
+            txtRazonEmp.BackColor = SystemColors.HighlightText;
+            txtDocE1.BackColor = SystemColors.ControlLight;
+            txtDocE2.BackColor = SystemColors.ControlLight; ;
+            txtDocE3.BackColor = SystemColors.ControlLight; ;
+            txtContacto.BackColor = SystemColors.HighlightText;
+            txtPassE.BackColor = SystemColors.HighlightText;
+            txtCalle.BackColor = SystemColors.HighlightText;
+            txtNroCalle.BackColor = SystemColors.HighlightText;
+            txtPiso.BackColor = SystemColors.HighlightText;
+            txtDepto.BackColor = SystemColors.HighlightText;
+            txtLocalidad.BackColor = SystemColors.HighlightText;
+            txtCP.BackColor = SystemColors.HighlightText;
+            txtCiudad.BackColor = SystemColors.HighlightText;
+            txtTelefono.BackColor = SystemColors.HighlightText;
+            txtMailB.BackColor = SystemColors.HighlightText;
+
+
+            txtRazonEmp.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["RAZONS"].Value);
+            txtDocE1.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["DOC"].Value).Substring(0, 2);
+            txtDocE2.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["DOC"].Value).Substring(3, 8);
+            txtDocE3.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["DOC"].Value).Substring(9, 2);
+            txtContacto.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["CONTACTOEMP"].Value);
+            txtPassE.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["PASSEMP"].Value);
+            cmbRubros.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["RUBROEMP"].Value);
+            txtCalle.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["CALLEEMP"].Value);
+            txtNroCalle.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["CALLENROEMP"].Value);
+            txtPiso.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["PISOEMP"].Value);
+            txtDepto.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["DEPTOEMP"].Value);
+            txtLocalidad.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["LOCALIDADEMP"].Value);
+            txtCP.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["CPEMP"].Value);
+            txtCiudad.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["CIUDADEMP"].Value);
+            txtTelefono.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["TELEMP"].Value);
+            txtMailB.Text = Convert.ToString(dgvBusqEmp.Rows[fila].Cells["MAILEMP"].Value);
         }
 
-        public void ModificarEmpresa(string bla)
+        public void ModificarCliente(int fila)
         {
+            groupBoxDatosPersonales.Visible = true;
+            groupBoxDireccion.Visible = true;
+            txtApeCli.Visible = true;
+            txtNombreCli.Visible = true;
+            txtDoc1.Visible = true;
+            txtPassCli.Visible = true;
+            txtFechNac.Visible = true;
+            txtCalle.Visible = true;
+            txtNroCalle.Visible = true;
+            txtPiso.Visible = true;
+            txtDepto.Visible = true;
+            txtLocalidad.Visible = true;
+            txtCP.Visible = true;
+            txtTelefono.Visible = true;
+            txtMailB.Visible = true;
+
+            txtApeCli.Enabled = true;
+            txtNombreCli.Enabled = true;
+            txtDoc1.Enabled = true;
+            txtPassCli.Enabled = true;
+            txtFechNac.Enabled = true;
+            txtCalle.Enabled = true;
+            txtNroCalle.Enabled = true;
+            txtPiso.Enabled = true;
+            txtDepto.Enabled = true;
+            txtLocalidad.Enabled = true;
+            txtCP.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtMailB.Enabled = true;
+
+            txtApeCli.BackColor = SystemColors.HighlightText;
+            txtNombreCli.BackColor = SystemColors.HighlightText;
+            txtDoc1.BackColor = SystemColors.ControlLight;
+            txtFechNac.BackColor = SystemColors.HighlightText;
+            txtPassCli.BackColor = SystemColors.HighlightText;
+            txtCalle.BackColor = SystemColors.HighlightText;
+            txtNroCalle.BackColor = SystemColors.HighlightText;
+            txtPiso.BackColor = SystemColors.HighlightText;
+            txtDepto.BackColor = SystemColors.HighlightText;
+            txtLocalidad.BackColor = SystemColors.HighlightText;
+            txtCP.BackColor = SystemColors.HighlightText;
+            txtTelefono.BackColor = SystemColors.HighlightText;
+            txtMailB.BackColor = SystemColors.HighlightText;
+
+
+            txtApeCli.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["APELLIDO"].Value);
+            txtNombreCli.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["NOMBRE"].Value);
+            txtDoc1.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["DNI"].Value).Substring(0, 2);
+            txtPassCli.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["PASSCLI"].Value);
+            txtCalle.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["CALLECLI"].Value);
+            txtNroCalle.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["CALLENROCLI"].Value);
+            txtPiso.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["PISOCLI"].Value);
+            txtDepto.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["DEPTOCLI"].Value);
+            txtLocalidad.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["LOCALIDADCLI"].Value);
+            txtCP.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["CPCLI"].Value);
+            txtTelefono.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["TELCLI"].Value);
+            txtMailB.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["MAILCLI"].Value);
+            txtFechNac.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["FECHANAC"].Value);
+            
+
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            txtApeCli.Clear();
+            txtNombreCli.Clear();
+            txtDoc1.Clear();
+            txtPassCli.Clear();
+            txtFechNac.Clear();
+            txtCalle.Clear();
+            txtNroCalle.Clear();
+            txtPiso.Clear();
+            txtDepto.Clear();
+            txtLocalidad.Clear();
+            txtCP.Clear();
+            txtTelefono.Clear();
+            txtMailB.Clear();
+
+
+            txtRazonEmp.Clear();
+            txtDocE1.Clear();
+            txtDocE2.Clear();
+            txtDocE3.Clear();
+            txtContacto.Clear();
+            txtPassE.Clear();
+            cmbRubros.Text = "";
+            txtCalle.Clear();
+            txtNroCalle.Clear();
+            txtPiso.Clear();
+            txtDepto.Clear();
+            txtLocalidad.Clear();
+            txtCP.Clear();
+            txtCiudad.Clear();
+            txtTelefono.Clear();
+            txtMailB.Clear();
+            groupBoxDatosPersonales.Visible = false;
+            groupBoxDireccion.Visible = false;
         }
     }
 }

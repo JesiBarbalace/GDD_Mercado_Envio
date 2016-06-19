@@ -63,34 +63,27 @@
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HABILITADOCLI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.USERNAMECLI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxDatosPersonales = new System.Windows.Forms.GroupBox();
             this.txtPassE = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtPassCli = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.cmbRubros = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.cmbTipoDocE = new System.Windows.Forms.ComboBox();
-            this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
             this.txtContacto = new System.Windows.Forms.TextBox();
             this.txtDocE3 = new System.Windows.Forms.TextBox();
             this.txtDocE2 = new System.Windows.Forms.TextBox();
             this.txtDocE1 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtRazonEmp = new System.Windows.Forms.TextBox();
             this.txtFechNac = new System.Windows.Forms.TextBox();
-            this.txtDoc3 = new System.Windows.Forms.TextBox();
-            this.txtDoc2 = new System.Windows.Forms.TextBox();
             this.txtDoc1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtNombreCli = new System.Windows.Forms.TextBox();
+            this.txtApeCli = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtCiudad = new System.Windows.Forms.TextBox();
@@ -99,13 +92,13 @@
             this.label22 = new System.Windows.Forms.Label();
             this.txtLocalidad = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxDireccion = new System.Windows.Forms.GroupBox();
             this.txtDepto = new System.Windows.Forms.TextBox();
             this.txtPiso = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtMailB = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -136,8 +129,8 @@
             this.btnHabilitar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusqCli)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxDatosPersonales.SuspendLayout();
+            this.groupBoxDireccion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusqEmp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -205,6 +198,7 @@
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label7
             // 
@@ -266,9 +260,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(18, 105);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.Size = new System.Drawing.Size(26, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Documento";
+            this.label4.Text = "DNI";
             // 
             // label3
             // 
@@ -332,9 +326,10 @@
             this.USERNAMECLI});
             this.dgvBusqCli.Location = new System.Drawing.Point(13, 184);
             this.dgvBusqCli.Name = "dgvBusqCli";
-            this.dgvBusqCli.Size = new System.Drawing.Size(1001, 216);
+            this.dgvBusqCli.Size = new System.Drawing.Size(1001, 155);
             this.dgvBusqCli.TabIndex = 2;
             this.dgvBusqCli.Visible = false;
+            this.dgvBusqCli.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBusqCli_CellContentClick);
             // 
             // SELECCIONADO
             // 
@@ -437,45 +432,38 @@
             this.USERNAMECLI.Name = "USERNAMECLI";
             this.USERNAMECLI.Visible = false;
             // 
-            // groupBox2
+            // groupBoxDatosPersonales
             // 
-            this.groupBox2.Controls.Add(this.txtPassE);
-            this.groupBox2.Controls.Add(this.label30);
-            this.groupBox2.Controls.Add(this.txtPass);
-            this.groupBox2.Controls.Add(this.label29);
-            this.groupBox2.Controls.Add(this.cmbRubros);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.cmbTipoDocE);
-            this.groupBox2.Controls.Add(this.cmbTipoDoc);
-            this.groupBox2.Controls.Add(this.txtContacto);
-            this.groupBox2.Controls.Add(this.txtDocE3);
-            this.groupBox2.Controls.Add(this.txtDocE2);
-            this.groupBox2.Controls.Add(this.txtDocE1);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.txtFechNac);
-            this.groupBox2.Controls.Add(this.txtDoc3);
-            this.groupBox2.Controls.Add(this.txtDoc2);
-            this.groupBox2.Controls.Add(this.txtDoc1);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Location = new System.Drawing.Point(13, 412);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1002, 164);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Datos Personales del Usuario";
-            this.groupBox2.Visible = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            this.groupBoxDatosPersonales.Controls.Add(this.txtPassE);
+            this.groupBoxDatosPersonales.Controls.Add(this.label30);
+            this.groupBoxDatosPersonales.Controls.Add(this.txtPassCli);
+            this.groupBoxDatosPersonales.Controls.Add(this.label29);
+            this.groupBoxDatosPersonales.Controls.Add(this.cmbRubros);
+            this.groupBoxDatosPersonales.Controls.Add(this.label14);
+            this.groupBoxDatosPersonales.Controls.Add(this.label13);
+            this.groupBoxDatosPersonales.Controls.Add(this.txtContacto);
+            this.groupBoxDatosPersonales.Controls.Add(this.txtDocE3);
+            this.groupBoxDatosPersonales.Controls.Add(this.txtDocE2);
+            this.groupBoxDatosPersonales.Controls.Add(this.txtDocE1);
+            this.groupBoxDatosPersonales.Controls.Add(this.txtRazonEmp);
+            this.groupBoxDatosPersonales.Controls.Add(this.txtFechNac);
+            this.groupBoxDatosPersonales.Controls.Add(this.txtDoc1);
+            this.groupBoxDatosPersonales.Controls.Add(this.txtNombreCli);
+            this.groupBoxDatosPersonales.Controls.Add(this.txtApeCli);
+            this.groupBoxDatosPersonales.Controls.Add(this.label12);
+            this.groupBoxDatosPersonales.Controls.Add(this.label9);
+            this.groupBoxDatosPersonales.Controls.Add(this.label15);
+            this.groupBoxDatosPersonales.Controls.Add(this.label16);
+            this.groupBoxDatosPersonales.Controls.Add(this.label18);
+            this.groupBoxDatosPersonales.Controls.Add(this.label19);
+            this.groupBoxDatosPersonales.Location = new System.Drawing.Point(13, 344);
+            this.groupBoxDatosPersonales.Name = "groupBoxDatosPersonales";
+            this.groupBoxDatosPersonales.Size = new System.Drawing.Size(1002, 164);
+            this.groupBoxDatosPersonales.TabIndex = 9;
+            this.groupBoxDatosPersonales.TabStop = false;
+            this.groupBoxDatosPersonales.Text = "Datos Personales del Usuario";
+            this.groupBoxDatosPersonales.Visible = false;
+            this.groupBoxDatosPersonales.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txtPassE
             // 
@@ -495,14 +483,14 @@
             this.label30.TabIndex = 27;
             this.label30.Text = "Password";
             // 
-            // txtPass
+            // txtPassCli
             // 
-            this.txtPass.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtPass.Enabled = false;
-            this.txtPass.Location = new System.Drawing.Point(143, 108);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(307, 20);
-            this.txtPass.TabIndex = 26;
+            this.txtPassCli.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtPassCli.Enabled = false;
+            this.txtPassCli.Location = new System.Drawing.Point(143, 108);
+            this.txtPassCli.Name = "txtPassCli";
+            this.txtPassCli.Size = new System.Drawing.Size(307, 20);
+            this.txtPassCli.TabIndex = 26;
             // 
             // label29
             // 
@@ -533,29 +521,11 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(746, 55);
+            this.label13.Location = new System.Drawing.Point(504, 57);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 13);
+            this.label13.Size = new System.Drawing.Size(72, 13);
             this.label13.TabIndex = 22;
-            this.label13.Text = "Número";
-            // 
-            // cmbTipoDocE
-            // 
-            this.cmbTipoDocE.Enabled = false;
-            this.cmbTipoDocE.FormattingEnabled = true;
-            this.cmbTipoDocE.Location = new System.Drawing.Point(613, 49);
-            this.cmbTipoDocE.Name = "cmbTipoDocE";
-            this.cmbTipoDocE.Size = new System.Drawing.Size(72, 21);
-            this.cmbTipoDocE.TabIndex = 21;
-            // 
-            // cmbTipoDoc
-            // 
-            this.cmbTipoDoc.Enabled = false;
-            this.cmbTipoDoc.FormattingEnabled = true;
-            this.cmbTipoDoc.Location = new System.Drawing.Point(143, 80);
-            this.cmbTipoDoc.Name = "cmbTipoDoc";
-            this.cmbTipoDoc.Size = new System.Drawing.Size(84, 21);
-            this.cmbTipoDoc.TabIndex = 20;
+            this.label13.Text = "Número CUIT";
             // 
             // txtContacto
             // 
@@ -570,7 +540,7 @@
             // 
             this.txtDocE3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDocE3.Enabled = false;
-            this.txtDocE3.Location = new System.Drawing.Point(949, 50);
+            this.txtDocE3.Location = new System.Drawing.Point(763, 50);
             this.txtDocE3.Name = "txtDocE3";
             this.txtDocE3.Size = new System.Drawing.Size(30, 20);
             this.txtDocE3.TabIndex = 18;
@@ -579,7 +549,7 @@
             // 
             this.txtDocE2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDocE2.Enabled = false;
-            this.txtDocE2.Location = new System.Drawing.Point(841, 50);
+            this.txtDocE2.Location = new System.Drawing.Point(655, 50);
             this.txtDocE2.Name = "txtDocE2";
             this.txtDocE2.Size = new System.Drawing.Size(101, 20);
             this.txtDocE2.TabIndex = 17;
@@ -588,19 +558,19 @@
             // 
             this.txtDocE1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDocE1.Enabled = false;
-            this.txtDocE1.Location = new System.Drawing.Point(800, 50);
+            this.txtDocE1.Location = new System.Drawing.Point(614, 50);
             this.txtDocE1.Name = "txtDocE1";
             this.txtDocE1.Size = new System.Drawing.Size(33, 20);
             this.txtDocE1.TabIndex = 16;
             // 
-            // textBox1
+            // txtRazonEmp
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(613, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(366, 20);
-            this.textBox1.TabIndex = 15;
+            this.txtRazonEmp.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtRazonEmp.Enabled = false;
+            this.txtRazonEmp.Location = new System.Drawing.Point(613, 21);
+            this.txtRazonEmp.Name = "txtRazonEmp";
+            this.txtRazonEmp.Size = new System.Drawing.Size(366, 20);
+            this.txtRazonEmp.TabIndex = 15;
             // 
             // txtFechNac
             // 
@@ -611,50 +581,32 @@
             this.txtFechNac.Size = new System.Drawing.Size(134, 20);
             this.txtFechNac.TabIndex = 14;
             // 
-            // txtDoc3
-            // 
-            this.txtDoc3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtDoc3.Enabled = false;
-            this.txtDoc3.Location = new System.Drawing.Point(412, 81);
-            this.txtDoc3.Name = "txtDoc3";
-            this.txtDoc3.Size = new System.Drawing.Size(35, 20);
-            this.txtDoc3.TabIndex = 13;
-            // 
-            // txtDoc2
-            // 
-            this.txtDoc2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtDoc2.Enabled = false;
-            this.txtDoc2.Location = new System.Drawing.Point(361, 81);
-            this.txtDoc2.Name = "txtDoc2";
-            this.txtDoc2.Size = new System.Drawing.Size(35, 20);
-            this.txtDoc2.TabIndex = 12;
-            // 
             // txtDoc1
             // 
             this.txtDoc1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDoc1.Enabled = false;
-            this.txtDoc1.Location = new System.Drawing.Point(314, 81);
+            this.txtDoc1.Location = new System.Drawing.Point(143, 80);
             this.txtDoc1.Name = "txtDoc1";
-            this.txtDoc1.Size = new System.Drawing.Size(35, 20);
+            this.txtDoc1.Size = new System.Drawing.Size(136, 20);
             this.txtDoc1.TabIndex = 11;
             // 
-            // textBox2
+            // txtNombreCli
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(143, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(307, 20);
-            this.textBox2.TabIndex = 10;
+            this.txtNombreCli.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtNombreCli.Enabled = false;
+            this.txtNombreCli.Location = new System.Drawing.Point(143, 51);
+            this.txtNombreCli.Name = "txtNombreCli";
+            this.txtNombreCli.Size = new System.Drawing.Size(307, 20);
+            this.txtNombreCli.TabIndex = 10;
             // 
-            // textBox3
+            // txtApeCli
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(143, 21);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(307, 20);
-            this.textBox3.TabIndex = 9;
+            this.txtApeCli.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtApeCli.Enabled = false;
+            this.txtApeCli.Location = new System.Drawing.Point(143, 21);
+            this.txtApeCli.Name = "txtApeCli";
+            this.txtApeCli.Size = new System.Drawing.Size(307, 20);
+            this.txtApeCli.TabIndex = 9;
             // 
             // label12
             // 
@@ -664,24 +616,6 @@
             this.label12.Size = new System.Drawing.Size(50, 13);
             this.label12.TabIndex = 8;
             this.label12.Text = "Contacto";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(615, 58);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 13);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Número ";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(501, 59);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 13);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Tipo Documento";
             // 
             // label9
             // 
@@ -704,20 +638,11 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(260, 89);
+            this.label16.Location = new System.Drawing.Point(22, 88);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(44, 13);
+            this.label16.Size = new System.Drawing.Size(66, 13);
             this.label16.TabIndex = 3;
-            this.label16.Text = "Número";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(20, 89);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(86, 13);
-            this.label17.TabIndex = 2;
-            this.label17.Text = "Tipo Documento";
+            this.label16.Text = "Número DNI";
             // 
             // label18
             // 
@@ -791,33 +716,33 @@
             this.label21.TabIndex = 12;
             this.label21.Text = "Localidad";
             // 
-            // groupBox3
+            // groupBoxDireccion
             // 
-            this.groupBox3.Controls.Add(this.txtCiudad);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.txtCP);
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.txtLocalidad);
-            this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.txtDepto);
-            this.groupBox3.Controls.Add(this.txtPiso);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.label24);
-            this.groupBox3.Controls.Add(this.label25);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.txtTelefono);
-            this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Controls.Add(this.label27);
-            this.groupBox3.Controls.Add(this.txtNroCalle);
-            this.groupBox3.Controls.Add(this.txtCalle);
-            this.groupBox3.Controls.Add(this.label28);
-            this.groupBox3.Location = new System.Drawing.Point(12, 582);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1002, 113);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Datos de la Dirección";
-            this.groupBox3.Visible = false;
+            this.groupBoxDireccion.Controls.Add(this.txtCiudad);
+            this.groupBoxDireccion.Controls.Add(this.label23);
+            this.groupBoxDireccion.Controls.Add(this.txtCP);
+            this.groupBoxDireccion.Controls.Add(this.label22);
+            this.groupBoxDireccion.Controls.Add(this.txtLocalidad);
+            this.groupBoxDireccion.Controls.Add(this.label21);
+            this.groupBoxDireccion.Controls.Add(this.txtDepto);
+            this.groupBoxDireccion.Controls.Add(this.txtPiso);
+            this.groupBoxDireccion.Controls.Add(this.label20);
+            this.groupBoxDireccion.Controls.Add(this.label24);
+            this.groupBoxDireccion.Controls.Add(this.label25);
+            this.groupBoxDireccion.Controls.Add(this.txtMailB);
+            this.groupBoxDireccion.Controls.Add(this.txtTelefono);
+            this.groupBoxDireccion.Controls.Add(this.label26);
+            this.groupBoxDireccion.Controls.Add(this.label27);
+            this.groupBoxDireccion.Controls.Add(this.txtNroCalle);
+            this.groupBoxDireccion.Controls.Add(this.txtCalle);
+            this.groupBoxDireccion.Controls.Add(this.label28);
+            this.groupBoxDireccion.Location = new System.Drawing.Point(12, 514);
+            this.groupBoxDireccion.Name = "groupBoxDireccion";
+            this.groupBoxDireccion.Size = new System.Drawing.Size(1002, 113);
+            this.groupBoxDireccion.TabIndex = 10;
+            this.groupBoxDireccion.TabStop = false;
+            this.groupBoxDireccion.Text = "Datos de la Dirección";
+            this.groupBoxDireccion.Visible = false;
             // 
             // txtDepto
             // 
@@ -864,14 +789,14 @@
             this.label25.TabIndex = 7;
             this.label25.Text = "Mail";
             // 
-            // textBox4
+            // txtMailB
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(396, 85);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(276, 20);
-            this.textBox4.TabIndex = 6;
+            this.txtMailB.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtMailB.Enabled = false;
+            this.txtMailB.Location = new System.Drawing.Point(396, 85);
+            this.txtMailB.Name = "txtMailB";
+            this.txtMailB.Size = new System.Drawing.Size(276, 20);
+            this.txtMailB.TabIndex = 6;
             // 
             // txtTelefono
             // 
@@ -938,12 +863,13 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(896, 701);
+            this.btnGrabar.Location = new System.Drawing.Point(896, 631);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(118, 38);
             this.btnGrabar.TabIndex = 12;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // dgvBusqEmp
             // 
@@ -970,7 +896,7 @@
             this.USERNAMEEMP});
             this.dgvBusqEmp.Location = new System.Drawing.Point(12, 190);
             this.dgvBusqEmp.Name = "dgvBusqEmp";
-            this.dgvBusqEmp.Size = new System.Drawing.Size(1001, 216);
+            this.dgvBusqEmp.Size = new System.Drawing.Size(1001, 149);
             this.dgvBusqEmp.TabIndex = 13;
             this.dgvBusqEmp.Visible = false;
             this.dgvBusqEmp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBusqEmp_CellContentClick);
@@ -1088,7 +1014,7 @@
             // 
             // btnHabilitar
             // 
-            this.btnHabilitar.Location = new System.Drawing.Point(762, 701);
+            this.btnHabilitar.Location = new System.Drawing.Point(762, 631);
             this.btnHabilitar.Name = "btnHabilitar";
             this.btnHabilitar.Size = new System.Drawing.Size(118, 38);
             this.btnHabilitar.TabIndex = 14;
@@ -1099,12 +1025,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 741);
+            this.ClientSize = new System.Drawing.Size(1033, 672);
             this.Controls.Add(this.btnHabilitar);
             this.Controls.Add(this.dgvBusqEmp);
             this.Controls.Add(this.btnGrabar);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBoxDatosPersonales);
+            this.Controls.Add(this.groupBoxDireccion);
             this.Controls.Add(this.btnAlta);
             this.Controls.Add(this.dgvBusqCli);
             this.Controls.Add(this.groupBox1);
@@ -1114,10 +1040,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusqCli)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxDatosPersonales.ResumeLayout(false);
+            this.groupBoxDatosPersonales.PerformLayout();
+            this.groupBoxDireccion.ResumeLayout(false);
+            this.groupBoxDireccion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusqEmp)).EndInit();
             this.ResumeLayout(false);
 
@@ -1144,30 +1070,23 @@
         private System.Windows.Forms.ComboBox cmbRoles;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvBusqCli;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxDatosPersonales;
         private System.Windows.Forms.ComboBox cmbRubros;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox cmbTipoDocE;
-        private System.Windows.Forms.ComboBox cmbTipoDoc;
         private System.Windows.Forms.TextBox txtContacto;
         private System.Windows.Forms.TextBox txtDocE3;
         private System.Windows.Forms.TextBox txtDocE2;
         private System.Windows.Forms.TextBox txtDocE1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtRazonEmp;
         private System.Windows.Forms.TextBox txtFechNac;
-        private System.Windows.Forms.TextBox txtDoc3;
-        private System.Windows.Forms.TextBox txtDoc2;
         private System.Windows.Forms.TextBox txtDoc1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtNombreCli;
+        private System.Windows.Forms.TextBox txtApeCli;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtCiudad;
@@ -1176,13 +1095,13 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtLocalidad;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxDireccion;
         private System.Windows.Forms.TextBox txtDepto;
         private System.Windows.Forms.TextBox txtPiso;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtMailB;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
@@ -1192,7 +1111,7 @@
         private System.Windows.Forms.Button btnAlta;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.DataGridView dgvBusqEmp;
-        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.TextBox txtPassCli;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox txtPassE;
         private System.Windows.Forms.Label label30;

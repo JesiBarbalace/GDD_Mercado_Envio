@@ -108,6 +108,13 @@ namespace MercadoEnvio.ABM_Usuario
                 MessageBox.Show("Debe seleccionar un Rol para comenzar la búsqueda");
             
             }
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtDoc.Clear();
+            txtMail.Clear();
+            txtRazonSocial.Clear();
+            txtDocE.Clear();
+            txtMailE.Clear();
         }
 
         private void txtDoc_KeyPress(object sender, KeyPressEventArgs e)
@@ -294,6 +301,11 @@ namespace MercadoEnvio.ABM_Usuario
             else
                 MessageBox.Show("Hubo un problema al querer eliminar el Usuario, intente nuevamente");
 
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
 

@@ -47,12 +47,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbRoles = new System.Windows.Forms.ComboBox();
             this.dgvBusqEmp = new System.Windows.Forms.DataGridView();
-            this.dgvBusqCli = new System.Windows.Forms.DataGridView();
             this.SELECCIONADOE = new System.Windows.Forms.DataGridViewButtonColumn();
             this.RAZONS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HABILITADOE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.USERNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvBusqCli = new System.Windows.Forms.DataGridView();
             this.SELECCIONADO = new System.Windows.Forms.DataGridViewButtonColumn();
             this.APELLIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +89,7 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscador";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtMailE
             // 
@@ -266,24 +267,6 @@
             this.dgvBusqEmp.Visible = false;
             this.dgvBusqEmp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBusqEmp_CellContentClick);
             // 
-            // dgvBusqCli
-            // 
-            this.dgvBusqCli.AllowUserToAddRows = false;
-            this.dgvBusqCli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBusqCli.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SELECCIONADO,
-            this.APELLIDO,
-            this.NOMBRE,
-            this.DNI,
-            this.HABILITADO,
-            this.USERNAMECLI});
-            this.dgvBusqCli.Location = new System.Drawing.Point(12, 224);
-            this.dgvBusqCli.Name = "dgvBusqCli";
-            this.dgvBusqCli.Size = new System.Drawing.Size(1001, 216);
-            this.dgvBusqCli.TabIndex = 15;
-            this.dgvBusqCli.Visible = false;
-            this.dgvBusqCli.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBusqCli_CellContentClick);
-            // 
             // SELECCIONADOE
             // 
             this.SELECCIONADOE.HeaderText = "";
@@ -316,6 +299,24 @@
             this.USERNAME.HeaderText = "USERNAME";
             this.USERNAME.Name = "USERNAME";
             this.USERNAME.Visible = false;
+            // 
+            // dgvBusqCli
+            // 
+            this.dgvBusqCli.AllowUserToAddRows = false;
+            this.dgvBusqCli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBusqCli.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SELECCIONADO,
+            this.APELLIDO,
+            this.NOMBRE,
+            this.DNI,
+            this.HABILITADO,
+            this.USERNAMECLI});
+            this.dgvBusqCli.Location = new System.Drawing.Point(12, 224);
+            this.dgvBusqCli.Name = "dgvBusqCli";
+            this.dgvBusqCli.Size = new System.Drawing.Size(1001, 216);
+            this.dgvBusqCli.TabIndex = 15;
+            this.dgvBusqCli.Visible = false;
+            this.dgvBusqCli.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBusqCli_CellContentClick);
             // 
             // SELECCIONADO
             // 
