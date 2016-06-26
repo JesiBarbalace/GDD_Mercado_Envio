@@ -127,6 +127,7 @@
             this.HABILITADOEMP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.USERNAMEEMP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnHabilitar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusqCli)).BeginInit();
             this.groupBoxDatosPersonales.SuspendLayout();
@@ -1021,11 +1022,21 @@
             this.btnHabilitar.Text = "Habilitar";
             this.btnHabilitar.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(30, 644);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(169, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "El usuario se encuentra habilitado.";
+            // 
             // ModificarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 672);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnHabilitar);
             this.Controls.Add(this.dgvBusqEmp);
             this.Controls.Add(this.btnGrabar);
@@ -1046,6 +1057,7 @@
             this.groupBoxDireccion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusqEmp)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1150,5 +1162,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HABILITADOEMP;
         private System.Windows.Forms.DataGridViewTextBoxColumn USERNAMEEMP;
         private System.Windows.Forms.Button btnHabilitar;
+        private System.Windows.Forms.Label label10;
     }
 }

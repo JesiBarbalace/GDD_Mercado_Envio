@@ -26,13 +26,13 @@ namespace MercadoEnvio.ABM_Usuario
             txtDoc.Enabled = false;
             txtMail.Enabled = false;
             txtRazonSocial.Enabled = false;
-            txtDocE.Enabled=false;
-            txtMailE.Enabled=false;
+            txtDocE.Enabled = false;
+            txtMailE.Enabled = false;
             dgvBusqCli.Visible = false;
             dgvBusqEmp.Visible = false;
             cmbRoles.DisplayMember = "Seleccionar Rol";
             cmbRoles.Text = "Seleccionar Rol";
-        
+
         }
 
         private void cmbRoles_SelectedValueChanged(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace MercadoEnvio.ABM_Usuario
                 txtApellido.Clear();
                 txtDoc.Clear();
                 txtMail.Clear();
-                
+
             }
 
         }
@@ -106,15 +106,9 @@ namespace MercadoEnvio.ABM_Usuario
             else
             {
                 MessageBox.Show("Debe seleccionar un Rol para comenzar la búsqueda");
-            
+
             }
-            txtNombre.Clear();
-            txtApellido.Clear();
-            txtDoc.Clear();
-            txtMail.Clear();
-            txtRazonSocial.Clear();
-            txtDocE.Clear();
-            txtMailE.Clear();
+
         }
 
         private void txtDoc_KeyPress(object sender, KeyPressEventArgs e)
@@ -144,14 +138,14 @@ namespace MercadoEnvio.ABM_Usuario
             dgvBusqCli.Visible = true;
             dgvBusqEmp.Visible = false;
             DataTable dtable;
-            string vacio="";
+            string vacio = "";
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
             //Validacion por vacio
             int doc;
             string mail = txtMail.Text;
-           
-            if (String.Compare(txtNombre.Text, vacio)==0)
+
+            if (String.Compare(txtNombre.Text, vacio) == 0)
                 nombre = null;
 
             if (String.Compare(txtApellido.Text, vacio) == 0)
@@ -164,7 +158,7 @@ namespace MercadoEnvio.ABM_Usuario
             if (String.Compare(txtDoc.Text, vacio) == 0)
                 doc = 0;
             else
-                doc=Int32.Parse(txtDoc.Text);
+                doc = Int32.Parse(txtDoc.Text);
 
             dtable = new CliEmp().ObtenerBusqClie(nombre, apellido, doc, mail);
             //limpiamos los renglones de la datagridview
@@ -194,12 +188,12 @@ namespace MercadoEnvio.ABM_Usuario
 
         public void ObtenerEmpresa_DataGridView()
         {
-            dgvBusqEmp.Visible  = true;
+            dgvBusqEmp.Visible = true;
             dgvBusqCli.Visible = false;
             DataTable dtable;
             string vacio = "";
             string razonsocial = txtRazonSocial.Text;
-            int doc;
+            string doc = txtDocE.Text;
             string mail = txtMailE.Text;
 
             if (String.Compare(txtRazonSocial.Text, vacio) == 0)
@@ -209,9 +203,7 @@ namespace MercadoEnvio.ABM_Usuario
                 mail = null;
 
             if (String.Compare(txtDocE.Text, vacio) == 0)
-                doc = 0;
-            else
-                doc = Int32.Parse(txtDoc.Text);
+                doc = null;
 
             dtable = new CliEmp().ObtenerBusqEmp(razonsocial, doc, mail);
             //limpiamos los renglones de la datagridview
@@ -219,7 +211,7 @@ namespace MercadoEnvio.ABM_Usuario
             //a la variable DataReader asignamos  el la variable de tipo SqlCommand
 
             if (dtable.Rows.Count == 0)
-                MessageBox.Show("No se encuentraron resultados para la búsqueda realizada");       
+                MessageBox.Show("No se encuentraron resultados para la búsqueda realizada");
             else
             {
                 //el ciclo while se ejecutará mientras lea registros en la tabla
@@ -243,13 +235,13 @@ namespace MercadoEnvio.ABM_Usuario
             if (e.ColumnIndex == 0)
             {
 
-                if ((Convert.ToInt32(dgvBusqCli.Rows[e.RowIndex].Cells["HABILITADO"].Value)==1))
+                if ((Convert.ToInt32(dgvBusqCli.Rows[e.RowIndex].Cells["HABILITADO"].Value) == 1))
                     EliminarCliente(Convert.ToString(dgvBusqCli.Rows[e.RowIndex].Cells["USERNAMECLI"].Value));
                 else
-	            {
-                    MessageBox.Show("El Usuario no se puede eliminar porque ya se encuentra inhabilitado");       
-	            }
-            
+                {
+                    MessageBox.Show("El Usuario no se puede eliminar porque ya se encuentra inhabilitado");
+                }
+
             }
         }
 
