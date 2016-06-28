@@ -151,6 +151,17 @@ namespace MercadoEnvio.Menu
                 MessageBox.Show("Permiso inválido para realizar esta operación");
         }
 
+        private void comprarOfertarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (func.permiso(idRol, "Comprar/Ofertar"))
+            {
+                ComprarOfertar.ListadoPublicacionesForm comprarOfertar = new ComprarOfertar.ListadoPublicacionesForm(usuario);
+                comprarOfertar.Show();
+            }
+            else
+                MessageBox.Show("Permiso inválido para realizar esta operación");
+        }
+
 
             
     }

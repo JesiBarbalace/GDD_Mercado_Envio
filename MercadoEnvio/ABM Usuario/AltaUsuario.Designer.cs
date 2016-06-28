@@ -534,6 +534,7 @@
             this.Name = "AltaUsuario";
             this.Text = "Alta de Usuario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.AltaUsuario_Load_1);
             this.gbDatosPersonales.ResumeLayout(false);
             this.gbDatosPersonales.PerformLayout();
             this.gbDireccion.ResumeLayout(false);

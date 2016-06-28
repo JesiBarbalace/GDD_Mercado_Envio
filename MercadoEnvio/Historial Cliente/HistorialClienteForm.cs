@@ -81,9 +81,6 @@ namespace MercadoEnvio.Historial_Cliente
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
 
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
-
             SqlCommand HistorialCompras_SP;
 
             HistorialCompras_SP = new SqlCommand("[RECUR].[HistorialCompras]", bd.conexion);
@@ -109,10 +106,49 @@ namespace MercadoEnvio.Historial_Cliente
                 bSource.DataSource = tabla;
                 dataGridView1.DataSource = bSource;
                 adp.Update(tabla);
+
+                dataGridView1.Columns["ID de compra"].Visible = false;
+
+                ConfigurarBotones();
             }
             catch (SqlException db)
             {
                 MessageBox.Show(db.Message);
+            }
+        }
+
+        private void ConfigurarBotones () {
+            FuncionesAuxiliares auxiliar = new FuncionesAuxiliares();
+            
+            int CantidadCompras = auxiliar.CantidadCompras(usuarioID, "inmediatas") + auxiliar.CantidadCompras(usuarioID, "subastas");
+
+            if (CantidadCompras < 100) {
+                Primera.Enabled = false;
+                Anterior.Enabled = false;
+                Siguiente.Enabled = false;
+                Ultima.Enabled = false;
+            }
+            else {
+                if ((FilaInicio <= 1) & (FilaFin <= 100)) {
+                    Primera.Enabled = false;
+                    Anterior.Enabled = false;
+                    Siguiente.Enabled = true;
+                    Ultima.Enabled = true;
+                }
+                else {
+                    if (FilaFin >= CantidadCompras) {
+                        Primera.Enabled = true;
+                        Anterior.Enabled = true;
+                        Siguiente.Enabled = false;
+                        Ultima.Enabled = false;
+                    }
+                    else {
+                        Primera.Enabled = true;
+                        Anterior.Enabled = true;
+                        Siguiente.Enabled = true;
+                        Ultima.Enabled = true;
+                    }
+                }
             }
         }
 

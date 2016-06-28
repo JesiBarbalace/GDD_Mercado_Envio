@@ -136,6 +136,8 @@ namespace MercadoEnvio.Calificar
                     bSource.DataSource = tabla;
                     dataGridView2.DataSource = bSource;
                     adp.Update(tabla);
+
+                    dataGridView2.Columns["ID de publicación"].Visible = false;
                 }
                 catch (SqlException db)
                 {
@@ -196,10 +198,13 @@ namespace MercadoEnvio.Calificar
                     buttonColumn.Name = "BotonColumna";
                     buttonColumn.HeaderText = "";
                     buttonColumn.Text = "Calificar";
-
                     buttonColumn.UseColumnTextForButtonValue = true;
 
                     dataGridView1.Columns.Add(buttonColumn);
+
+                    dataGridView1.Columns["ID de compra"].Visible = false;
+                    dataGridView1.Columns["Código de publicación"].Visible = false;
+                    dataGridView1.Columns["ID de vendedor"].Visible = false;
 
                 }
                 catch (SqlException db)

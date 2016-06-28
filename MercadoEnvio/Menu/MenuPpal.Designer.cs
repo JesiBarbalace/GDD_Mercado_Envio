@@ -175,6 +175,7 @@
             this.comprarOfertarToolStripMenuItem.Name = "comprarOfertarToolStripMenuItem";
             this.comprarOfertarToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.comprarOfertarToolStripMenuItem.Text = "Comprar/Ofertar";
+            this.comprarOfertarToolStripMenuItem.Click += new System.EventHandler(this.comprarOfertarToolStripMenuItem_Click);
             // 
             // calificarAlVendedorToolStripMenuItem
             // 

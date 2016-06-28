@@ -630,5 +630,10 @@ namespace MercadoEnvio.ABM_Usuario
             }
         }
 
+        private void AltaUsuario_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -90,11 +90,23 @@
     <Compile Include="ABM Rubro\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Usuario\Form1.cs">
+    <Compile Include="ABM Usuario\AltaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Usuario\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ABM Usuario\AltaUsuario.Designer.cs">
+      <DependentUpon>AltaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\BajaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\BajaUsuario.Designer.cs">
+      <DependentUpon>BajaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\ModificarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\ModificarUsuario.Designer.cs">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Visibilidad\Form1.cs">
       <SubType>Form</SubType>
@@ -115,11 +127,23 @@
     <Compile Include="Calificar\CalificarForm.Designer.cs">
       <DependentUpon>CalificarForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComprarOfertar\Form1.cs">
+    <Compile Include="ComprarOfertar\ComprarOfertarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ComprarOfertar\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ComprarOfertar\ComprarOfertarForm.Designer.cs">
+      <DependentUpon>ComprarOfertarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComprarOfertar\ListadoPublicacionesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComprarOfertar\ListadoPublicacionesForm.Designer.cs">
+      <DependentUpon>ListadoPublicacionesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComprarOfertar\UltimasFacturasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComprarOfertar\UltimasFacturasForm.Designer.cs">
+      <DependentUpon>UltimasFacturasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturas\Form1.cs">
       <SubType>Form</SubType>
@@ -157,8 +181,10 @@
     <Compile Include="Mappings\BasedeDatosForm.designer.cs">
       <DependentUpon>BasedeDatosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\CliEmp.cs" />
     <Compile Include="Mappings\Rol.cs" />
     <Compile Include="Mappings\Usuario.cs" />
+    <Compile Include="Mappings\Visibilidad.cs" />
     <Compile Include="Menu\MenuPpal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,11 +202,29 @@
     <EmbeddedResource Include="ABM Rol\ModificacionRol.resx">
       <DependentUpon>ModificacionRol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\AltaUsuario.resx">
+      <DependentUpon>AltaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\BajaUsuario.resx">
+      <DependentUpon>BajaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\ModificarUsuario.resx">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Calificar\AgregarCalificacionForm.resx">
       <DependentUpon>AgregarCalificacionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Calificar\CalificarForm.resx">
       <DependentUpon>CalificarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComprarOfertar\ComprarOfertarForm.resx">
+      <DependentUpon>ComprarOfertarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComprarOfertar\ListadoPublicacionesForm.resx">
+      <DependentUpon>ListadoPublicacionesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComprarOfertar\UltimasFacturasForm.resx">
+      <DependentUpon>UltimasFacturasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

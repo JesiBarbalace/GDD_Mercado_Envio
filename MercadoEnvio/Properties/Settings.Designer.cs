@@ -25,21 +25,21 @@ namespace MercadoEnvio.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2017-01-31")]
+        public global::System.DateTime FechaSistema {
+            get {
+                return ((global::System.DateTime)(this["FechaSistema"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\SQLSERVER2012;Initial Catalog=GD1C2016;Persist Security Inf" +
             "o=True;User ID=gd;Password=gd2016")]
         public string GD1C2016ConnectionString {
             get {
                 return ((string)(this["GD1C2016ConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2017-01-31")]
-        public global::System.DateTime FechaSistema {
-            get {
-                return ((global::System.DateTime)(this["FechaSistema"]));
             }
         }
     }
