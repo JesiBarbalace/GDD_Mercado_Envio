@@ -162,6 +162,17 @@ namespace MercadoEnvio.Menu
                 MessageBox.Show("Permiso inválido para realizar esta operación");
         }
 
+        private void altaDePublicaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (func.permiso(idRol, "Generar Publicación"))
+            {
+                Generar_Publicación.AltaPublicacion altapublic = new  Generar_Publicación.AltaPublicacion();
+                altapublic.Show();
+            }
+            else
+                MessageBox.Show("Permiso inválido para realizar esta operación");
+        }
+
 
             
     }

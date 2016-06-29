@@ -39,6 +39,8 @@
             this.historialClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaDeFacturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaDePublicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarPublicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -166,6 +168,9 @@
             // 
             // generarPublicaciónToolStripMenuItem
             // 
+            this.generarPublicaciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.altaDePublicaciónToolStripMenuItem,
+            this.modificarPublicaciónToolStripMenuItem});
             this.generarPublicaciónToolStripMenuItem.Name = "generarPublicaciónToolStripMenuItem";
             this.generarPublicaciónToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.generarPublicaciónToolStripMenuItem.Text = "Generar Publicación";
@@ -214,13 +219,28 @@
             this.toolStripMenuItem3.Text = "Listado Estadístico";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
+            // altaDePublicaciónToolStripMenuItem
+            // 
+            this.altaDePublicaciónToolStripMenuItem.Name = "altaDePublicaciónToolStripMenuItem";
+            this.altaDePublicaciónToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.altaDePublicaciónToolStripMenuItem.Text = "Alta de Publicación";
+            this.altaDePublicaciónToolStripMenuItem.Click += new System.EventHandler(this.altaDePublicaciónToolStripMenuItem_Click);
+            // 
+            // modificarPublicaciónToolStripMenuItem
+            // 
+            this.modificarPublicaciónToolStripMenuItem.Name = "modificarPublicaciónToolStripMenuItem";
+            this.modificarPublicaciónToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.modificarPublicaciónToolStripMenuItem.Text = "Modificar Publicación";
+            // 
             // MenuPpal
             // 
             this.ClientSize = new System.Drawing.Size(683, 261);
             this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip2;
             this.Name = "MenuPpal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuPpal_FormClosing);
             this.Load += new System.EventHandler(this.MenuPpal_Load);
             this.menuStrip2.ResumeLayout(false);
@@ -253,6 +273,8 @@
         private System.Windows.Forms.ToolStripMenuItem altaVisibilidadPublicaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificaciónVisibilidadPublicaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bajaVisibilidadPublicaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem altaDePublicaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarPublicaciónToolStripMenuItem;
 
         
 }
