@@ -172,6 +172,19 @@ namespace MercadoEnvio.Menu
             else
                 MessageBox.Show("Permiso inválido para realizar esta operación");
         }
+        
+                private void consultaDeFacturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (func.permiso(idRol, "Consulta de Facturas realizadas al Vendedor"))
+            {
+                Facturas.ConsultaFacturas factura = new Facturas.ConsultaFacturas();
+                factura.Show();
+            }
+            else{
+                MessageBox.Show("Permiso inválido para realizar esta operación");
+        }
+
+        }
 
 
             
