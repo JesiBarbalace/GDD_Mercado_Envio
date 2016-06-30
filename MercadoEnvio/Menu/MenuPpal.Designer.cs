@@ -211,7 +211,7 @@
             this.consultaDeFacturasToolStripMenuItem.Name = "consultaDeFacturasToolStripMenuItem";
             this.consultaDeFacturasToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.consultaDeFacturasToolStripMenuItem.Text = "Consulta de Facturas";
-            // 
+            this.consultaDeFacturasToolStripMenuItem.Click += new System.EventHandler(this.consultaDeFacturasToolStripMenuItem_Click);
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
