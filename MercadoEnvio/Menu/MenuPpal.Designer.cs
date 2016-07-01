@@ -33,14 +33,14 @@
             this.bajaVisibilidadPublicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarPublicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaDePublicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarPublicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprarOfertarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calificarAlVendedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaDeFacturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.altaDePublicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarPublicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,18 +143,21 @@
             this.altaVisibilidadPublicaciónToolStripMenuItem.Name = "altaVisibilidadPublicaciónToolStripMenuItem";
             this.altaVisibilidadPublicaciónToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.altaVisibilidadPublicaciónToolStripMenuItem.Text = "Alta Visibilidad Publicación";
+            this.altaVisibilidadPublicaciónToolStripMenuItem.Click += new System.EventHandler(this.altaVisibilidadPublicaciónToolStripMenuItem_Click);
             // 
             // modificaciónVisibilidadPublicaciónToolStripMenuItem
             // 
             this.modificaciónVisibilidadPublicaciónToolStripMenuItem.Name = "modificaciónVisibilidadPublicaciónToolStripMenuItem";
             this.modificaciónVisibilidadPublicaciónToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.modificaciónVisibilidadPublicaciónToolStripMenuItem.Text = "Modificación Visibilidad Publicación";
+            this.modificaciónVisibilidadPublicaciónToolStripMenuItem.Click += new System.EventHandler(this.modificaciónVisibilidadPublicaciónToolStripMenuItem_Click);
             // 
             // bajaVisibilidadPublicaciónToolStripMenuItem
             // 
             this.bajaVisibilidadPublicaciónToolStripMenuItem.Name = "bajaVisibilidadPublicaciónToolStripMenuItem";
             this.bajaVisibilidadPublicaciónToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.bajaVisibilidadPublicaciónToolStripMenuItem.Text = "Baja Visibilidad Publicación";
+            this.bajaVisibilidadPublicaciónToolStripMenuItem.Click += new System.EventHandler(this.bajaVisibilidadPublicaciónToolStripMenuItem_Click);
             // 
             // accionesToolStripMenuItem
             // 
@@ -174,6 +177,19 @@
             this.generarPublicaciónToolStripMenuItem.Name = "generarPublicaciónToolStripMenuItem";
             this.generarPublicaciónToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.generarPublicaciónToolStripMenuItem.Text = "Generar Publicación";
+            // 
+            // altaDePublicaciónToolStripMenuItem
+            // 
+            this.altaDePublicaciónToolStripMenuItem.Name = "altaDePublicaciónToolStripMenuItem";
+            this.altaDePublicaciónToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.altaDePublicaciónToolStripMenuItem.Text = "Alta de Publicación";
+            this.altaDePublicaciónToolStripMenuItem.Click += new System.EventHandler(this.altaDePublicaciónToolStripMenuItem_Click);
+            // 
+            // modificarPublicaciónToolStripMenuItem
+            // 
+            this.modificarPublicaciónToolStripMenuItem.Name = "modificarPublicaciónToolStripMenuItem";
+            this.modificarPublicaciónToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.modificarPublicaciónToolStripMenuItem.Text = "Modificar Publicación";
             // 
             // comprarOfertarToolStripMenuItem
             // 
@@ -212,25 +228,13 @@
             this.consultaDeFacturasToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.consultaDeFacturasToolStripMenuItem.Text = "Consulta de Facturas";
             this.consultaDeFacturasToolStripMenuItem.Click += new System.EventHandler(this.consultaDeFacturasToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(184, 22);
             this.toolStripMenuItem3.Text = "Listado Estadístico";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
-            // altaDePublicaciónToolStripMenuItem
-            // 
-            this.altaDePublicaciónToolStripMenuItem.Name = "altaDePublicaciónToolStripMenuItem";
-            this.altaDePublicaciónToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.altaDePublicaciónToolStripMenuItem.Text = "Alta de Publicación";
-            this.altaDePublicaciónToolStripMenuItem.Click += new System.EventHandler(this.altaDePublicaciónToolStripMenuItem_Click);
-            // 
-            // modificarPublicaciónToolStripMenuItem
-            // 
-            this.modificarPublicaciónToolStripMenuItem.Name = "modificarPublicaciónToolStripMenuItem";
-            this.modificarPublicaciónToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.modificarPublicaciónToolStripMenuItem.Text = "Modificar Publicación";
             // 
             // MenuPpal
             // 

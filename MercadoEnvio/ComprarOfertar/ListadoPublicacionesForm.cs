@@ -91,17 +91,14 @@ namespace MercadoEnvio.ComprarOfertar
 
             CheckBox[] _cb = new CheckBox[30];
 
-            Font fuenteEstandar = new Font("Microsoft Sans Serif", 10F);
-
             foreach (DataRow row in tabla.Rows)
             {
                 labelText = row[0].ToString();
-                Size textSize = TextRenderer.MeasureText(labelText, fuenteEstandar);
 
                 _cb[i] = new CheckBox();
                 _cb[i].Name = checkboxRubro + i.ToString();
                 _cb[i].Location = new System.Drawing.Point(16, y);
-                _cb[i].Size = textSize;
+                _cb[i].AutoSize = true;
                 _cb[i].Text = labelText;
 
                 //MessageBox.Show(labelText);

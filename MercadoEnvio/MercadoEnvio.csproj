@@ -108,11 +108,29 @@
     <Compile Include="ABM Usuario\ModificarUsuario.Designer.cs">
       <DependentUpon>ModificarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Visibilidad\AltaVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Visibilidad\AltaVisibilidad.Designer.cs">
+      <DependentUpon>AltaVisibilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Visibilidad\BajaVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Visibilidad\BajaVisibilidad.Designer.cs">
+      <DependentUpon>BajaVisibilidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Visibilidad\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ABM Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Visibilidad\ModificacionVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Visibilidad\ModificacionVisibilidad.Designer.cs">
+      <DependentUpon>ModificacionVisibilidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Auxiliares\FuncionesAuxiliares.cs" />
     <Compile Include="Calificar\AgregarCalificacionForm.cs">
@@ -145,11 +163,11 @@
     <Compile Include="ComprarOfertar\UltimasFacturasForm.Designer.cs">
       <DependentUpon>UltimasFacturasForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturas\Form1.cs">
+    <Compile Include="Facturas\ConsultaFacturas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Facturas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Facturas\ConsultaFacturas.Designer.cs">
+      <DependentUpon>ConsultaFacturas.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -157,11 +175,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generar Publicación\Form1.cs">
+    <Compile Include="Generar Publicación\AltaPublicacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generar Publicación\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Generar Publicación\AltaPublicacion.designer.cs">
+      <DependentUpon>AltaPublicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicación\ModificarPublicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\ModificarPublicacion.designer.cs">
+      <DependentUpon>ModificarPublicacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Historial Cliente\HistorialClienteForm.cs">
       <SubType>Form</SubType>
@@ -182,6 +206,8 @@
       <DependentUpon>BasedeDatosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Mappings\CliEmp.cs" />
+    <Compile Include="Mappings\Factura.cs" />
+    <Compile Include="Mappings\Publicacion.cs" />
     <Compile Include="Mappings\Rol.cs" />
     <Compile Include="Mappings\Usuario.cs" />
     <Compile Include="Mappings\Visibilidad.cs" />
@@ -211,6 +237,15 @@
     <EmbeddedResource Include="ABM Usuario\ModificarUsuario.resx">
       <DependentUpon>ModificarUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Visibilidad\AltaVisibilidad.resx">
+      <DependentUpon>AltaVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Visibilidad\BajaVisibilidad.resx">
+      <DependentUpon>BajaVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Visibilidad\ModificacionVisibilidad.resx">
+      <DependentUpon>ModificacionVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Calificar\AgregarCalificacionForm.resx">
       <DependentUpon>AgregarCalificacionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,8 +261,17 @@
     <EmbeddedResource Include="ComprarOfertar\UltimasFacturasForm.resx">
       <DependentUpon>UltimasFacturasForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturas\ConsultaFacturas.resx">
+      <DependentUpon>ConsultaFacturas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\AltaPublicacion.resx">
+      <DependentUpon>AltaPublicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\ModificarPublicacion.resx">
+      <DependentUpon>ModificarPublicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial Cliente\HistorialClienteForm.resx">
       <DependentUpon>HistorialClienteForm.cs</DependentUpon>

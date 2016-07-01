@@ -175,17 +175,49 @@ namespace MercadoEnvio.Menu
                 MessageBox.Show("Permiso inválido para realizar esta operación");
         }
         
-                private void consultaDeFacturasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void consultaDeFacturasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (func.permiso(idRol, "Consulta de Facturas realizadas al Vendedor"))
             {
                 Facturas.ConsultaFacturas factura = new Facturas.ConsultaFacturas();
                 factura.Show();
             }
-            else{
+            else {
+                MessageBox.Show("Permiso inválido para realizar esta operación");
+            }
+        }
+
+        private void altaVisibilidadPublicaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (func.permiso(idRol, "Alta Visibilidad Publicación"))
+            {
+                ABM_Visibilidad.AltaVisibilidad altaVisibilidad = new ABM_Visibilidad.AltaVisibilidad();
+                altaVisibilidad.Show();
+            }
+            else
                 MessageBox.Show("Permiso inválido para realizar esta operación");
         }
 
+        private void modificaciónVisibilidadPublicaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (func.permiso(idRol, "Modificación Visibilidad Publicación"))
+            {
+                ABM_Visibilidad.ModificacionVisibilidad modificacionVisibilidad = new ABM_Visibilidad.ModificacionVisibilidad();
+                modificacionVisibilidad.Show();
+            }
+            else
+                MessageBox.Show("Permiso inválido para realizar esta operación");
+        }
+
+        private void bajaVisibilidadPublicaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (func.permiso(idRol, "Baja Visibilidad Publicación"))
+            {
+                ABM_Visibilidad.BajaVisibilidad bajaVisibilidad = new ABM_Visibilidad.BajaVisibilidad();
+                bajaVisibilidad.Show();
+            }
+            else
+                MessageBox.Show("Permiso inválido para realizar esta operación");
         }
 
 
