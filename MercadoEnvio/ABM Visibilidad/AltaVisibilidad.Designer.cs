@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.dgvTotalFunc = new System.Windows.Forms.DataGridView();
+            this.VISIBILIDAD_DESC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNombreVisi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGrabarVisibilidad = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.Enviotxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -40,8 +42,6 @@
             this.Costotxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.VISIBILIDAD_DESC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTotalFunc)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -61,9 +61,18 @@
             this.dgvTotalFunc.TabIndex = 2;
             this.dgvTotalFunc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTotalFunc_CellContentClick);
             // 
+            // VISIBILIDAD_DESC
+            // 
+            this.VISIBILIDAD_DESC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.VISIBILIDAD_DESC.HeaderText = "Descripcion";
+            this.VISIBILIDAD_DESC.Name = "VISIBILIDAD_DESC";
+            this.VISIBILIDAD_DESC.ReadOnly = true;
+            this.VISIBILIDAD_DESC.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // txtNombreVisi
             // 
             this.txtNombreVisi.Location = new System.Drawing.Point(9, 42);
+            this.txtNombreVisi.MaxLength = 30;
             this.txtNombreVisi.Name = "txtNombreVisi";
             this.txtNombreVisi.Size = new System.Drawing.Size(199, 20);
             this.txtNombreVisi.TabIndex = 1;
@@ -74,9 +83,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 13);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre de la Visibilidad";
+            this.label1.Text = "Nombre";
             // 
             // btnGrabarVisibilidad
             // 
@@ -108,9 +117,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle del Nueva Visibilidad";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 211);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(114, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Visibilidades existentes";
+            // 
             // Enviotxt
             // 
             this.Enviotxt.Location = new System.Drawing.Point(9, 184);
+            this.Enviotxt.MaxLength = 16;
             this.Enviotxt.Name = "Enviotxt";
             this.Enviotxt.Size = new System.Drawing.Size(199, 20);
             this.Enviotxt.TabIndex = 9;
@@ -121,9 +140,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(9, 168);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 13);
+            this.label4.Size = new System.Drawing.Size(97, 13);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Precio envío";
+            this.label4.Text = "Costo de envío (%)";
             // 
             // checkBox1
             // 
@@ -141,6 +160,7 @@
             // Porcentajetxt
             // 
             this.Porcentajetxt.Location = new System.Drawing.Point(12, 122);
+            this.Porcentajetxt.MaxLength = 16;
             this.Porcentajetxt.Name = "Porcentajetxt";
             this.Porcentajetxt.Size = new System.Drawing.Size(199, 20);
             this.Porcentajetxt.TabIndex = 6;
@@ -149,6 +169,7 @@
             // Costotxt
             // 
             this.Costotxt.Location = new System.Drawing.Point(12, 81);
+            this.Costotxt.MaxLength = 16;
             this.Costotxt.Name = "Costotxt";
             this.Costotxt.Size = new System.Drawing.Size(199, 20);
             this.Costotxt.TabIndex = 5;
@@ -159,35 +180,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(9, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 13);
+            this.label3.Size = new System.Drawing.Size(116, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Porcentaje de Visibilidad";
+            this.label3.Text = "Grado de visibilidad (%)";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 13);
+            this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Costo fijo de la Visibilidad";
-            // 
-            // VISIBILIDAD_DESC
-            // 
-            this.VISIBILIDAD_DESC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VISIBILIDAD_DESC.HeaderText = "Descripcion";
-            this.VISIBILIDAD_DESC.Name = "VISIBILIDAD_DESC";
-            this.VISIBILIDAD_DESC.ReadOnly = true;
-            this.VISIBILIDAD_DESC.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 211);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Visibilidades existentes";
+            this.label2.Text = "Costo por publicar ($)";
             // 
             // AltaVisibilidad
             // 

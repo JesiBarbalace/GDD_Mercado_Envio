@@ -82,7 +82,7 @@
             // 
             // btnGrabarVisi
             // 
-            this.btnGrabarVisi.Location = new System.Drawing.Point(394, 422);
+            this.btnGrabarVisi.Location = new System.Drawing.Point(394, 318);
             this.btnGrabarVisi.Name = "btnGrabarVisi";
             this.btnGrabarVisi.Size = new System.Drawing.Size(108, 39);
             this.btnGrabarVisi.TabIndex = 8;
@@ -137,9 +137,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(15, 132);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 13);
+            this.label5.Size = new System.Drawing.Size(97, 13);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Costo de envío ($)";
+            this.label5.Text = "Costo de envío (%)";
             // 
             // label4
             // 
@@ -163,7 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 473);
+            this.ClientSize = new System.Drawing.Size(546, 377);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboVisi);
             this.Controls.Add(this.btnGrabarVisi);

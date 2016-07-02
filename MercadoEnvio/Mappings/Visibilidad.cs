@@ -77,6 +77,9 @@ namespace MercadoEnvio.Mappings
             return estado;
         }
 
+
+        //TODO esto 
+
         public void modificarVisibilidad(string visiID,string desc, float costoFijo, float porcentaje, float envio)
         {
             BasedeDatosForm bd = new BasedeDatosForm();

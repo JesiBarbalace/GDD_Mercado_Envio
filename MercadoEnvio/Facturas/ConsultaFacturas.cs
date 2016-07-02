@@ -565,6 +565,15 @@ namespace MercadoEnvio.Facturas
                 e.Handled = true;
                 return;
             }
+            if (textMontoDesde.Text.Contains("."))
+            {
+                if ((e.KeyChar == '.'))
+                {
+                    MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
 
         }
 
@@ -575,6 +584,15 @@ namespace MercadoEnvio.Facturas
                 MessageBox.Show("Solo se permiten numeros con decimales", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
+            }
+            if (textMontoHasta.Text.Contains("."))
+            {
+                if ((e.KeyChar == '.'))
+                {
+                    MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
             }
         }
 

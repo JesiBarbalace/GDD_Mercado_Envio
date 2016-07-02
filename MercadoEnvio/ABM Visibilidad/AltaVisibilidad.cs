@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MercadoEnvio.Mappings;
+using System.Data.SqlClient;
 
 namespace MercadoEnvio.ABM_Visibilidad
 {
@@ -67,7 +68,6 @@ namespace MercadoEnvio.ABM_Visibilidad
                 }
             }
 
-
             //Verifico si ya está el nombre de la visibilidad en la lista (Lo hago con sp, si me devuelve un registro es que ya hay una visi con ese nombre)
             int visibilidad_existe = 0;
             string nombre = txtNombreVisi.Text;
@@ -80,8 +80,49 @@ namespace MercadoEnvio.ABM_Visibilidad
             }
             else
             {
+                if (checkBox1.Checked == true)
+                {
 
-                //INSERT CON ESTOS DATOS, VER VISIBILIDAD_COD Y SI VA A CAMBIAR ENVIOS
+                    //insert con envio
+                    BasedeDatosForm bd = new BasedeDatosForm();
+                    bd.conexion.Open();
+                     SqlCommand cmd2 = new SqlCommand("SELECT [RECUR].[GetCodigoVisi]()", bd.conexion);
+                    Int32 cod_visi = Convert.ToInt32(cmd2.ExecuteScalar());
+                    SqlCommand cmd = new SqlCommand("[RECUR].[AltaVisibilidadConEnvio]", bd.conexion);
+                    cmd.Parameters.Add("@visiCod", SqlDbType.Int).Value = cod_visi;
+                    cmd.Parameters.Add("@visiDesc", SqlDbType.NVarChar, 30).Value = txtNombreVisi.Text;
+                    cmd.Parameters.Add("@visiCosto", SqlDbType.Decimal).Value = Convert.ToDecimal(Costotxt.Text);
+                    cmd.Parameters.Add("@visiPorcentaje", SqlDbType.Decimal).Value = Convert.ToDecimal(Porcentajetxt.Text);
+                    cmd.Parameters.Add("@visiEnvio", SqlDbType.Decimal).Value = Convert.ToDecimal(Enviotxt.Text);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Se dio de alta exitosamente");
+                    LlenarVisibilidades_DataGridView();
+                    bd.conexion.Close();
+                    return;
+                }
+                else
+                {
+
+                    //insert envio no disponible
+                    BasedeDatosForm bd = new BasedeDatosForm();
+                    bd.conexion.Open();
+                     SqlCommand cmd2 = new SqlCommand("SELECT [RECUR].[GetCodigoVisi]()", bd.conexion);
+                    Int32 cod_visi = Convert.ToInt32(cmd2.ExecuteScalar());
+                    SqlCommand cmd = new SqlCommand("[RECUR].[AltaVisibilidadSinEnvio]", bd.conexion);
+                    cmd.Parameters.Add("@visiCod", SqlDbType.Int).Value = cod_visi;
+                    cmd.Parameters.Add("@visiDesc", SqlDbType.NVarChar, 30).Value = txtNombreVisi.Text;
+                    cmd.Parameters.Add("@visiCosto", SqlDbType.Decimal).Value = Convert.ToDecimal(Costotxt.Text);
+                    cmd.Parameters.Add("@visiPorcentaje", SqlDbType.Decimal).Value = Convert.ToDecimal(Porcentajetxt.Text);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Se dio de alta exitosamente");
+                    bd.conexion.Close();
+                    LlenarVisibilidades_DataGridView();
+                    return;
+                }
+
+               
             }
 
         }
@@ -112,31 +153,59 @@ namespace MercadoEnvio.ABM_Visibilidad
 
         private void Costotxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != ','))
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != '.'))
             {
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
+            if(Costotxt.Text.Contains("."))
+            {     
+                 if ((e.KeyChar == '.'))
+                 {
+                     MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                     e.Handled = true;
+                     return;
+                 }
+            }
+
         }
 
         private void Porcentajetxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-           if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != ','))
+           if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != '.'))
             {
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
+           if (Porcentajetxt.Text.Contains("."))
+            {     
+                 if ((e.KeyChar == '.'))
+            {
+                MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+             }
         }
 
         private void Enviotxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != ','))
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != '.'))
             {
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
+            }
+            if (Enviotxt.Text.Contains("."))
+            {
+                if ((e.KeyChar == '.'))
+                {
+                    MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
             }
         }
     }

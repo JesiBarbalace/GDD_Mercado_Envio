@@ -55,7 +55,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(49, 75);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(455, 309);
+            this.groupBox1.Size = new System.Drawing.Size(455, 177);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle de Visibilidad";
@@ -63,7 +63,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 96);
+            this.label9.Location = new System.Drawing.Point(89, 96);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(36, 13);
             this.label9.TabIndex = 9;
@@ -80,7 +80,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 135);
+            this.label7.Location = new System.Drawing.Point(89, 123);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 7;
@@ -89,7 +89,7 @@
             // Enviotxt
             // 
             this.Enviotxt.AutoSize = true;
-            this.Enviotxt.Location = new System.Drawing.Point(131, 135);
+            this.Enviotxt.Location = new System.Drawing.Point(131, 123);
             this.Enviotxt.Name = "Enviotxt";
             this.Enviotxt.Size = new System.Drawing.Size(0, 13);
             this.Enviotxt.TabIndex = 6;
@@ -113,7 +113,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 65);
+            this.label3.Location = new System.Drawing.Point(72, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 2;
@@ -149,7 +149,7 @@
             // 
             // borrarVisi
             // 
-            this.borrarVisi.Location = new System.Drawing.Point(375, 400);
+            this.borrarVisi.Location = new System.Drawing.Point(376, 273);
             this.borrarVisi.Name = "borrarVisi";
             this.borrarVisi.Size = new System.Drawing.Size(128, 44);
             this.borrarVisi.TabIndex = 7;
@@ -161,7 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 457);
+            this.ClientSize = new System.Drawing.Size(552, 332);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboVisi);
