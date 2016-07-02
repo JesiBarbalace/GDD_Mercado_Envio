@@ -146,7 +146,6 @@ namespace MercadoEnvio.ABM_Visibilidad
                    if (textEnvioVisi.Enabled != true)
                    {
                        cmd.Parameters.Add("@visiEnvio", SqlDbType.Float).Value = DBNull.Value;
-                       MessageBox.Show("entro sin visi");
                        if (txtNombreVisi.Text == "" || textCostoVisi.Text == "" || textGradoVisi.Text == "")
                        {
                            MessageBox.Show("Debe completar todos los campos");
