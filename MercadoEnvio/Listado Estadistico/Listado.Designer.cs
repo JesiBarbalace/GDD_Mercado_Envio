@@ -29,22 +29,30 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblVisibilidad = new System.Windows.Forms.Label();
+            this.cmbVisibilidad = new System.Windows.Forms.ComboBox();
+            this.cmbRubro = new System.Windows.Forms.ComboBox();
+            this.lblRubro = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbListados = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.cmbTrimestre = new System.Windows.Forms.ComboBox();
             this.cmbAño = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblVisibilidad);
+            this.groupBox1.Controls.Add(this.cmbVisibilidad);
+            this.groupBox1.Controls.Add(this.cmbRubro);
+            this.groupBox1.Controls.Add(this.lblRubro);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cmbListados);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.cmbTrimestre);
             this.groupBox1.Controls.Add(this.cmbAño);
@@ -52,24 +60,77 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(859, 69);
+            this.groupBox1.Size = new System.Drawing.Size(859, 105);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
+            // lblVisibilidad
+            // 
+            this.lblVisibilidad.AutoSize = true;
+            this.lblVisibilidad.Location = new System.Drawing.Point(526, 28);
+            this.lblVisibilidad.Name = "lblVisibilidad";
+            this.lblVisibilidad.Size = new System.Drawing.Size(53, 13);
+            this.lblVisibilidad.TabIndex = 10;
+            this.lblVisibilidad.Text = "Visibilidad";
+            // 
+            // cmbVisibilidad
+            // 
+            this.cmbVisibilidad.FormattingEnabled = true;
+            this.cmbVisibilidad.Location = new System.Drawing.Point(602, 25);
+            this.cmbVisibilidad.Name = "cmbVisibilidad";
+            this.cmbVisibilidad.Size = new System.Drawing.Size(121, 21);
+            this.cmbVisibilidad.TabIndex = 9;
+            // 
+            // cmbRubro
+            // 
+            this.cmbRubro.FormattingEnabled = true;
+            this.cmbRubro.Location = new System.Drawing.Point(343, 59);
+            this.cmbRubro.Name = "cmbRubro";
+            this.cmbRubro.Size = new System.Drawing.Size(137, 21);
+            this.cmbRubro.TabIndex = 8;
+            // 
+            // lblRubro
+            // 
+            this.lblRubro.AutoSize = true;
+            this.lblRubro.Location = new System.Drawing.Point(253, 62);
+            this.lblRubro.Name = "lblRubro";
+            this.lblRubro.Size = new System.Drawing.Size(36, 13);
+            this.lblRubro.TabIndex = 7;
+            this.lblRubro.Text = "Rubro";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Listado";
+            // 
+            // cmbListados
+            // 
+            this.cmbListados.FormattingEnabled = true;
+            this.cmbListados.Location = new System.Drawing.Point(75, 54);
+            this.cmbListados.Name = "cmbListados";
+            this.cmbListados.Size = new System.Drawing.Size(121, 21);
+            this.cmbListados.TabIndex = 5;
+            this.cmbListados.SelectedIndexChanged += new System.EventHandler(this.cmbListados_SelectedIndexChanged);
+            // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(736, 19);
+            this.btnBuscar.Location = new System.Drawing.Point(752, 59);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(107, 33);
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // cmbTrimestre
             // 
             this.cmbTrimestre.FormattingEnabled = true;
-            this.cmbTrimestre.Location = new System.Drawing.Point(363, 20);
+            this.cmbTrimestre.Location = new System.Drawing.Point(343, 26);
             this.cmbTrimestre.Name = "cmbTrimestre";
             this.cmbTrimestre.Size = new System.Drawing.Size(137, 21);
             this.cmbTrimestre.TabIndex = 3;
@@ -77,7 +138,7 @@
             // cmbAño
             // 
             this.cmbAño.FormattingEnabled = true;
-            this.cmbAño.Location = new System.Drawing.Point(59, 20);
+            this.cmbAño.Location = new System.Drawing.Point(75, 25);
             this.cmbAño.Name = "cmbAño";
             this.cmbAño.Size = new System.Drawing.Size(121, 21);
             this.cmbAño.TabIndex = 2;
@@ -85,7 +146,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(284, 28);
+            this.label2.Location = new System.Drawing.Point(253, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 1;
@@ -100,70 +161,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Año";
             // 
-            // tabControl1
+            // dataGridView1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(13, 98);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(859, 149);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(851, 123);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Vendedores con Productos no Vendidos";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(851, 123);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Clientes con Productos Comprados";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(851, 123);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Vendedores con Facturas";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(851, 123);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Vendedores con Monto Facturado";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 122);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(859, 150);
+            this.dataGridView1.TabIndex = 1;
             // 
             // Listado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 284);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Listado";
-            this.Text = "Form1";
+            this.Text = "Listados Estadisticos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -176,10 +193,12 @@
         private System.Windows.Forms.ComboBox cmbAño;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ComboBox cmbListados;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cmbRubro;
+        private System.Windows.Forms.Label lblRubro;
+        private System.Windows.Forms.Label lblVisibilidad;
+        private System.Windows.Forms.ComboBox cmbVisibilidad;
     }
 }
