@@ -60,6 +60,7 @@
             this.btnFillGrid = new System.Windows.Forms.Button();
             this.txtDisplayPageNo = new System.Windows.Forms.TextBox();
             this.txtPageSize = new System.Windows.Forms.TextBox();
+            this.botonLimpiar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -153,6 +154,7 @@
             // textNombre
             // 
             this.textNombre.Location = new System.Drawing.Point(92, 97);
+            this.textNombre.MaxLength = 30;
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(111, 20);
             this.textNombre.TabIndex = 20;
@@ -186,6 +188,7 @@
             // textPersona
             // 
             this.textPersona.Location = new System.Drawing.Point(91, 70);
+            this.textPersona.MaxLength = 18;
             this.textPersona.Name = "textPersona";
             this.textPersona.Size = new System.Drawing.Size(112, 20);
             this.textPersona.TabIndex = 15;
@@ -225,6 +228,7 @@
             // textMontoDesde
             // 
             this.textMontoDesde.Location = new System.Drawing.Point(49, 35);
+            this.textMontoDesde.MaxLength = 16;
             this.textMontoDesde.Name = "textMontoDesde";
             this.textMontoDesde.Size = new System.Drawing.Size(125, 20);
             this.textMontoDesde.TabIndex = 3;
@@ -233,6 +237,7 @@
             // textMontoHasta
             // 
             this.textMontoHasta.Location = new System.Drawing.Point(49, 64);
+            this.textMontoHasta.MaxLength = 16;
             this.textMontoHasta.Name = "textMontoHasta";
             this.textMontoHasta.Size = new System.Drawing.Size(125, 20);
             this.textMontoHasta.TabIndex = 4;
@@ -401,11 +406,22 @@
             this.txtPageSize.Text = "5";
             this.txtPageSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPageSize_KeyPress);
             // 
+            // botonLimpiar
+            // 
+            this.botonLimpiar.Location = new System.Drawing.Point(274, 473);
+            this.botonLimpiar.Name = "botonLimpiar";
+            this.botonLimpiar.Size = new System.Drawing.Size(181, 23);
+            this.botonLimpiar.TabIndex = 21;
+            this.botonLimpiar.Text = "Limpiar";
+            this.botonLimpiar.UseVisualStyleBackColor = true;
+            this.botonLimpiar.Click += new System.EventHandler(this.botonLimpiar_Click);
+            // 
             // ConsultaFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(871, 516);
+            this.Controls.Add(this.botonLimpiar);
             this.Controls.Add(this.txtPageSize);
             this.Controls.Add(this.txtDisplayPageNo);
             this.Controls.Add(this.btnFillGrid);
@@ -468,5 +484,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button botonLimpiar;
     }
 }

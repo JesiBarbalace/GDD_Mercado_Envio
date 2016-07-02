@@ -40,6 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,17 +56,18 @@
             // 
             // comboVisi
             // 
+            this.comboVisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboVisi.FormattingEnabled = true;
             this.comboVisi.Location = new System.Drawing.Point(12, 33);
             this.comboVisi.Name = "comboVisi";
             this.comboVisi.Size = new System.Drawing.Size(187, 21);
             this.comboVisi.TabIndex = 5;
-            this.comboVisi.Text = "Seleccionar Visibilidad";
             this.comboVisi.SelectedIndexChanged += new System.EventHandler(this.comboVisi_SelectedIndexChanged);
             // 
             // txtNombreVisi
             // 
             this.txtNombreVisi.Location = new System.Drawing.Point(18, 33);
+            this.txtNombreVisi.MaxLength = 16;
             this.txtNombreVisi.Name = "txtNombreVisi";
             this.txtNombreVisi.Size = new System.Drawing.Size(220, 20);
             this.txtNombreVisi.TabIndex = 1;
@@ -111,6 +113,7 @@
             // textEnvioVisi
             // 
             this.textEnvioVisi.Location = new System.Drawing.Point(18, 148);
+            this.textEnvioVisi.MaxLength = 16;
             this.textEnvioVisi.Name = "textEnvioVisi";
             this.textEnvioVisi.Size = new System.Drawing.Size(220, 20);
             this.textEnvioVisi.TabIndex = 9;
@@ -119,6 +122,7 @@
             // textGradoVisi
             // 
             this.textGradoVisi.Location = new System.Drawing.Point(18, 109);
+            this.textGradoVisi.MaxLength = 16;
             this.textGradoVisi.Name = "textGradoVisi";
             this.textGradoVisi.Size = new System.Drawing.Size(220, 20);
             this.textGradoVisi.TabIndex = 8;
@@ -127,9 +131,11 @@
             // textCostoVisi
             // 
             this.textCostoVisi.Location = new System.Drawing.Point(18, 70);
+            this.textCostoVisi.MaxLength = 16;
             this.textCostoVisi.Name = "textCostoVisi";
             this.textCostoVisi.Size = new System.Drawing.Size(220, 20);
             this.textCostoVisi.TabIndex = 7;
+            this.textCostoVisi.TextChanged += new System.EventHandler(this.textCostoVisi_TextChanged);
             this.textCostoVisi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textCostoVisi_KeyPress);
             // 
             // label5
@@ -159,11 +165,22 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Costo Fijo ($)";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(280, 318);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 39);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Limpiar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ModificacionVisibilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 377);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboVisi);
             this.Controls.Add(this.btnGrabarVisi);
@@ -191,5 +208,6 @@
         private System.Windows.Forms.TextBox textGradoVisi;
         private System.Windows.Forms.TextBox textCostoVisi;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
     }
 }

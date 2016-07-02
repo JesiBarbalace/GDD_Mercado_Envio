@@ -160,8 +160,8 @@ namespace MercadoEnvio.ABM_Visibilidad
                 return;
             }
             if(Costotxt.Text.Contains("."))
-            {     
-                 if ((e.KeyChar == '.'))
+            {
+                if ((e.KeyChar == '.') || Costotxt.Text == "")
                  {
                      MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                      e.Handled = true;
@@ -181,7 +181,7 @@ namespace MercadoEnvio.ABM_Visibilidad
             }
            if (Porcentajetxt.Text.Contains("."))
             {     
-                 if ((e.KeyChar == '.'))
+                 if ((e.KeyChar == '.') || Porcentajetxt.Text == "")
             {
                 MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -200,7 +200,7 @@ namespace MercadoEnvio.ABM_Visibilidad
             }
             if (Enviotxt.Text.Contains("."))
             {
-                if ((e.KeyChar == '.'))
+                if ((e.KeyChar == '.') || Enviotxt.Text == "")
                 {
                     MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     e.Handled = true;

@@ -31,15 +31,7 @@ namespace MercadoEnvio.Facturas
             SetMyCustomFormat();
             //Tipos de usuarios? 
             llenarCombo_clientes();
-            label4.Visible = false;
-            label9.Visible = false;
-            label10.Visible = false;
-            label6.Visible = false;
-            btnFirstPage.Enabled = false;
-            btnLastPage.Enabled = false;
-            btnNextPage.Enabled = false;
-            btnPreviousPage.Enabled = false;
-            comboDetalle.Enabled = false;
+         
         }
 
         private void LoadPage()
@@ -103,7 +95,15 @@ namespace MercadoEnvio.Facturas
 
         private void llenarCombo_clientes()
         {
-
+            label4.Visible = false;
+            label9.Visible = false;
+            label10.Visible = false;
+            label6.Visible = false;
+            btnFirstPage.Enabled = false;
+            btnLastPage.Enabled = false;
+            btnNextPage.Enabled = false;
+            btnPreviousPage.Enabled = false;
+            comboDetalle.Enabled = false;
             DataTable dtable;
             DataSet myDataSet = new DataSet();
 
@@ -567,7 +567,7 @@ namespace MercadoEnvio.Facturas
             }
             if (textMontoDesde.Text.Contains("."))
             {
-                if ((e.KeyChar == '.'))
+                if ((e.KeyChar == '.') || textMontoDesde.Text == "")
                 {
                     MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     e.Handled = true;
@@ -587,7 +587,7 @@ namespace MercadoEnvio.Facturas
             }
             if (textMontoHasta.Text.Contains("."))
             {
-                if ((e.KeyChar == '.'))
+                if ((e.KeyChar == '.') || textMontoHasta.Text == "")
                 {
                     MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     e.Handled = true;
@@ -636,10 +636,7 @@ namespace MercadoEnvio.Facturas
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            InitializeComponent();
-        }
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -653,6 +650,23 @@ namespace MercadoEnvio.Facturas
             }
 
         }
+
+        private void botonLimpiar_Click(object sender, EventArgs e)
+        {
+            comboBox1.Text = "Seleccione un valor";
+            textPersona.Clear();
+            textMontoHasta.Clear();
+            textMontoDesde.Clear();
+            textNombre.Clear();
+            dateTimeDesde.Checked = false;
+            dateTimeHasta.Checked = false;
+            checkBox1.Checked = false;
+            llenarCombo_clientes();
+
+
+  
+        }
+
 
     }
 }

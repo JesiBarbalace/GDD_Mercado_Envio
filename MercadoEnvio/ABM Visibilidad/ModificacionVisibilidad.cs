@@ -65,6 +65,7 @@ namespace MercadoEnvio.ABM_Visibilidad
                 cmd3.Parameters["@visiDesc"].Value = visi;
                 costoEnvio =cmd3.ExecuteScalar();
                 bd.conexion.Close();
+                button1.Enabled = true;
                 btnGrabarVisi.Enabled = true;
                 txtNombreVisi.Enabled = true;
                 txtNombreVisi.Text = visi;
@@ -98,12 +99,13 @@ namespace MercadoEnvio.ABM_Visibilidad
 
         private void llenarCombo_visi()
         {
-            comboVisi.DropDownStyle = ComboBoxStyle.DropDownList;
+
             txtNombreVisi.Enabled = false;
             textCostoVisi.Enabled = false;
             textGradoVisi.Enabled = false;
             textEnvioVisi.Enabled = false;
             btnGrabarVisi.Enabled = false;
+            button1.Enabled = false;
             
             DataTable dtable;
             DataSet myDataSet = new DataSet();
@@ -114,10 +116,6 @@ namespace MercadoEnvio.ABM_Visibilidad
             comboVisi.ValueMember = "VISIBILIDAD_DESC";
             comboVisi.Text = "Seleccionar Visibilidad";
             comboVisi.DisplayMember = "Seleccionar Visi";
-            textEnvioVisi.Clear();
-            textCostoVisi.Clear();
-            textGradoVisi.Clear();
-            txtNombreVisi.Clear();
 
         }
 
@@ -137,6 +135,7 @@ namespace MercadoEnvio.ABM_Visibilidad
                }
                else
                {
+
                    BasedeDatosForm bd = new BasedeDatosForm();
                    bd.openConnection();
                    SqlCommand cmd = new SqlCommand("[RECUR].[ModificarVisi]", bd.conexion);
@@ -144,20 +143,30 @@ namespace MercadoEnvio.ABM_Visibilidad
                    cmd.Parameters.Add("@visiDesc", SqlDbType.NVarChar,30).Value = nombre;
                    cmd.Parameters.Add("@visiCosto", SqlDbType.Float).Value = textCostoVisi.Text;
                    cmd.Parameters.Add("@visiPorcentaje", SqlDbType.Float).Value = textGradoVisi.Text;
-                   if (textEnvioVisi.Enabled == true)
+                   if (textEnvioVisi.Enabled != true)
                    {
-                       cmd.Parameters.Add("@visiEnvio", SqlDbType.Float).Value = textEnvioVisi.Text;
+                       cmd.Parameters.Add("@visiEnvio", SqlDbType.Float).Value = DBNull.Value;
+                       MessageBox.Show("entro sin visi");
+                       if (txtNombreVisi.Text == "" || textCostoVisi.Text == "" || textGradoVisi.Text == "")
+                       {
+                           MessageBox.Show("Debe completar todos los campos");
+                           return;
+                       }                   
                    }
                    else
                    {
-                       cmd.Parameters.Add("@visiEnvio", SqlDbType.Float).Value = null;
+                       cmd.Parameters.Add("@visiEnvio", SqlDbType.Float).Value = textEnvioVisi.Text;
+                       if (txtNombreVisi.Text == "" || textCostoVisi.Text == "" || textGradoVisi.Text == "" || textEnvioVisi.Text == "")
+                       {
+                           MessageBox.Show("Debe completar todos los campos");
+                           return;
+                       }
                    }
                    cmd.CommandType = CommandType.StoredProcedure;
                    cmd.ExecuteNonQuery();
                    bd.conexion.Close();
                    // Visibilidad.modificarVisibilidad(visi, nombre, textCostoVisi.Text, textGradoVisi.Text, textEnvioVisi.Text);
                    MessageBox.Show("Se modificó correctamente");
-                   llenarCombo_visi();
                }
             }
             else
@@ -192,7 +201,6 @@ namespace MercadoEnvio.ABM_Visibilidad
                     bd.conexion.Close();
                     //Visibilidad.modificarVisibilidad(visi, nombre, textCostoVisi.Text, textGradoVisi.Text, textEnvioVisi.Text);
                     MessageBox.Show("Se modificó correctamente");
-                    llenarCombo_visi();
                 
             }
         }
@@ -210,6 +218,15 @@ namespace MercadoEnvio.ABM_Visibilidad
                 e.Handled = true;
                 return;
             }
+            if (textCostoVisi.Text.Contains(".") || textCostoVisi.Text == "")
+            {
+                if ((e.KeyChar == '.'))
+                {
+                    MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
         }
 
         private void textEnvioVisi_KeyPress(object sender, KeyPressEventArgs e)
@@ -220,6 +237,16 @@ namespace MercadoEnvio.ABM_Visibilidad
                 e.Handled = true;
                 return;
             }
+            if (textEnvioVisi.Text.Contains(".") || textEnvioVisi.Text == "")
+            {
+                if ((e.KeyChar == '.'))
+                {
+                    MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+
         }
 
         private void textGradoVisi_KeyPress(object sender, KeyPressEventArgs e)
@@ -229,6 +256,15 @@ namespace MercadoEnvio.ABM_Visibilidad
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
+            }
+            if (textGradoVisi.Text.Contains(".") || textGradoVisi.Text == "")
+            {
+                if ((e.KeyChar == '.'))
+                {
+                    MessageBox.Show("Ingrese un número", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
             }
         }
 
@@ -240,6 +276,24 @@ namespace MercadoEnvio.ABM_Visibilidad
                 e.Handled = true;
                 return;
             }
+
+        }
+
+        private void textCostoVisi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textEnvioVisi.Enabled == true)
+            {
+                textEnvioVisi.Text = "";
+            }
+            textCostoVisi.Text = "";
+            textGradoVisi.Text = "";
+            txtNombreVisi.Text = "";
+
         }
 
 
