@@ -209,6 +209,7 @@
     <Compile Include="Mappings\Factura.cs" />
     <Compile Include="Mappings\Publicacion.cs" />
     <Compile Include="Mappings\Rol.cs" />
+    <Compile Include="Mappings\Rubro.cs" />
     <Compile Include="Mappings\Usuario.cs" />
     <Compile Include="Mappings\Visibilidad.cs" />
     <Compile Include="Menu\MenuPpal.cs">

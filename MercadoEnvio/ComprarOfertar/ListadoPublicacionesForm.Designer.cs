@@ -68,7 +68,7 @@
             // 
             // Ultima
             // 
-            this.Ultima.Location = new System.Drawing.Point(766, 324);
+            this.Ultima.Location = new System.Drawing.Point(771, 324);
             this.Ultima.Name = "Ultima";
             this.Ultima.Size = new System.Drawing.Size(94, 23);
             this.Ultima.TabIndex = 24;
@@ -78,7 +78,7 @@
             // 
             // Primera
             // 
-            this.Primera.Location = new System.Drawing.Point(458, 324);
+            this.Primera.Location = new System.Drawing.Point(463, 324);
             this.Primera.Name = "Primera";
             this.Primera.Size = new System.Drawing.Size(98, 23);
             this.Primera.TabIndex = 23;
@@ -88,7 +88,7 @@
             // 
             // Siguiente
             // 
-            this.Siguiente.Location = new System.Drawing.Point(662, 324);
+            this.Siguiente.Location = new System.Drawing.Point(667, 324);
             this.Siguiente.Name = "Siguiente";
             this.Siguiente.Size = new System.Drawing.Size(97, 23);
             this.Siguiente.TabIndex = 22;
@@ -98,7 +98,7 @@
             // 
             // Anterior
             // 
-            this.Anterior.Location = new System.Drawing.Point(562, 324);
+            this.Anterior.Location = new System.Drawing.Point(567, 324);
             this.Anterior.Name = "Anterior";
             this.Anterior.Size = new System.Drawing.Size(94, 23);
             this.Anterior.TabIndex = 21;

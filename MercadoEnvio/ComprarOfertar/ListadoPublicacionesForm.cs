@@ -37,36 +37,9 @@ namespace MercadoEnvio.ComprarOfertar
             rubros = "";
             descripcion = "";
 
-            bd.openConnection();
-
             AgregarRubros();
 
-            int cantidadPublicaciones = CantidadPublicaciones(usuarioID);
-
-            if (cantidadPublicaciones > 0) {
-                PaginacionPublicaciones();
-            }
-            else {
-                string sinPublicacionesLabelText;
-                sinPublicacionesLabelText = "No hay publicaciones para mostrar";
-                Font fuenteEstandar = new Font("Microsoft Sans Serif", 10F);
-                Size textSize = TextRenderer.MeasureText(sinPublicacionesLabelText, fuenteEstandar);
-
-                Label sinPublicacionesLabel;
-                sinPublicacionesLabel = new Label();
-                sinPublicacionesLabel.Name = "sinPublicacionesLabel";
-                sinPublicacionesLabel.Location = new System.Drawing.Point(400, 180);
-                sinPublicacionesLabel.Size = textSize;
-                this.Controls.Add(sinPublicacionesLabel);
-
-                foreach (Control ctrl in this.Controls)
-                {
-                    ctrl.Enabled = false;
-                } 
-            }
-
-            bd.closeConnection();
-
+            PaginacionPublicaciones();
         }
 
         public void AgregarRubros()
@@ -112,73 +85,104 @@ namespace MercadoEnvio.ComprarOfertar
 
         public void PaginacionPublicaciones()
         {
-            //MessageBox.Show("FilaInicio: " + FilaInicio.ToString() + ". FilaFin: " + FilaFin.ToString() + ". Cantidad publicaciones: " + CantidadPublicaciones(usuarioID).ToString());
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
+            int cantidadPublicaciones = CantidadPublicaciones(usuarioID);
 
-            if (dataGridView1.Columns.Contains("BotonColumna")) {
-                dataGridView1.Columns.Remove("BotonColumna");
-            }
-
-            SqlCommand MostrarPublicaciones_SP;
-            MostrarPublicaciones_SP = new SqlCommand("[RECUR].[MostrarPublicaciones]", bd.conexion);
-            MostrarPublicaciones_SP.CommandType = CommandType.StoredProcedure;
-
-            DataTable tabla = new DataTable();
-
-            try
+            if (cantidadPublicaciones > 0)
             {
-                MostrarPublicaciones_SP.Parameters.Add("@usuarioID", SqlDbType.Int).Value = usuarioID;
-                MostrarPublicaciones_SP.Parameters.Add("@inicio", SqlDbType.Int).Value = FilaInicio;
-                MostrarPublicaciones_SP.Parameters.Add("@fin", SqlDbType.Int).Value = FilaFin;
-                MostrarPublicaciones_SP.Parameters.Add("@rubros", SqlDbType.VarChar).Value = rubros;
-                MostrarPublicaciones_SP.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = descripcion;
+                //MessageBox.Show("FilaInicio: " + FilaInicio.ToString() + ". FilaFin: " + FilaFin.ToString() + ". Cantidad publicaciones: " + CantidadPublicaciones(usuarioID).ToString());
+                dataGridView1.Visible = true;
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear();
 
-                SqlDataAdapter adp = new SqlDataAdapter(MostrarPublicaciones_SP);
-
-                adp.Fill(tabla);
-
-                MostrarPublicaciones_SP.Dispose();
-                MostrarPublicaciones_SP = null;
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = tabla;
-                dataGridView1.DataSource = bSource;
-                adp.Update(tabla);
-
-                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-                buttonColumn.Name = "BotonColumna";
-                buttonColumn.HeaderText = "";
-
-                int idTipoPublicacionFila;
-
-                //buttonColumn.UseColumnTextForButtonValue = true;
-
-                dataGridView1.Columns.Add(buttonColumn);
-
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                if (dataGridView1.Columns.Contains("BotonColumna"))
                 {
-                    idTipoPublicacionFila = Convert.ToInt32(row.Cells[2].Value);
-                    if (idTipoPublicacionFila == 1)
-                    {       // compra inmediata
-                        row.Cells["BotonColumna"].Value = "Comprar";
-                    }
-                    else
-                    {                              // subasta
-                        row.Cells["BotonColumna"].Value = "Ofertar";
-                    }
+                    dataGridView1.Columns.Remove("BotonColumna");
                 }
 
-                dataGridView1.Columns["Código"].Visible = false;
-                dataGridView1.Columns["ID tipo de publicación"].Visible = false;
-                dataGridView1.Columns["Tipo visibilidad"].Visible = false;
+                SqlCommand MostrarPublicaciones_SP;
+                MostrarPublicaciones_SP = new SqlCommand("[RECUR].[MostrarPublicaciones]", bd.conexion);
+                MostrarPublicaciones_SP.CommandType = CommandType.StoredProcedure;
 
-                ConfigurarBotones();
+                DataTable tabla = new DataTable();
+
+                try
+                {
+                    MostrarPublicaciones_SP.Parameters.Add("@usuarioID", SqlDbType.Int).Value = usuarioID;
+                    MostrarPublicaciones_SP.Parameters.Add("@inicio", SqlDbType.Int).Value = FilaInicio;
+                    MostrarPublicaciones_SP.Parameters.Add("@fin", SqlDbType.Int).Value = FilaFin;
+                    MostrarPublicaciones_SP.Parameters.Add("@rubros", SqlDbType.VarChar).Value = rubros;
+                    MostrarPublicaciones_SP.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = descripcion;
+
+                    SqlDataAdapter adp = new SqlDataAdapter(MostrarPublicaciones_SP);
+
+                    adp.Fill(tabla);
+
+                    MostrarPublicaciones_SP.Dispose();
+                    MostrarPublicaciones_SP = null;
+
+                    BindingSource bSource = new BindingSource();
+                    bSource.DataSource = tabla;
+                    dataGridView1.DataSource = bSource;
+                    adp.Update(tabla);
+
+                    DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+                    buttonColumn.Name = "BotonColumna";
+                    buttonColumn.HeaderText = "";
+
+                    int idTipoPublicacionFila;
+
+                    //buttonColumn.UseColumnTextForButtonValue = true;
+
+                    dataGridView1.Columns.Add(buttonColumn);
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        idTipoPublicacionFila = Convert.ToInt32(row.Cells[2].Value);
+                        if (idTipoPublicacionFila == 1)
+                        {       // compra inmediata
+                            row.Cells["BotonColumna"].Value = "Comprar";
+                        }
+                        else
+                        {                              // subasta
+                            row.Cells["BotonColumna"].Value = "Ofertar";
+                        }
+                    }
+
+                    dataGridView1.Columns["Código"].Visible = false;
+                    dataGridView1.Columns["ID tipo de publicación"].Visible = false;
+                    dataGridView1.Columns["Tipo visibilidad"].Visible = false;
+                }
+                catch (SqlException db)
+                {
+                    MessageBox.Show(db.Message);
+                }
             }
-            catch (SqlException db)
+            else
             {
-                MessageBox.Show(db.Message);
+                dataGridView1.Visible = false;
+
+                string sinPublicacionesLabelText;
+
+
+                Label sinPublicacionesLabel;
+                sinPublicacionesLabel = new Label();
+                sinPublicacionesLabel.Name = "sinPublicacionesLabel";
+
+                if ((descripcion != "") || (rubros != "")) {
+                    sinPublicacionesLabelText = "No hay publicaciones para mostrar. Vuelva a intentar eliminando los filtros.";
+                    sinPublicacionesLabel.Location = new System.Drawing.Point(492, 177);
+                }
+                else {
+                    sinPublicacionesLabelText = "No hay publicaciones para mostrar";
+                    sinPublicacionesLabel.Location = new System.Drawing.Point(586, 177);
+                }
+
+                sinPublicacionesLabel.Text = sinPublicacionesLabelText;
+                sinPublicacionesLabel.AutoSize = true;
+                this.Controls.Add(sinPublicacionesLabel);
             }
+
+            ConfigurarBotones();
         }
 
         private void ConfigurarBotones() {
@@ -324,6 +328,9 @@ namespace MercadoEnvio.ComprarOfertar
             }
 
             //MessageBox.Show(rubros);
+
+            FilaInicio = 1;
+            FilaFin = 100;
 
             PaginacionPublicaciones();
         }
