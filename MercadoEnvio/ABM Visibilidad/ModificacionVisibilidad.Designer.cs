@@ -67,7 +67,7 @@
             // txtNombreVisi
             // 
             this.txtNombreVisi.Location = new System.Drawing.Point(18, 33);
-            this.txtNombreVisi.MaxLength = 16;
+            this.txtNombreVisi.MaxLength = 255;
             this.txtNombreVisi.Name = "txtNombreVisi";
             this.txtNombreVisi.Size = new System.Drawing.Size(220, 20);
             this.txtNombreVisi.TabIndex = 1;

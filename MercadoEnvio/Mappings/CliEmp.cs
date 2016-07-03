@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace MercadoEnvio.Mappings
@@ -12,7 +13,7 @@ namespace MercadoEnvio.Mappings
     class CliEmp
     {
 
-        public DataTable ObtenerBusqClie(string Nombre, string Apellido, int DNI, string Mail)
+        public DataTable ObtenerBusqClie(string Nombre, string Apellido, Int64 DNI, string Mail)
         {
 
             BasedeDatosForm bd = new BasedeDatosForm();
@@ -26,28 +27,45 @@ namespace MercadoEnvio.Mappings
             try
             {
                 if (Nombre == null)
+                {
                     //cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = "";
                     cmd.Parameters.Add("@Nombre", DBNull.Value);
+                }
                 else
+                {
                     cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = Nombre;
+                }
 
                 if (Apellido == null)
+                {
                     //cmd.Parameters.Add("@Apellido", SqlDbType.NVarChar).Value = "";
                     cmd.Parameters.Add("@Apellido", DBNull.Value);
+                }
                 else
-                    cmd.Parameters.Add("@Apellido", SqlDbType.NVarChar).Value = Nombre;
+                {
+                    cmd.Parameters.Add("@Apellido", SqlDbType.NVarChar).Value = Apellido;
+                }
 
                 if (DNI == 0)
+                {
+
                     //cmd.Parameters.Add("@Apellido", SqlDbType.NVarChar).Value = "";
                     cmd.Parameters.Add("@Documento", DBNull.Value);
+                }
                 else
-                    cmd.Parameters.Add("@Documento", SqlDbType.Int).Value = DNI;
+                {
+                    cmd.Parameters.Add("@Documento", SqlDbType.Decimal).Value = DNI;
+                }
 
                 if (Mail == null)
+                {
                     //cmd.Parameters.Add("@Mail", SqlDbType.NVarChar).Value = "";
                     cmd.Parameters.Add("@Mail", DBNull.Value);
+                }
                 else
+                {
                     cmd.Parameters.Add("@Mail", SqlDbType.NVarChar).Value = Mail;
+                }
 
 
                 adp.Fill(dt);
@@ -174,7 +192,7 @@ namespace MercadoEnvio.Mappings
         }
 
 
-        public int ModificarCliente(string apellido, string nombre, int dni, string pass, string fechanac, string calle, int nrocalle, string depto, int piso, string cp, string localidad, int tel, string mail)
+        public int ModificarCliente(string apellido, string nombre, Int64 dni, string pass, string fechanac, string calle, Int64 nrocalle, string depto, Int64 piso, string cp, string localidad, Int64 tel, string mail)
         {
             int retorno = 0;
             BasedeDatosForm bd = new BasedeDatosForm();
@@ -188,16 +206,16 @@ namespace MercadoEnvio.Mappings
             {
                 cmd.Parameters.Add("@Apellido", SqlDbType.NVarChar).Value = apellido;
                 cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = nombre;
-                cmd.Parameters.Add("@Dni", SqlDbType.Int).Value = dni;
+                cmd.Parameters.Add("@Dni", SqlDbType.Decimal).Value = dni;
                 cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = pass;
                 cmd.Parameters.Add("@FechaNac", SqlDbType.DateTime).Value = fechanac;
                 cmd.Parameters.Add("@Calle", SqlDbType.NVarChar).Value = calle;
-                cmd.Parameters.Add("@NroCalle", SqlDbType.Int).Value = nrocalle;
+                cmd.Parameters.Add("@NroCalle", SqlDbType.Decimal).Value = nrocalle;
                 cmd.Parameters.Add("@Depto", SqlDbType.NVarChar).Value = depto;
-                cmd.Parameters.Add("@Piso", SqlDbType.Int).Value = piso;
+                cmd.Parameters.Add("@Piso", SqlDbType.Decimal).Value = piso;
                 cmd.Parameters.Add("@CP", SqlDbType.NVarChar).Value = cp;
                 cmd.Parameters.Add("@Localidad", SqlDbType.NVarChar).Value = localidad;
-                cmd.Parameters.Add("@Tel", SqlDbType.Int).Value = tel;
+                cmd.Parameters.Add("@Tel", SqlDbType.Decimal).Value = tel;
                 cmd.Parameters.Add("@Mail", SqlDbType.NVarChar).Value = mail;
 
                 cmd.ExecuteNonQuery();
@@ -217,7 +235,7 @@ namespace MercadoEnvio.Mappings
             return retorno;
         }
 
-        public int ModificarEmpresa(string razons, string contacto, string pass, string cuit, string calle, int nrocalle, string depto, int piso, string cp, string localidad, int tel, string mail, string ciudad, string rubro)
+        public int ModificarEmpresa(string razons, string contacto, string pass, string cuit, string calle, Int64 nrocalle, string depto, Int64 piso, string cp, string localidad, Int64 tel, string mail, string ciudad, string rubro)
         {
             int retorno = 0;
             BasedeDatosForm bd = new BasedeDatosForm();
@@ -234,12 +252,12 @@ namespace MercadoEnvio.Mappings
                 cmd.Parameters.Add("@CUIT", SqlDbType.NVarChar).Value = cuit;
                 cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = pass;
                 cmd.Parameters.Add("@Calle", SqlDbType.NVarChar).Value = calle;
-                cmd.Parameters.Add("@NroCalle", SqlDbType.Int).Value = nrocalle;
+                cmd.Parameters.Add("@NroCalle", SqlDbType.Decimal).Value = nrocalle;
                 cmd.Parameters.Add("@Depto", SqlDbType.NVarChar).Value = depto;
-                cmd.Parameters.Add("@Piso", SqlDbType.Int).Value = piso;
+                cmd.Parameters.Add("@Piso", SqlDbType.Decimal).Value = piso;
                 cmd.Parameters.Add("@CP", SqlDbType.NVarChar).Value = cp;
                 cmd.Parameters.Add("@Localidad", SqlDbType.NVarChar).Value = localidad;
-                cmd.Parameters.Add("@Tel", SqlDbType.Int).Value = tel;
+                cmd.Parameters.Add("@Tel", SqlDbType.Decimal).Value = tel;
                 cmd.Parameters.Add("@Mail", SqlDbType.NVarChar).Value = mail;
                 cmd.Parameters.Add("@Ciudad", SqlDbType.NVarChar).Value = ciudad;
                 cmd.Parameters.Add("@Rubro", SqlDbType.NVarChar).Value = rubro;
@@ -327,7 +345,7 @@ namespace MercadoEnvio.Mappings
         }
 
 
-        public int InsertarCliente(string apellido, string nombre, int dni, string pass, string fechanac, string calle, int nrocalle, string depto, int piso, string cp, string localidad, int tel, string mail)
+        public int InsertarCliente(string apellido, string nombre, Int64 dni, string pass, string fechanac, string calle, Int64 nrocalle, string depto, Int64 piso, string cp, string localidad, Int64 tel, string mail)
         {
 
             int retorno = 0;
@@ -342,16 +360,16 @@ namespace MercadoEnvio.Mappings
             {
                 cmd.Parameters.Add("@Apellido", SqlDbType.NVarChar).Value = apellido;
                 cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = nombre;
-                cmd.Parameters.Add("@Dni", SqlDbType.Int).Value = dni;
+                cmd.Parameters.Add("@Dni", SqlDbType.Decimal).Value = dni;
                 cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = pass;
                 cmd.Parameters.Add("@FechaNac", SqlDbType.DateTime).Value = fechanac;
                 cmd.Parameters.Add("@Calle", SqlDbType.NVarChar).Value = calle;
-                cmd.Parameters.Add("@NroCalle", SqlDbType.Int).Value = nrocalle;
+                cmd.Parameters.Add("@NroCalle", SqlDbType.Decimal).Value = nrocalle;
                 cmd.Parameters.Add("@Depto", SqlDbType.NVarChar).Value = depto;
-                cmd.Parameters.Add("@Piso", SqlDbType.Int).Value = piso;
+                cmd.Parameters.Add("@Piso", SqlDbType.Decimal).Value = piso;
                 cmd.Parameters.Add("@CP", SqlDbType.NVarChar).Value = cp;
                 cmd.Parameters.Add("@Localidad", SqlDbType.NVarChar).Value = localidad;
-                cmd.Parameters.Add("@Tel", SqlDbType.Int).Value = tel;
+                cmd.Parameters.Add("@Tel", SqlDbType.Decimal).Value = tel;
                 cmd.Parameters.Add("@Mail", SqlDbType.NVarChar).Value = mail;
 
                 cmd.ExecuteNonQuery();
@@ -371,7 +389,7 @@ namespace MercadoEnvio.Mappings
             return retorno;
         }
 
-        public int InsertarEmpresa(string razonsoc, string username, string doc, string pass, string contacto, string rubro, string calle, int nrocalle, string depto, int piso, string cp, string localidad, int tel, string mail, string ciudad)
+        public int InsertarEmpresa(string razonsoc, string username, string doc, string pass, string contacto, string rubro, string calle, Int64 nrocalle, string depto, Int64 piso, string cp, string localidad, Int64 tel, string mail, string ciudad)
         {
 
             int retorno = 0;
@@ -391,12 +409,12 @@ namespace MercadoEnvio.Mappings
                 cmd.Parameters.Add("@Contacto", SqlDbType.NVarChar).Value = contacto;
                 cmd.Parameters.Add("@Rubro", SqlDbType.NVarChar).Value = rubro;
                 cmd.Parameters.Add("@Calle", SqlDbType.NVarChar).Value = calle;
-                cmd.Parameters.Add("@NroCalle", SqlDbType.Int).Value = nrocalle;
+                cmd.Parameters.Add("@NroCalle", SqlDbType.Decimal).Value = nrocalle;
                 cmd.Parameters.Add("@Depto", SqlDbType.NVarChar).Value = depto;
-                cmd.Parameters.Add("@Piso", SqlDbType.Int).Value = piso;
+                cmd.Parameters.Add("@Piso", SqlDbType.Decimal).Value = piso;
                 cmd.Parameters.Add("@CP", SqlDbType.NVarChar).Value = cp;
                 cmd.Parameters.Add("@Localidad", SqlDbType.NVarChar).Value = localidad;
-                cmd.Parameters.Add("@Tel", SqlDbType.Int).Value = tel;
+                cmd.Parameters.Add("@Tel", SqlDbType.Decimal).Value = tel;
                 cmd.Parameters.Add("@Mail", SqlDbType.NVarChar).Value = mail;
                 cmd.Parameters.Add("@Ciudad", SqlDbType.NVarChar).Value = ciudad;
 

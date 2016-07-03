@@ -322,7 +322,7 @@ namespace MercadoEnvio.ABM_Usuario
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
             //Validacion por vacio
-            int doc;
+            Int64 doc;
             string mail = txtMail.Text;
 
             if (String.Compare(txtNombre.Text, vacio) == 0)
@@ -331,14 +331,13 @@ namespace MercadoEnvio.ABM_Usuario
             if (String.Compare(txtApellido.Text, vacio) == 0)
                 apellido = null;
 
-
             if (String.Compare(txtMail.Text, vacio) == 0)
                 mail = null;
 
             if (String.Compare(txtDoc.Text, vacio) == 0)
                 doc = 0;
             else
-                doc = Int32.Parse(txtDoc.Text);
+                doc = Int64.Parse(txtDoc.Text);
 
             dtable = new CliEmp().ObtenerBusqClie(nombre, apellido, doc, mail);
             //limpiamos los renglones de la datagridview
@@ -359,9 +358,9 @@ namespace MercadoEnvio.ABM_Usuario
                     // dr.tipodedatosalmacenado(dr.getordinal(nombredelcampo_en_la_base_de_datos)conviertelo_a_string_sino_es_del_tipo_string);
                     dgvBusqCli.Rows[renglon].Cells["APELLIDO"].Value = Convert.ToString(dtRow["CLI_APELLIDO"]);
                     dgvBusqCli.Rows[renglon].Cells["NOMBRE"].Value = Convert.ToString(dtRow["CLI_NOMBRE"]);
-                    dgvBusqCli.Rows[renglon].Cells["DNI"].Value = Convert.ToInt32(dtRow["CLI_NRO_DOC"]);
-                    dgvBusqCli.Rows[renglon].Cells["HABILITADOCLI"].Value = Convert.ToInt32(dtRow["USUARIO_HABILITADO"]);
-                    dgvBusqCli.Rows[renglon].Cells["USERNAMECLI"].Value = Convert.ToInt32(dtRow["USUARIO_USERNAME"]);
+                    dgvBusqCli.Rows[renglon].Cells["DNI"].Value = Convert.ToInt64(dtRow["CLI_NRO_DOC"]);
+                    dgvBusqCli.Rows[renglon].Cells["HABILITADOCLI"].Value = Convert.ToInt64(dtRow["USUARIO_HABILITADO"]);
+                    dgvBusqCli.Rows[renglon].Cells["USERNAMECLI"].Value = Convert.ToInt64(dtRow["USUARIO_USERNAME"]);
                     dgvBusqCli.Rows[renglon].Cells["FECHANAC"].Value = Convert.ToDateTime(dtRow["CLI_FECHA_NAC"]);
                     if (dtRow["USUARIO_CALLE"] == DBNull.Value)
                         dgvBusqCli.Rows[renglon].Cells["CALLECLI"].Value = "";
@@ -370,7 +369,7 @@ namespace MercadoEnvio.ABM_Usuario
                     if (dtRow["USUARIO_CALLE_NRO"] == DBNull.Value)
                         dgvBusqCli.Rows[renglon].Cells["CALLENROCLI"].Value = "";
                     else
-                        dgvBusqCli.Rows[renglon].Cells["CALLENROCLI"].Value = Convert.ToInt32(dtRow["USUARIO_CALLE_NRO"]);
+                        dgvBusqCli.Rows[renglon].Cells["CALLENROCLI"].Value = Convert.ToInt64(dtRow["USUARIO_CALLE_NRO"]);
                     if (dtRow["USUARIO_CP"] == DBNull.Value)
                         dgvBusqCli.Rows[renglon].Cells["CPCLI"].Value = "";
                     else
@@ -394,7 +393,7 @@ namespace MercadoEnvio.ABM_Usuario
                     if (dtRow["USUARIO_PISO"] == DBNull.Value)
                         dgvBusqCli.Rows[renglon].Cells["PISOCLI"].Value = "";
                     else
-                        dgvBusqCli.Rows[renglon].Cells["PISOCLI"].Value = Convert.ToInt32(dtRow["USUARIO_PISO"]);
+                        dgvBusqCli.Rows[renglon].Cells["PISOCLI"].Value = Convert.ToInt64(dtRow["USUARIO_PISO"]);
                     if (dtRow["USUARIO_TELEFONO"] == DBNull.Value)
                         dgvBusqCli.Rows[renglon].Cells["TELCLI"].Value = "";
                     else
@@ -441,13 +440,13 @@ namespace MercadoEnvio.ABM_Usuario
                     // dr.tipodedatosalmacenado(dr.getordinal(nombredelcampo_en_la_base_de_datos)conviertelo_a_string_sino_es_del_tipo_string);
                     dgvBusqEmp.Rows[renglon].Cells["RAZONS"].Value = Convert.ToString(dtRow["EMPRESA_RAZON_SOCIAL"]);
                     dgvBusqEmp.Rows[renglon].Cells["DOC"].Value = Convert.ToString(dtRow["EMPRESA_NRO_CUIT"]);
-                    dgvBusqEmp.Rows[renglon].Cells["HABILITADOEMP"].Value = Convert.ToInt32(dtRow["USUARIO_HABILITADO"]);
+                    dgvBusqEmp.Rows[renglon].Cells["HABILITADOEMP"].Value = Convert.ToInt64(dtRow["USUARIO_HABILITADO"]);
                     dgvBusqEmp.Rows[renglon].Cells["USERNAMEEMP"].Value = Convert.ToString(dtRow["USUARIO_USERNAME"]);
                     dgvBusqEmp.Rows[renglon].Cells["CALLEEMP"].Value = Convert.ToString(dtRow["USUARIO_CALLE"]);
                     if (dtRow["USUARIO_CALLE_NRO"] == DBNull.Value)
                         dgvBusqEmp.Rows[renglon].Cells["CALLENROEMP"].Value = "";
                     else
-                        dgvBusqEmp.Rows[renglon].Cells["CALLENROEMP"].Value = Convert.ToInt32(dtRow["USUARIO_CALLE_NRO"]);
+                        dgvBusqEmp.Rows[renglon].Cells["CALLENROEMP"].Value = Convert.ToInt64(dtRow["USUARIO_CALLE_NRO"]);
                     if (dtRow["USUARIO_CP"] == DBNull.Value)
                         dgvBusqEmp.Rows[renglon].Cells["CPEMP"].Value = "";
                     else
@@ -463,11 +462,11 @@ namespace MercadoEnvio.ABM_Usuario
 
                     dgvBusqEmp.Rows[renglon].Cells["MAILEMP"].Value = Convert.ToString(dtRow["USUARIO_MAIL"]);
                     dgvBusqEmp.Rows[renglon].Cells["PASSEMP"].Value = Convert.ToString(dtRow["USUARIO_PASS"]);
-                    dgvBusqEmp.Rows[renglon].Cells["PISOEMP"].Value = Convert.ToInt32(dtRow["USUARIO_PISO"]);
+                    dgvBusqEmp.Rows[renglon].Cells["PISOEMP"].Value = Convert.ToInt64(dtRow["USUARIO_PISO"]);
                     if (dtRow["USUARIO_TELEFONO"] == DBNull.Value)
                         dgvBusqEmp.Rows[renglon].Cells["TELEMP"].Value = "";
                     else
-                        dgvBusqEmp.Rows[renglon].Cells["TELEMP"].Value = Convert.ToInt32(dtRow["USUARIO_TELEFONO"]);
+                        dgvBusqEmp.Rows[renglon].Cells["TELEMP"].Value = Convert.ToInt64(dtRow["USUARIO_TELEFONO"]);
                     if (dtRow["EMPRESA_CIUDAD"] == DBNull.Value)
                         dgvBusqEmp.Rows[renglon].Cells["CIUDADEMP"].Value = "";
                     else
@@ -664,16 +663,16 @@ namespace MercadoEnvio.ABM_Usuario
                     Usuario usu = new Usuario();
                     string apellido = txtApeCli.Text;
                     string nombre = txtNombreCli.Text;
-                    int dni = Int32.Parse(txtDoc1.Text);
+                    Int64 dni = Int64.Parse(txtDoc1.Text);
                     string pass = usu.SHA256Encripta(txtPassCli.Text);
                     string fechanac = txtFechNac.Text;
                     string calle = txtCalle.Text;
-                    int nrocalle = Int32.Parse(txtNroCalle.Text);
-                    int piso = Int32.Parse(txtPiso.Text);
+                    Int64 nrocalle = Int64.Parse(txtNroCalle.Text);
+                    Int64 piso = Int64.Parse(txtPiso.Text);
                     string depto = txtDepto.Text;
                     string localidad = txtLocalidad.Text;
                     string cp = txtCP.Text;
-                    int tel = Int32.Parse(txtTelefono.Text);
+                    Int64 tel = Int64.Parse(txtTelefono.Text);
                     string mail = txtMailB.Text;
 
                     resultado = new CliEmp().ModificarCliente(apellido, nombre, dni, pass, fechanac, calle, nrocalle, depto, piso, cp, localidad, tel, mail);
@@ -773,12 +772,12 @@ namespace MercadoEnvio.ABM_Usuario
                     string pass = usu.SHA256Encripta(txtPassE.Text);
                     string cuit = txtDocE1.Text + txtDocE2.Text + txtDocE3.Text;
                     string calle = txtCalle.Text;
-                    int nrocalle = Int32.Parse(txtNroCalle.Text);
-                    int piso = Int32.Parse(txtPiso.Text);
+                    Int64 nrocalle = Int64.Parse(txtNroCalle.Text);
+                    Int64 piso = Int64.Parse(txtPiso.Text);
                     string depto = txtDepto.Text;
                     string localidad = txtLocalidad.Text;
                     string cp = txtCP.Text;
-                    int tel = Int32.Parse(txtTelefono.Text);
+                    Int64 tel = Int64.Parse(txtTelefono.Text);
                     string mail = txtMailB.Text;
                     string ciudad = txtCiudad.Text;
                     string rubro = cmbRubros.Text;
@@ -909,6 +908,58 @@ namespace MercadoEnvio.ABM_Usuario
             cmbRubros.ValueMember = "RUBRO_DESC_CORTA";
             cmbRubros.DisplayMember = "Seleccionar Rubro";
             cmbRubros.Text = "Seleccionar Rubro";
+        }
+
+        private void txtFechNac_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbRoles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDoc_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtDoc1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+
+        }
+
+        private void txtTelefono_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+
+        }
+
+        private void txtPiso_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
         }
 
         //private void txtPassCli_GotFocus(Object sender, EventArgs e)

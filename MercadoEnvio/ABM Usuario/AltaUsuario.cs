@@ -31,7 +31,13 @@ namespace MercadoEnvio.ABM_Usuario
             gbDireccion.Visible = false;
             btnAlta.Visible = false;
         }
-        private void cmbRolUsu_SelectedValueChanged(object sender, EventArgs e)
+
+        /*   private void cmbRolUsu_SelectedValueChanged(object sender, EventArgs e)
+           {
+           //Cambie por cmbRolUsu_SelectedIndexChanged 
+           }
+           */
+        private void cmbRolUsu_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbRolUsu.Text == "System.Data.DataRowView")
             {
@@ -361,16 +367,16 @@ namespace MercadoEnvio.ABM_Usuario
                     Usuario usu = new Usuario();
                     string apellido = txtApellido.Text;
                     string nombre = txtNombre.Text;
-                    int dni = Int32.Parse(txtDoc1.Text);
+                    Int64 dni = Int64.Parse(txtDoc1.Text);
                     string pass = usu.SHA256Encripta(txtPass.Text);
                     string fechanac = txtFechNac.Text;
                     string calle = txtCalle.Text;
-                    int nrocalle = Int32.Parse(txtNroCalle.Text);
-                    int piso = Int32.Parse(txtPiso.Text);
+                    Int64 nrocalle = Int64.Parse(txtNroCalle.Text);
+                    Int64 piso = Int64.Parse(txtPiso.Text);
                     string depto = txtDepto.Text;
                     string localidad = txtLocalidad.Text;
                     string cp = txtCP.Text;
-                    int tel = Int32.Parse(txtTelefono.Text);
+                    Int64 tel = Int64.Parse(txtTelefono.Text);
                     string mail = txtMail.Text;
 
                     resultado = new CliEmp().InsertarCliente(apellido, nombre, dni, pass, fechanac, calle, nrocalle, depto, piso, cp, localidad, tel, mail);
@@ -466,12 +472,12 @@ namespace MercadoEnvio.ABM_Usuario
                     string contacto = txtContacto.Text;
                     string rubro = cmbRubros.Text;
                     string calle = txtCalle.Text;
-                    int nrocalle = Int32.Parse(txtNroCalle.Text);
-                    int piso = Int32.Parse(txtPiso.Text);
+                    Int64 nrocalle = Int64.Parse(txtNroCalle.Text);
+                    Int64 piso = Int64.Parse(txtPiso.Text);
                     string depto = txtDepto.Text;
                     string localidad = txtLocalidad.Text;
                     string cp = txtCP.Text;
-                    int tel = Int32.Parse(txtTelefono.Text);
+                    Int64 tel = Int64.Parse(txtTelefono.Text);
                     string mail = txtMail.Text;
                     string ciudad = txtCiudad.Text;
 
@@ -634,6 +640,78 @@ namespace MercadoEnvio.ABM_Usuario
         {
 
         }
+
+        private void txtDoc1_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtDocE1_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtDocE2_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtDocE3_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtTelefono_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtNroCalle_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtPiso_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+
 
     }
 }

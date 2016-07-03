@@ -124,11 +124,16 @@
             // 
             // cmbRolUsu
             // 
+            this.cmbRolUsu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRolUsu.FormattingEnabled = true;
+            this.cmbRolUsu.Items.AddRange(new object[] {
+            "Cliente",
+            "Empresa"});
             this.cmbRolUsu.Location = new System.Drawing.Point(102, 76);
             this.cmbRolUsu.Name = "cmbRolUsu";
             this.cmbRolUsu.Size = new System.Drawing.Size(160, 21);
             this.cmbRolUsu.TabIndex = 5;
+            this.cmbRolUsu.SelectedIndexChanged += new System.EventHandler(this.cmbRolUsu_SelectedIndexChanged);
             // 
             // gbDatosPersonales
             // 
@@ -189,6 +194,7 @@
             this.txtContacto.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtContacto.Enabled = false;
             this.txtContacto.Location = new System.Drawing.Point(613, 113);
+            this.txtContacto.MaxLength = 255;
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(160, 20);
             this.txtContacto.TabIndex = 19;
@@ -198,33 +204,40 @@
             this.txtDocE3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDocE3.Enabled = false;
             this.txtDocE3.Location = new System.Drawing.Point(764, 69);
+            this.txtDocE3.MaxLength = 2;
             this.txtDocE3.Name = "txtDocE3";
             this.txtDocE3.Size = new System.Drawing.Size(30, 20);
             this.txtDocE3.TabIndex = 18;
+            this.txtDocE3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocE3_KeyPress_1);
             // 
             // txtDocE2
             // 
             this.txtDocE2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDocE2.Enabled = false;
             this.txtDocE2.Location = new System.Drawing.Point(656, 69);
+            this.txtDocE2.MaxLength = 8;
             this.txtDocE2.Name = "txtDocE2";
             this.txtDocE2.Size = new System.Drawing.Size(101, 20);
             this.txtDocE2.TabIndex = 17;
+            this.txtDocE2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocE2_KeyPress_1);
             // 
             // txtDocE1
             // 
             this.txtDocE1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDocE1.Enabled = false;
             this.txtDocE1.Location = new System.Drawing.Point(615, 69);
+            this.txtDocE1.MaxLength = 2;
             this.txtDocE1.Name = "txtDocE1";
             this.txtDocE1.Size = new System.Drawing.Size(33, 20);
             this.txtDocE1.TabIndex = 16;
+            this.txtDocE1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocE1_KeyPress_1);
             // 
             // txtRazonSocial
             // 
             this.txtRazonSocial.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtRazonSocial.Enabled = false;
             this.txtRazonSocial.Location = new System.Drawing.Point(613, 32);
+            this.txtRazonSocial.MaxLength = 255;
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(366, 20);
             this.txtRazonSocial.TabIndex = 15;
@@ -234,6 +247,7 @@
             this.txtFechNac.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtFechNac.Enabled = false;
             this.txtFechNac.Location = new System.Drawing.Point(143, 155);
+            this.txtFechNac.MaxLength = 18;
             this.txtFechNac.Name = "txtFechNac";
             this.txtFechNac.Size = new System.Drawing.Size(134, 20);
             this.txtFechNac.TabIndex = 14;
@@ -243,15 +257,18 @@
             this.txtDoc1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDoc1.Enabled = false;
             this.txtDoc1.Location = new System.Drawing.Point(143, 110);
+            this.txtDoc1.MaxLength = 18;
             this.txtDoc1.Name = "txtDoc1";
             this.txtDoc1.Size = new System.Drawing.Size(167, 20);
             this.txtDoc1.TabIndex = 11;
+            this.txtDoc1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDoc1_KeyPress_1);
             // 
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(143, 70);
+            this.txtNombre.MaxLength = 255;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(307, 20);
             this.txtNombre.TabIndex = 10;
@@ -261,6 +278,7 @@
             this.txtApellido.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtApellido.Enabled = false;
             this.txtApellido.Location = new System.Drawing.Point(143, 32);
+            this.txtApellido.MaxLength = 255;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(307, 20);
             this.txtApellido.TabIndex = 9;
@@ -369,6 +387,7 @@
             this.txtCP.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCP.Enabled = false;
             this.txtCP.Location = new System.Drawing.Point(396, 88);
+            this.txtCP.MaxLength = 50;
             this.txtCP.Name = "txtCP";
             this.txtCP.Size = new System.Drawing.Size(100, 20);
             this.txtCP.TabIndex = 15;
@@ -387,6 +406,7 @@
             this.txtLocalidad.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtLocalidad.Enabled = false;
             this.txtLocalidad.Location = new System.Drawing.Point(100, 88);
+            this.txtLocalidad.MaxLength = 255;
             this.txtLocalidad.Name = "txtLocalidad";
             this.txtLocalidad.Size = new System.Drawing.Size(177, 20);
             this.txtLocalidad.TabIndex = 13;
@@ -405,6 +425,7 @@
             this.txtDepto.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDepto.Enabled = false;
             this.txtDepto.Location = new System.Drawing.Point(846, 36);
+            this.txtDepto.MaxLength = 50;
             this.txtDepto.Name = "txtDepto";
             this.txtDepto.Size = new System.Drawing.Size(43, 20);
             this.txtDepto.TabIndex = 11;
@@ -414,9 +435,11 @@
             this.txtPiso.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtPiso.Enabled = false;
             this.txtPiso.Location = new System.Drawing.Point(664, 36);
+            this.txtPiso.MaxLength = 18;
             this.txtPiso.Name = "txtPiso";
             this.txtPiso.Size = new System.Drawing.Size(43, 20);
             this.txtPiso.TabIndex = 10;
+            this.txtPiso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPiso_KeyPress_1);
             // 
             // label20
             // 
@@ -450,6 +473,7 @@
             this.txtMail.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtMail.Enabled = false;
             this.txtMail.Location = new System.Drawing.Point(396, 143);
+            this.txtMail.MaxLength = 255;
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(276, 20);
             this.txtMail.TabIndex = 6;
@@ -459,9 +483,11 @@
             this.txtTelefono.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Location = new System.Drawing.Point(100, 147);
+            this.txtTelefono.MaxLength = 18;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(149, 20);
             this.txtTelefono.TabIndex = 5;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress_1);
             // 
             // label17
             // 
@@ -486,15 +512,18 @@
             this.txtNroCalle.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtNroCalle.Enabled = false;
             this.txtNroCalle.Location = new System.Drawing.Point(465, 36);
+            this.txtNroCalle.MaxLength = 18;
             this.txtNroCalle.Name = "txtNroCalle";
             this.txtNroCalle.Size = new System.Drawing.Size(100, 20);
             this.txtNroCalle.TabIndex = 2;
+            this.txtNroCalle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroCalle_KeyPress_1);
             // 
             // txtCalle
             // 
             this.txtCalle.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCalle.Enabled = false;
             this.txtCalle.Location = new System.Drawing.Point(71, 36);
+            this.txtCalle.MaxLength = 255;
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(307, 20);
             this.txtCalle.TabIndex = 1;
@@ -516,6 +545,7 @@
             this.btnAlta.TabIndex = 8;
             this.btnAlta.Text = "Grabar";
             this.btnAlta.UseVisualStyleBackColor = true;
+            this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
             // 
             // AltaUsuario
             // 

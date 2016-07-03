@@ -80,6 +80,7 @@
             // dgvTotalFunc
             // 
             this.dgvTotalFunc.AllowUserToAddRows = false;
+            this.dgvTotalFunc.AllowUserToDeleteRows = false;
             this.dgvTotalFunc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTotalFunc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CheckFunc,
@@ -113,6 +114,7 @@
             // 
             this.txtNombreRol.Enabled = false;
             this.txtNombreRol.Location = new System.Drawing.Point(108, 25);
+            this.txtNombreRol.MaxLength = 50;
             this.txtNombreRol.Name = "txtNombreRol";
             this.txtNombreRol.Size = new System.Drawing.Size(188, 20);
             this.txtNombreRol.TabIndex = 1;

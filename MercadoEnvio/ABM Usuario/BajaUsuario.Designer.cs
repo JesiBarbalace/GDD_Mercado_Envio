@@ -96,6 +96,7 @@
             this.txtMailE.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtMailE.Enabled = false;
             this.txtMailE.Location = new System.Drawing.Point(661, 97);
+            this.txtMailE.MaxLength = 255;
             this.txtMailE.Name = "txtMailE";
             this.txtMailE.Size = new System.Drawing.Size(247, 20);
             this.txtMailE.TabIndex = 15;
@@ -105,6 +106,7 @@
             this.txtDocE.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDocE.Enabled = false;
             this.txtDocE.Location = new System.Drawing.Point(661, 67);
+            this.txtDocE.MaxLength = 50;
             this.txtDocE.Name = "txtDocE";
             this.txtDocE.Size = new System.Drawing.Size(170, 20);
             this.txtDocE.TabIndex = 14;
@@ -115,6 +117,7 @@
             this.txtRazonSocial.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtRazonSocial.Enabled = false;
             this.txtRazonSocial.Location = new System.Drawing.Point(661, 39);
+            this.txtRazonSocial.MaxLength = 255;
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(247, 20);
             this.txtRazonSocial.TabIndex = 13;
@@ -161,6 +164,7 @@
             this.txtMail.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtMail.Enabled = false;
             this.txtMail.Location = new System.Drawing.Point(108, 127);
+            this.txtMail.MaxLength = 255;
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(269, 20);
             this.txtMail.TabIndex = 9;
@@ -170,6 +174,7 @@
             this.txtDoc.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDoc.Enabled = false;
             this.txtDoc.Location = new System.Drawing.Point(108, 97);
+            this.txtDoc.MaxLength = 18;
             this.txtDoc.Name = "txtDoc";
             this.txtDoc.Size = new System.Drawing.Size(174, 20);
             this.txtDoc.TabIndex = 8;
@@ -180,6 +185,7 @@
             this.txtApellido.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtApellido.Enabled = false;
             this.txtApellido.Location = new System.Drawing.Point(108, 68);
+            this.txtApellido.MaxLength = 255;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(269, 20);
             this.txtApellido.TabIndex = 7;
@@ -189,6 +195,7 @@
             this.txtNombre.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(108, 39);
+            this.txtNombre.MaxLength = 255;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(269, 20);
             this.txtNombre.TabIndex = 6;

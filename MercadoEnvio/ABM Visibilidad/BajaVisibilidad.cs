@@ -14,7 +14,7 @@ namespace MercadoEnvio.ABM_Visibilidad
 {
     public partial class BajaVisibilidad : Form
     {
-
+        
         Single costoFijo;
         Single costoPorcentaje;
         Object costoEnvio;

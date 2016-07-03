@@ -142,7 +142,7 @@ namespace MercadoEnvio.ABM_Usuario
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
             //Validacion por vacio
-            int doc;
+            Int64 doc;
             string mail = txtMail.Text;
 
             if (String.Compare(txtNombre.Text, vacio) == 0)
@@ -158,7 +158,7 @@ namespace MercadoEnvio.ABM_Usuario
             if (String.Compare(txtDoc.Text, vacio) == 0)
                 doc = 0;
             else
-                doc = Int32.Parse(txtDoc.Text);
+                doc = Int64.Parse(txtDoc.Text);
 
             dtable = new CliEmp().ObtenerBusqClie(nombre, apellido, doc, mail);
             //limpiamos los renglones de la datagridview
@@ -179,9 +179,9 @@ namespace MercadoEnvio.ABM_Usuario
                     // dr.tipodedatosalmacenado(dr.getordinal(nombredelcampo_en_la_base_de_datos)conviertelo_a_string_sino_es_del_tipo_string);
                     dgvBusqCli.Rows[renglon].Cells["APELLIDO"].Value = Convert.ToString(dtRow["CLI_APELLIDO"]);
                     dgvBusqCli.Rows[renglon].Cells["NOMBRE"].Value = Convert.ToString(dtRow["CLI_NOMBRE"]);
-                    dgvBusqCli.Rows[renglon].Cells["DNI"].Value = Convert.ToInt32(dtRow["CLI_NRO_DOC"]);
-                    dgvBusqCli.Rows[renglon].Cells["HABILITADO"].Value = Convert.ToInt32(dtRow["USUARIO_HABILITADO"]);
-                    dgvBusqCli.Rows[renglon].Cells["USERNAMECLI"].Value = Convert.ToInt32(dtRow["USUARIO_USERNAME"]);
+                    dgvBusqCli.Rows[renglon].Cells["DNI"].Value = Convert.ToInt64(dtRow["CLI_NRO_DOC"]);
+                    dgvBusqCli.Rows[renglon].Cells["HABILITADO"].Value = Convert.ToInt64(dtRow["USUARIO_HABILITADO"]);
+                    dgvBusqCli.Rows[renglon].Cells["USERNAMECLI"].Value = Convert.ToInt64(dtRow["USUARIO_USERNAME"]);
                 }
             }
         }
@@ -224,7 +224,7 @@ namespace MercadoEnvio.ABM_Usuario
                     // dr.tipodedatosalmacenado(dr.getordinal(nombredelcampo_en_la_base_de_datos)conviertelo_a_string_sino_es_del_tipo_string);
                     dgvBusqEmp.Rows[renglon].Cells["RAZONS"].Value = Convert.ToString(dtRow["EMPRESA_RAZON_SOCIAL"]);
                     dgvBusqEmp.Rows[renglon].Cells["DOC"].Value = Convert.ToString(dtRow["EMPRESA_NRO_CUIT"]);
-                    dgvBusqEmp.Rows[renglon].Cells["HABILITADOE"].Value = Convert.ToInt32(dtRow["USUARIO_HABILITADO"]);
+                    dgvBusqEmp.Rows[renglon].Cells["HABILITADOE"].Value = Convert.ToInt64(dtRow["USUARIO_HABILITADO"]);
                     dgvBusqEmp.Rows[renglon].Cells["USERNAME"].Value = Convert.ToString(dtRow["USUARIO_USERNAME"]);
                 }
             }

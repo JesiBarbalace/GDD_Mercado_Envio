@@ -164,6 +164,7 @@
             // txtMailE
             // 
             this.txtMailE.Location = new System.Drawing.Point(661, 97);
+            this.txtMailE.MaxLength = 255;
             this.txtMailE.Name = "txtMailE";
             this.txtMailE.Size = new System.Drawing.Size(247, 20);
             this.txtMailE.TabIndex = 15;
@@ -171,6 +172,7 @@
             // txtDocE
             // 
             this.txtDocE.Location = new System.Drawing.Point(661, 67);
+            this.txtDocE.MaxLength = 50;
             this.txtDocE.Name = "txtDocE";
             this.txtDocE.Size = new System.Drawing.Size(170, 20);
             this.txtDocE.TabIndex = 14;
@@ -178,6 +180,7 @@
             // txtRazonSocial
             // 
             this.txtRazonSocial.Location = new System.Drawing.Point(661, 39);
+            this.txtRazonSocial.MaxLength = 255;
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(247, 20);
             this.txtRazonSocial.TabIndex = 13;
@@ -222,6 +225,7 @@
             // txtMail
             // 
             this.txtMail.Location = new System.Drawing.Point(108, 127);
+            this.txtMail.MaxLength = 255;
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(269, 20);
             this.txtMail.TabIndex = 9;
@@ -229,13 +233,16 @@
             // txtDoc
             // 
             this.txtDoc.Location = new System.Drawing.Point(108, 97);
+            this.txtDoc.MaxLength = 18;
             this.txtDoc.Name = "txtDoc";
             this.txtDoc.Size = new System.Drawing.Size(174, 20);
             this.txtDoc.TabIndex = 8;
+            this.txtDoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDoc_KeyPress_1);
             // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(108, 68);
+            this.txtApellido.MaxLength = 255;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(269, 20);
             this.txtApellido.TabIndex = 7;
@@ -243,6 +250,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(108, 39);
+            this.txtNombre.MaxLength = 255;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(269, 20);
             this.txtNombre.TabIndex = 6;
@@ -302,6 +310,7 @@
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(150, 21);
             this.cmbRoles.TabIndex = 0;
+            this.cmbRoles.SelectedIndexChanged += new System.EventHandler(this.cmbRoles_SelectedIndexChanged);
             this.cmbRoles.SelectedValueChanged += new System.EventHandler(this.cmbRoles_SelectedValueChanged);
             // 
             // dgvBusqCli
@@ -489,6 +498,7 @@
             this.txtPassCli.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtPassCli.Enabled = false;
             this.txtPassCli.Location = new System.Drawing.Point(143, 108);
+            this.txtPassCli.MaxLength = 255;
             this.txtPassCli.Name = "txtPassCli";
             this.txtPassCli.Size = new System.Drawing.Size(307, 20);
             this.txtPassCli.TabIndex = 26;
@@ -581,21 +591,25 @@
             this.txtFechNac.Name = "txtFechNac";
             this.txtFechNac.Size = new System.Drawing.Size(134, 20);
             this.txtFechNac.TabIndex = 14;
+            this.txtFechNac.TextChanged += new System.EventHandler(this.txtFechNac_TextChanged);
             // 
             // txtDoc1
             // 
             this.txtDoc1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDoc1.Enabled = false;
             this.txtDoc1.Location = new System.Drawing.Point(143, 80);
+            this.txtDoc1.MaxLength = 18;
             this.txtDoc1.Name = "txtDoc1";
             this.txtDoc1.Size = new System.Drawing.Size(136, 20);
             this.txtDoc1.TabIndex = 11;
+            this.txtDoc1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDoc1_KeyPress);
             // 
             // txtNombreCli
             // 
             this.txtNombreCli.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtNombreCli.Enabled = false;
             this.txtNombreCli.Location = new System.Drawing.Point(143, 51);
+            this.txtNombreCli.MaxLength = 255;
             this.txtNombreCli.Name = "txtNombreCli";
             this.txtNombreCli.Size = new System.Drawing.Size(307, 20);
             this.txtNombreCli.TabIndex = 10;
@@ -605,6 +619,7 @@
             this.txtApeCli.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtApeCli.Enabled = false;
             this.txtApeCli.Location = new System.Drawing.Point(143, 21);
+            this.txtApeCli.MaxLength = 255;
             this.txtApeCli.Name = "txtApeCli";
             this.txtApeCli.Size = new System.Drawing.Size(307, 20);
             this.txtApeCli.TabIndex = 9;
@@ -668,6 +683,7 @@
             this.txtCiudad.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCiudad.Enabled = false;
             this.txtCiudad.Location = new System.Drawing.Point(664, 51);
+            this.txtCiudad.MaxLength = 255;
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(141, 20);
             this.txtCiudad.TabIndex = 17;
@@ -686,6 +702,7 @@
             this.txtCP.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCP.Enabled = false;
             this.txtCP.Location = new System.Drawing.Point(396, 51);
+            this.txtCP.MaxLength = 50;
             this.txtCP.Name = "txtCP";
             this.txtCP.Size = new System.Drawing.Size(100, 20);
             this.txtCP.TabIndex = 15;
@@ -704,6 +721,7 @@
             this.txtLocalidad.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtLocalidad.Enabled = false;
             this.txtLocalidad.Location = new System.Drawing.Point(100, 51);
+            this.txtLocalidad.MaxLength = 255;
             this.txtLocalidad.Name = "txtLocalidad";
             this.txtLocalidad.Size = new System.Drawing.Size(177, 20);
             this.txtLocalidad.TabIndex = 13;
@@ -750,6 +768,7 @@
             this.txtDepto.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDepto.Enabled = false;
             this.txtDepto.Location = new System.Drawing.Point(846, 20);
+            this.txtDepto.MaxLength = 50;
             this.txtDepto.Name = "txtDepto";
             this.txtDepto.Size = new System.Drawing.Size(43, 20);
             this.txtDepto.TabIndex = 11;
@@ -759,9 +778,11 @@
             this.txtPiso.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtPiso.Enabled = false;
             this.txtPiso.Location = new System.Drawing.Point(664, 20);
+            this.txtPiso.MaxLength = 18;
             this.txtPiso.Name = "txtPiso";
             this.txtPiso.Size = new System.Drawing.Size(43, 20);
             this.txtPiso.TabIndex = 10;
+            this.txtPiso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPiso_KeyPress_1);
             // 
             // label20
             // 
@@ -795,6 +816,7 @@
             this.txtMailB.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtMailB.Enabled = false;
             this.txtMailB.Location = new System.Drawing.Point(396, 85);
+            this.txtMailB.MaxLength = 255;
             this.txtMailB.Name = "txtMailB";
             this.txtMailB.Size = new System.Drawing.Size(276, 20);
             this.txtMailB.TabIndex = 6;
@@ -804,9 +826,11 @@
             this.txtTelefono.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Location = new System.Drawing.Point(100, 89);
+            this.txtTelefono.MaxLength = 18;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(149, 20);
             this.txtTelefono.TabIndex = 5;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress_1);
             // 
             // label26
             // 
@@ -831,6 +855,7 @@
             this.txtNroCalle.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtNroCalle.Enabled = false;
             this.txtNroCalle.Location = new System.Drawing.Point(465, 20);
+            this.txtNroCalle.MaxLength = 18;
             this.txtNroCalle.Name = "txtNroCalle";
             this.txtNroCalle.Size = new System.Drawing.Size(100, 20);
             this.txtNroCalle.TabIndex = 2;
@@ -840,6 +865,7 @@
             this.txtCalle.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCalle.Enabled = false;
             this.txtCalle.Location = new System.Drawing.Point(71, 20);
+            this.txtCalle.MaxLength = 255;
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(307, 20);
             this.txtCalle.TabIndex = 1;
@@ -895,7 +921,7 @@
             this.DOC,
             this.HABILITADOEMP,
             this.USERNAMEEMP});
-            this.dgvBusqEmp.Location = new System.Drawing.Point(12, 190);
+            this.dgvBusqEmp.Location = new System.Drawing.Point(14, 190);
             this.dgvBusqEmp.Name = "dgvBusqEmp";
             this.dgvBusqEmp.Size = new System.Drawing.Size(1001, 149);
             this.dgvBusqEmp.TabIndex = 13;
