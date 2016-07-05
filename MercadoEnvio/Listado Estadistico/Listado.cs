@@ -49,26 +49,31 @@ namespace MercadoEnvio.Listado_Estadistico
             }
             string view = string.Empty;
             string where = string.Empty;
+            string orderby = string.Empty;
             switch (cmbListados.SelectedValue.ToString())
             {
                 case "1":// "Vendedores con Productos No Vendidos":
                     view = "RECUR.VW_VENDEDORES_PRODUCTOS_SIN_VENDER";
                     where = " AND UPPER(GRADO_DE_VISIBILIDAD) = RTRIM(LTRIM('" + cmbVisibilidad.SelectedValue.ToString().ToUpper() + "'))";
+                    orderby = "ORDER BY TRIMESTRE DESC, AÑO DESC, TV.VISIBILIDAD_DESC DESC";
                     break;
                 case "2":// "Clientes con Productos Comprados":
                     view = "RECUR.VW_MEJORES_COMPRADORES";
                     where = " AND UPPER(RUBRO) = RTRIM(LTRIM('" + cmbRubro.Text.ToString().ToUpper() + "'))";
+                    orderby = " ORDER BY CANTIDAD_DE_PRODUCTOS_COMPRADOS DESC ";
                     break;
                 case "3":// "Vendedores con Facturas":
-                    view = "RECUR.VW_MEJORES_VENDEDORES";                  
+                    view = "RECUR.VW_MEJORES_VENDEDORES";  
+                    orderby = "ORDER BY CANTIDAD_DE_FACTURAS DESC";
                     break;
                 case "4"://"Vendedores con Monto Facturado":
                     view = "RECUR.VW_VENDEDORES_MEJOR_FACTURACION";
+                    orderby = "ORDER BY MONTO_FACTURADO DESC";
                     break;
             }
-
+            
             string sql = string.Empty;
-            sql = "SELECT * FROM " + view + " WHERE AÑO = " + cmbAño.SelectedValue.ToString() + " AND TRIMESTRE = " + cmbTrimestre.SelectedValue.ToString() + where;
+            sql = "SELECT TOP 5 * FROM " + view + " WHERE AÑO = " + cmbAño.SelectedValue.ToString() + " AND TRIMESTRE = " + cmbTrimestre.SelectedValue.ToString() + where + orderby;
 
             dataGridView1.DataSource = GetDataTableListados(sql);
             

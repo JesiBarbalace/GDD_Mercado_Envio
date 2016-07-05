@@ -60,7 +60,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(859, 105);
+            this.groupBox1.Size = new System.Drawing.Size(859, 116);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
@@ -68,7 +68,7 @@
             // lblVisibilidad
             // 
             this.lblVisibilidad.AutoSize = true;
-            this.lblVisibilidad.Location = new System.Drawing.Point(526, 28);
+            this.lblVisibilidad.Location = new System.Drawing.Point(361, 29);
             this.lblVisibilidad.Name = "lblVisibilidad";
             this.lblVisibilidad.Size = new System.Drawing.Size(53, 13);
             this.lblVisibilidad.TabIndex = 10;
@@ -77,7 +77,7 @@
             // cmbVisibilidad
             // 
             this.cmbVisibilidad.FormattingEnabled = true;
-            this.cmbVisibilidad.Location = new System.Drawing.Point(602, 25);
+            this.cmbVisibilidad.Location = new System.Drawing.Point(420, 26);
             this.cmbVisibilidad.Name = "cmbVisibilidad";
             this.cmbVisibilidad.Size = new System.Drawing.Size(121, 21);
             this.cmbVisibilidad.TabIndex = 9;
@@ -85,15 +85,15 @@
             // cmbRubro
             // 
             this.cmbRubro.FormattingEnabled = true;
-            this.cmbRubro.Location = new System.Drawing.Point(343, 59);
+            this.cmbRubro.Location = new System.Drawing.Point(420, 56);
             this.cmbRubro.Name = "cmbRubro";
-            this.cmbRubro.Size = new System.Drawing.Size(137, 21);
+            this.cmbRubro.Size = new System.Drawing.Size(190, 21);
             this.cmbRubro.TabIndex = 8;
             // 
             // lblRubro
             // 
             this.lblRubro.AutoSize = true;
-            this.lblRubro.Location = new System.Drawing.Point(253, 62);
+            this.lblRubro.Location = new System.Drawing.Point(361, 64);
             this.lblRubro.Name = "lblRubro";
             this.lblRubro.Size = new System.Drawing.Size(36, 13);
             this.lblRubro.TabIndex = 7;
@@ -113,13 +113,13 @@
             this.cmbListados.FormattingEnabled = true;
             this.cmbListados.Location = new System.Drawing.Point(75, 54);
             this.cmbListados.Name = "cmbListados";
-            this.cmbListados.Size = new System.Drawing.Size(121, 21);
+            this.cmbListados.Size = new System.Drawing.Size(228, 21);
             this.cmbListados.TabIndex = 5;
             this.cmbListados.SelectedIndexChanged += new System.EventHandler(this.cmbListados_SelectedIndexChanged);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(752, 59);
+            this.btnBuscar.Location = new System.Drawing.Point(721, 42);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(107, 33);
             this.btnBuscar.TabIndex = 4;
@@ -130,9 +130,9 @@
             // cmbTrimestre
             // 
             this.cmbTrimestre.FormattingEnabled = true;
-            this.cmbTrimestre.Location = new System.Drawing.Point(343, 26);
+            this.cmbTrimestre.Location = new System.Drawing.Point(75, 81);
             this.cmbTrimestre.Name = "cmbTrimestre";
-            this.cmbTrimestre.Size = new System.Drawing.Size(137, 21);
+            this.cmbTrimestre.Size = new System.Drawing.Size(228, 21);
             this.cmbTrimestre.TabIndex = 3;
             // 
             // cmbAño
@@ -146,7 +146,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(253, 28);
+            this.label2.Location = new System.Drawing.Point(20, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 1;
@@ -164,7 +164,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 122);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 135);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(859, 150);
             this.dataGridView1.TabIndex = 1;
@@ -173,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 284);
+            this.ClientSize = new System.Drawing.Size(901, 311);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Listado";
