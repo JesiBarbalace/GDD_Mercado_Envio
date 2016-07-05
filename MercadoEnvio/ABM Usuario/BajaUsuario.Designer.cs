@@ -121,6 +121,7 @@
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(247, 20);
             this.txtRazonSocial.TabIndex = 13;
+            this.txtRazonSocial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocE_KeyPress);
             // 
             // label8
             // 

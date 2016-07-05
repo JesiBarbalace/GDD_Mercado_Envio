@@ -190,6 +190,7 @@
             this.modificarPublicaciónToolStripMenuItem.Name = "modificarPublicaciónToolStripMenuItem";
             this.modificarPublicaciónToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.modificarPublicaciónToolStripMenuItem.Text = "Modificar Publicación";
+            this.modificarPublicaciónToolStripMenuItem.Click += new System.EventHandler(this.modificarPublicaciónToolStripMenuItem_Click);
             // 
             // comprarOfertarToolStripMenuItem
             // 

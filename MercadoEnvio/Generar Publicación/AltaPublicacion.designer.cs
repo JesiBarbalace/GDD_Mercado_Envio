@@ -116,6 +116,7 @@
             // cbEnvio
             // 
             this.cbEnvio.AutoSize = true;
+            this.cbEnvio.Enabled = false;
             this.cbEnvio.Location = new System.Drawing.Point(226, 545);
             this.cbEnvio.Name = "cbEnvio";
             this.cbEnvio.Size = new System.Drawing.Size(88, 17);
@@ -126,6 +127,7 @@
             // cbPreguntas
             // 
             this.cbPreguntas.AutoSize = true;
+            this.cbPreguntas.Enabled = false;
             this.cbPreguntas.Location = new System.Drawing.Point(14, 545);
             this.cbPreguntas.Name = "cbPreguntas";
             this.cbPreguntas.Size = new System.Drawing.Size(111, 17);
@@ -135,6 +137,7 @@
             // 
             // cmbEstado
             // 
+            this.cmbEstado.Enabled = false;
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Location = new System.Drawing.Point(115, 497);
             this.cmbEstado.Name = "cmbEstado";
@@ -143,6 +146,8 @@
             // 
             // txtUsuario
             // 
+            this.txtUsuario.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtUsuario.Enabled = false;
             this.txtUsuario.Location = new System.Drawing.Point(115, 456);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(100, 20);
@@ -150,6 +155,7 @@
             // 
             // txtCosto
             // 
+            this.txtCosto.Enabled = false;
             this.txtCosto.Location = new System.Drawing.Point(115, 418);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(100, 20);
@@ -157,14 +163,17 @@
             // 
             // cmbVisibilidad
             // 
+            this.cmbVisibilidad.Enabled = false;
             this.cmbVisibilidad.FormattingEnabled = true;
             this.cmbVisibilidad.Location = new System.Drawing.Point(115, 380);
             this.cmbVisibilidad.Name = "cmbVisibilidad";
             this.cmbVisibilidad.Size = new System.Drawing.Size(199, 21);
             this.cmbVisibilidad.TabIndex = 20;
+            this.cmbVisibilidad.SelectedValueChanged += new System.EventHandler(this.cmbVisibilidad_SelectedValueChanged);
             // 
             // cmbRubro
             // 
+            this.cmbRubro.Enabled = false;
             this.cmbRubro.FormattingEnabled = true;
             this.cmbRubro.Location = new System.Drawing.Point(115, 339);
             this.cmbRubro.Name = "cmbRubro";
@@ -173,6 +182,7 @@
             // 
             // txtPrecio
             // 
+            this.txtPrecio.Enabled = false;
             this.txtPrecio.Location = new System.Drawing.Point(116, 300);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
@@ -180,6 +190,7 @@
             // 
             // dpVencimiento
             // 
+            this.dpVencimiento.Enabled = false;
             this.dpVencimiento.Location = new System.Drawing.Point(116, 264);
             this.dpVencimiento.Name = "dpVencimiento";
             this.dpVencimiento.Size = new System.Drawing.Size(200, 20);
@@ -187,6 +198,7 @@
             // 
             // dpInicio
             // 
+            this.dpInicio.Enabled = false;
             this.dpInicio.Location = new System.Drawing.Point(115, 224);
             this.dpInicio.Name = "dpInicio";
             this.dpInicio.Size = new System.Drawing.Size(200, 20);
@@ -194,6 +206,7 @@
             // 
             // txtStock
             // 
+            this.txtStock.Enabled = false;
             this.txtStock.Location = new System.Drawing.Point(115, 189);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(100, 20);
@@ -201,6 +214,7 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.Enabled = false;
             this.txtDescripcion.Location = new System.Drawing.Point(115, 59);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
@@ -330,6 +344,7 @@
             this.btnAlta.TabIndex = 3;
             this.btnAlta.Text = "Alta Publicación";
             this.btnAlta.UseVisualStyleBackColor = true;
+            this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
             // 
             // AltaPublicacion
             // 
@@ -341,6 +356,7 @@
             this.Controls.Add(this.cmbPubli);
             this.Controls.Add(this.label1);
             this.Name = "AltaPublicacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generar Nueva Publicación";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -91,7 +91,7 @@ namespace MercadoEnvio.Mappings
             
         }	
 
-        public Usuario ModificarIntento(string Msg)
+        public Usuario ModificarIntento(string Msg, string pass)
         {
                   #region ModificarValor en base a lo procesado
                     BasedeDatosForm bd = new BasedeDatosForm();
@@ -106,6 +106,7 @@ namespace MercadoEnvio.Mappings
                         cmd2.Parameters.Add("@Habilitado", SqlDbType.Int).Value = this.usuarioHabilitado;
                         cmd2.Parameters.Add("@UsuarioId", SqlDbType.Int).Value = this.usuarioId;
                         cmd2.Parameters.Add("@Ingresado", SqlDbType.Int).Value = this.usuarioIngresado;
+                        cmd2.Parameters.Add("@Pass", SqlDbType.NVarChar).Value = pass;
 
                         cmd2.ExecuteNonQuery();
 

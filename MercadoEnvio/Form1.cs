@@ -83,7 +83,7 @@ namespace MercadoEnvio
                         #endregion
                     }
 
-                    usu = usu.ModificarIntento(Msg);
+                    usu = usu.ModificarIntento(Msg, valorEncriptado);
 
                     if (usu == null)
                     {
@@ -157,5 +157,18 @@ namespace MercadoEnvio
 
         }
 
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            if (MessageBox.Show("Desea cerrar la aplicación?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+                
+            }
+            else
+                e.Cancel = true;
+
+        }
       }
 }
