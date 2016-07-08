@@ -54,10 +54,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cmbPubli = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmbPubli = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,6 +153,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(135, 20);
             this.txtCodigo.TabIndex = 13;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // btnGrabar
             // 
@@ -161,6 +163,7 @@
             this.btnGrabar.TabIndex = 7;
             this.btnGrabar.Text = "Grabar Publicación";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Visible = false;
             // 
             // cbPreguntas
             // 
@@ -303,23 +306,7 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de la Publicación";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(11, 505);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 13);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "Estado";
-            // 
-            // cmbPubli
-            // 
-            this.cmbPubli.FormattingEnabled = true;
-            this.cmbPubli.Location = new System.Drawing.Point(117, 24);
-            this.cmbPubli.Name = "cmbPubli";
-            this.cmbPubli.Size = new System.Drawing.Size(199, 21);
-            this.cmbPubli.TabIndex = 5;
+            this.groupBox1.Visible = false;
             // 
             // label1
             // 
@@ -330,6 +317,23 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Tipo de Publicación";
             // 
+            // cmbPubli
+            // 
+            this.cmbPubli.FormattingEnabled = true;
+            this.cmbPubli.Location = new System.Drawing.Point(117, 24);
+            this.cmbPubli.Name = "cmbPubli";
+            this.cmbPubli.Size = new System.Drawing.Size(199, 21);
+            this.cmbPubli.TabIndex = 5;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(11, 505);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Estado";
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(428, 11);
@@ -338,18 +342,32 @@
             this.btnBuscar.TabIndex = 14;
             this.btnBuscar.Text = "Buscar Publicación";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(311, 644);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(114, 40);
+            this.btnLimpiar.TabIndex = 15;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Visible = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // ModificarPublicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 689);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label2);
             this.Name = "ModificarPublicacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Publicación";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -390,5 +408,6 @@
         private System.Windows.Forms.ComboBox cmbPubli;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

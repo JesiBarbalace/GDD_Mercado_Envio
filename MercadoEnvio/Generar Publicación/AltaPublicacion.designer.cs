@@ -71,6 +71,7 @@
             // 
             // cmbPubli
             // 
+            this.cmbPubli.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPubli.FormattingEnabled = true;
             this.cmbPubli.Location = new System.Drawing.Point(140, 10);
             this.cmbPubli.Name = "cmbPubli";
@@ -163,6 +164,7 @@
             // 
             // cmbVisibilidad
             // 
+            this.cmbVisibilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVisibilidad.Enabled = false;
             this.cmbVisibilidad.FormattingEnabled = true;
             this.cmbVisibilidad.Location = new System.Drawing.Point(115, 380);
@@ -173,6 +175,7 @@
             // 
             // cmbRubro
             // 
+            this.cmbRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRubro.Enabled = false;
             this.cmbRubro.FormattingEnabled = true;
             this.cmbRubro.Location = new System.Drawing.Point(115, 339);

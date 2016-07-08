@@ -100,28 +100,21 @@ namespace MercadoEnvio.Mappings
         }
 
 
-        public decimal ObtenerCostoVisi(string tipoVisi)
+        public DataTable ObtenerDatosVisi(string tipoVisi)
         {
-            decimal retorno = 0;
-
             BasedeDatosForm bd = new BasedeDatosForm();
             bd.openConnection();
-            SqlCommand cmd = new SqlCommand("[RECUR].[ObtenerCostoVisi]", bd.conexion);
+            SqlCommand cmd = new SqlCommand("[RECUR].[ObtenerDatosVisi]", bd.conexion);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@CostoVisi", SqlDbType.NVarChar).Value = tipoVisi;
-
-            SqlDataReader dr = cmd.ExecuteReader();
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
 
             try
             {
-                if (dr.HasRows)
-                {
-                    while (dr.Read())
-                    {
-                        retorno = dr.GetDecimal(0);
-                    }
-                }
+                cmd.Parameters.Add("@CostoVisi", SqlDbType.NVarChar).Value = tipoVisi;
+               
+                adp.Fill(dt);
 
             }
             catch (SqlException db)
@@ -133,8 +126,9 @@ namespace MercadoEnvio.Mappings
                 bd.closeConnection();
                 cmd.Dispose();
             }
-            return retorno;
+            return dt;
         }
+        
 
         public int AltaPublicacion(Int64 codigo, string descrip, int stock, DateTime inicio, DateTime venc, Decimal precio, string rubroguarda, string visiguarda, Decimal costo, string user, string estado, bool preg, bool envio, string tipopubli)
         {
@@ -179,6 +173,36 @@ namespace MercadoEnvio.Mappings
                 cmd.Dispose();
             }
             return retorno;
+        }
+
+        public DataTable getCodPubli(decimal codigo )
+        {
+
+            BasedeDatosForm bd = new BasedeDatosForm();
+            bd.openConnection();
+            SqlCommand cmd = new SqlCommand("[RECUR].[getCodPubli]", bd.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                cmd.Parameters.Add("@CodPubli", SqlDbType.Decimal).Value = codigo;
+               
+                adp.Fill(dt);
+
+            }
+            catch (SqlException db)
+            {
+                throw db;
+            }
+            finally
+            {
+                bd.closeConnection();
+                cmd.Dispose();
+            }
+            return dt;
         }
 
     }

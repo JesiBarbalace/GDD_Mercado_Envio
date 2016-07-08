@@ -55,6 +55,13 @@ namespace MercadoEnvio.Generar_Publicación
             }
             string texto = "Seleccionar Visibilidad";
 
+            txtDescripcion.Clear();
+            txtStock.Clear();
+            txtPrecio.Clear();
+            txtCosto.Clear();
+            txtUsuario.Clear();
+            txtStock.BackColor = SystemColors.Window;
+
                 btnAlta.Visible = true;
                 txtDescripcion.Enabled = true;
                 txtStock.Enabled = true;
@@ -85,6 +92,13 @@ namespace MercadoEnvio.Generar_Publicación
                 cmbEstado.DisplayMember = "Borrador";
 
                 txtUsuario.Text = username;
+
+                if (cmbPubli.Text == "Subasta")
+                {
+                    txtStock.Text = "1";
+                    txtStock.ReadOnly = true;
+                    txtStock.BackColor = SystemColors.ControlLight;
+                }
             
         }
                 
@@ -174,43 +188,137 @@ namespace MercadoEnvio.Generar_Publicación
 
                         else
                         {
-                            Int64 codigo = Int64.Parse(txtCodigo.Text);
-                            string descrip = txtDescripcion.Text;
-                            int stock = int.Parse(txtStock.Text);
-                            DateTime inicio = dpInicio.Value;
-                            DateTime venc = dpVencimiento.Value;
-                            Decimal precio = decimal.Parse(txtPrecio.Text);
-                            string rubroguarda = cmbRubro.Text;
-                            string visiguarda = cmbVisibilidad.Text;
-                            Decimal costo = Decimal.Parse(txtCosto.Text);
-                            string user = txtUsuario.Text;
-                            string estado = cmbEstado.Text;
-                            bool preg = cbPreguntas.Checked;
-                            bool envio = cbEnvio.Checked;
-                            string tipopubli = cmbPubli.Text;
-
-
-                            resultado = new Publicacion().AltaPublicacion(codigo, descrip, stock, inicio, venc, precio, rubroguarda, visiguarda, costo, user, estado, preg, envio, tipopubli);
-
-                            if (resultado == 1)
-                            {
-                                MessageBox.Show("La publicación se generó correctamente");
-
-                                //    label9.ForeColor = SystemColors.ControlText;
-                                //    label12.ForeColor = SystemColors.ControlText;
-                                //    label30.ForeColor = SystemColors.ControlText;
-                                //    label14.ForeColor = SystemColors.ControlText;
-
-
-                                //    txtRazonEmp.Clear();
-                                //    label10.Visible = false;
-                                //    btnGrabar.Visible = false;
-                                //    btnHabilitar.Visible = false;
-                            }
+                            DateTime feinicio = dpInicio.Value;
+                            DateTime fin = dpVencimiento.Value;
+                            int result = DateTime.Compare(feinicio, fin);
+                            if (result <= 0)
+                                MessageBox.Show("La fecha de venicmiento debe ser mayor a la fecha de inicio.");
                             else
-                                MessageBox.Show("Hubo un problema al generar la publicación, intente nuevamente");
+                            {
+                                Int64 codigo = Int64.Parse(txtCodigo.Text);
+                                string descrip = txtDescripcion.Text;
+                                int stock = int.Parse(txtStock.Text);
+                                DateTime inicio = dpInicio.Value;
+                                DateTime venc = dpVencimiento.Value;
+                                Decimal precio = decimal.Parse(txtPrecio.Text);
+                                string rubroguarda = cmbRubro.Text;
+                                string visiguarda = cmbVisibilidad.Text;
+                                Decimal costo = Decimal.Parse(txtCosto.Text);
+                                string user = txtUsuario.Text;
+                                string estado = cmbEstado.Text;
+                                bool preg = cbPreguntas.Checked;
+                                bool envio = cbEnvio.Checked;
+                                string tipopubli = cmbPubli.Text;
+
+
+                                resultado = new Publicacion().AltaPublicacion(codigo, descrip, stock, inicio, venc, precio, rubroguarda, visiguarda, costo, user, estado, preg, envio, tipopubli);
+
+                                if (resultado == 1)
+                                {
+                                    MessageBox.Show("La publicación se generó correctamente");
+
+                                    label3.ForeColor = SystemColors.ControlText;
+                                    label4.ForeColor = SystemColors.ControlText;
+                                    label7.ForeColor = SystemColors.ControlText;
+                                    label8.ForeColor = SystemColors.ControlText;
+                                    label9.ForeColor = SystemColors.ControlText;
+                                    label10.ForeColor = SystemColors.ControlText;
+
+                                    txtCodigo.Clear();
+                                    txtDescripcion.Clear();
+                                    txtStock.Clear();
+                                    txtPrecio.Clear();
+                                    cmbRubro.Text = "";
+                                    cmbVisibilidad.Text = "";
+                                    txtCosto.Clear();
+                                    cmbEstado.Text = "";
+                                    txtUsuario.Clear();
+                                    cbPreguntas.Checked = false;
+                                    cbEnvio.Checked = false;
+                                    btnAlta.Visible = false;
+
+                                }
+                                else
+                                    MessageBox.Show("Hubo un problema al generar la publicación, intente nuevamente");
+                            }
                         }
                     }
+                }
+            }
+
+            if (cmbPubli.Text == "Subasta")
+            {
+                if ((String.Compare(txtDescripcion.Text, vacio) == 0) || (String.Compare(txtPrecio.Text, vacio) == 0) || (String.Compare(cmbRubro.Text, vacio) == 0) || (String.Compare(cmbVisibilidad.Text, vacio) == 0) || (String.Compare(txtCosto.Text, vacio) == 0) || (String.Compare(cmbRubro.Text, rubro) == 0) || (String.Compare(cmbVisibilidad.Text, visi) == 0))
+                {
+                    MessageBox.Show("Faltan completar algunos campos obligatorios. Revise los campos en rojo.");
+                    label3.ForeColor = Color.Red;
+                    label7.ForeColor = Color.Red;
+                    label8.ForeColor = Color.Red;
+                    label9.ForeColor = Color.Red;
+                    label10.ForeColor = Color.Red;
+
+                }
+                else
+                {
+                        if (decimal.Parse(txtPrecio.Text) == 0)
+                            MessageBox.Show("El precio debe ser mayor a cero.");
+
+                        else
+                        {
+                            DateTime feinicio = dpInicio.Value;
+                            DateTime fin = dpVencimiento.Value;
+                            int result = DateTime.Compare(feinicio, fin);
+                            if (result <= 0)
+                                MessageBox.Show("La fecha de venicmiento debe ser mayor a la fecha de inicio.");
+                            else
+                            {
+                                Int64 codigo = Int64.Parse(txtCodigo.Text);
+                                string descrip = txtDescripcion.Text;
+                                int stock = int.Parse(txtStock.Text);
+                                DateTime inicio = dpInicio.Value;
+                                DateTime venc = dpVencimiento.Value;
+                                Decimal precio = decimal.Parse(txtPrecio.Text);
+                                string rubroguarda = cmbRubro.Text;
+                                string visiguarda = cmbVisibilidad.Text;
+                                Decimal costo = Decimal.Parse(txtCosto.Text);
+                                string user = txtUsuario.Text;
+                                string estado = cmbEstado.Text;
+                                bool preg = cbPreguntas.Checked;
+                                bool envio = cbEnvio.Checked;
+                                string tipopubli = cmbPubli.Text;
+
+
+                                resultado = new Publicacion().AltaPublicacion(codigo, descrip, stock, inicio, venc, precio, rubroguarda, visiguarda, costo, user, estado, preg, envio, tipopubli);
+
+                                if (resultado == 1)
+                                {
+                                    MessageBox.Show("La publicación se generó correctamente");
+
+                                    label3.ForeColor = SystemColors.ControlText;
+                                    label7.ForeColor = SystemColors.ControlText;
+                                    label8.ForeColor = SystemColors.ControlText;
+                                    label9.ForeColor = SystemColors.ControlText;
+                                    label10.ForeColor = SystemColors.ControlText;
+
+                                    txtCodigo.Clear();
+                                    txtDescripcion.Clear();
+                                    txtStock.Clear();
+                                    txtPrecio.Clear();
+                                    cmbRubro.Text = "";
+                                    cmbVisibilidad.Text = "";
+                                    txtCosto.Clear();
+                                    cmbEstado.Text = "";
+                                    txtUsuario.Clear();
+                                    cbPreguntas.Checked = false;
+                                    cbEnvio.Checked = false;
+                                    btnAlta.Visible = false;
+
+                                }
+                                else
+                                    MessageBox.Show("Hubo un problema al generar la publicación, intente nuevamente");
+                            }
+                        }
+                    
                 }
             }
         }
@@ -227,13 +335,22 @@ namespace MercadoEnvio.Generar_Publicación
 
         private void cmbVisibilidad_SelectedValueChanged(object sender, EventArgs e)
         {
-            decimal costo;
+            
+            DataTable dtable;
             string tipoVisi = cmbVisibilidad.Text;
-           
-            costo = new Publicacion().ObtenerCostoVisi(tipoVisi);
-            txtCosto.Text = costo.ToString();
-        
+            dtable = new Publicacion().ObtenerDatosVisi(tipoVisi);
+
+            foreach (DataRow dtRow in dtable.Rows)
+                {
+
+                  txtCosto.Text = Convert.ToString(dtRow["VISIBILIDAD_COSTO_FIJO"]);
+                  if (dtRow["VISIBILIDAD_COSTO_ENVIO"] == DBNull.Value)
+                        cbEnvio.Enabled=false;
+                  else
+                        cbEnvio.Enabled=true;
+                }
+            }
         }
 
     }
-}
+
