@@ -14,7 +14,7 @@ namespace MercadoEnvio.Listado_Estadistico
 {
     public partial class Listado : Form
     {
-        List<string> años = new List<string>{ "2014","2015","2016","2017" } ;
+        List<string> años = new List<string> { "2014", "2015", "2016", "2017" };
         List<Trimestre> trimestres = new List<Trimestre>();
         List<Listados> listados = new List<Listados>();
 
@@ -26,13 +26,13 @@ namespace MercadoEnvio.Listado_Estadistico
 
         public void Listado_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void CargarDatosTops()
-        { 
-        
-        
+        {
+
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace MercadoEnvio.Listado_Estadistico
                 MessageBox.Show("No hay filtros seleccionados");
                 return;
             }
-            if(string.IsNullOrEmpty(cmbListados.SelectedValue.ToString())) 
+            if (string.IsNullOrEmpty(cmbListados.SelectedValue.ToString()))
             {
                 MessageBox.Show("No hay listados seleccionados");
                 return;
@@ -55,7 +55,7 @@ namespace MercadoEnvio.Listado_Estadistico
                 case "1":// "Vendedores con Productos No Vendidos":
                     view = "RECUR.VW_VENDEDORES_PRODUCTOS_SIN_VENDER";
                     where = " AND UPPER(GRADO_DE_VISIBILIDAD) = RTRIM(LTRIM('" + cmbVisibilidad.SelectedValue.ToString().ToUpper() + "'))";
-                    orderby = "ORDER BY TRIMESTRE DESC, AÑO DESC, TV.VISIBILIDAD_DESC DESC";
+                    orderby = "ORDER BY TRIMESTRE DESC, AÑO DESC, GRADO_DE_VISIBILIDAD DESC";
                     break;
                 case "2":// "Clientes con Productos Comprados":
                     view = "RECUR.VW_MEJORES_COMPRADORES";
@@ -63,25 +63,25 @@ namespace MercadoEnvio.Listado_Estadistico
                     orderby = " ORDER BY CANTIDAD_DE_PRODUCTOS_COMPRADOS DESC ";
                     break;
                 case "3":// "Vendedores con Facturas":
-                    view = "RECUR.VW_MEJORES_VENDEDORES";  
-                    orderby = "ORDER BY CANTIDAD_DE_FACTURAS DESC";
+                    view = "RECUR.VW_MEJORES_VENDEDORES";
+                    orderby = " ORDER BY CANTIDAD_FACTURAS DESC";
                     break;
                 case "4"://"Vendedores con Monto Facturado":
                     view = "RECUR.VW_VENDEDORES_MEJOR_FACTURACION";
                     orderby = "ORDER BY MONTO_FACTURADO DESC";
                     break;
             }
-            
+
             string sql = string.Empty;
             sql = "SELECT TOP 5 * FROM " + view + " WHERE AÑO = " + cmbAño.SelectedValue.ToString() + " AND TRIMESTRE = " + cmbTrimestre.SelectedValue.ToString() + where + orderby;
 
             dataGridView1.DataSource = GetDataTableListados(sql);
-            
+
         }
 
         private void CargarCombos()
         {
-            
+
             cmbAño.DataSource = años;
             cmbTrimestre.DataSource = new Trimestre().GetTrimestres();
             cmbTrimestre.ValueMember = "ID";
@@ -99,7 +99,6 @@ namespace MercadoEnvio.Listado_Estadistico
             cmbListados_SelectedIndexChanged(null, null);
         }
 
-        
 
         public DataTable GetDataTableListados(string sql)
         {
@@ -107,7 +106,7 @@ namespace MercadoEnvio.Listado_Estadistico
             BasedeDatosForm bd = new BasedeDatosForm();
             bd.openConnection();
             SqlCommand cmd = new SqlCommand(sql, bd.conexion);
-            
+
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             try
@@ -129,7 +128,7 @@ namespace MercadoEnvio.Listado_Estadistico
 
         private void cmbListados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ( cmbListados.SelectedValue.ToString() == "2") //Filtro rubro
+            if (cmbListados.SelectedValue.ToString() == "2") //Filtro rubro
             {
                 cmbRubro.Visible = true;
                 lblRubro.Visible = true;
@@ -168,16 +167,16 @@ namespace MercadoEnvio.Listado_Estadistico
                                                 "Vendedores con Facturas","Vendedores con Monto Facturado"};
             List<Listados> listados = new List<Listados>();
             Listados list;
-            for (int i = 1; i <= lista.Count ;i++ )
+            for (int i = 1; i <= lista.Count; i++)
             {
                 list = new Listados();
                 list.ID = i;
-                list.Descripcion = lista[i-1];
+                list.Descripcion = lista[i - 1];
                 listados.Add(list);
             }
             return listados;
         }
-        
+
     }
 
 
