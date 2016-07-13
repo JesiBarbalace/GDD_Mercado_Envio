@@ -192,7 +192,7 @@ namespace MercadoEnvio.Mappings
         }
 
 
-        public int ModificarCliente(string apellido, string nombre, Int64 dni, string pass, string fechanac, string calle, Int64 nrocalle, string depto, Int64 piso, string cp, string localidad, Int64 tel, string mail)
+        public int ModificarCliente(string apellido, string nombre, Int64 dni, string pass, DateTime fechanac, string calle, Int64 nrocalle, string depto, Int64 piso, string cp, string localidad, Int64 tel, string mail)
         {
             int retorno = 0;
             BasedeDatosForm bd = new BasedeDatosForm();
@@ -345,7 +345,7 @@ namespace MercadoEnvio.Mappings
         }
 
 
-        public int InsertarCliente(string apellido, string nombre, Int64 dni, string pass, string fechanac, string calle, Int64 nrocalle, string depto, Int64 piso, string cp, string localidad, Int64 tel, string mail)
+        public int InsertarCliente(string apellido, string nombre, Int64 dni, string pass, DateTime fechanac, string calle, Int64 nrocalle, string depto, Int64 piso, string cp, string localidad, Int64 tel, string mail)
         {
 
             int retorno = 0;

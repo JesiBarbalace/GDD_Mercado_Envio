@@ -191,7 +191,7 @@ namespace MercadoEnvio.Generar_Publicación
                             DateTime feinicio = dpInicio.Value;
                             DateTime fin = dpVencimiento.Value;
                             int result = DateTime.Compare(feinicio, fin);
-                            if (result <= 0)
+                            if (result >= 0)
                                 MessageBox.Show("La fecha de venicmiento debe ser mayor a la fecha de inicio.");
                             else
                             {
@@ -268,7 +268,7 @@ namespace MercadoEnvio.Generar_Publicación
                             DateTime feinicio = dpInicio.Value;
                             DateTime fin = dpVencimiento.Value;
                             int result = DateTime.Compare(feinicio, fin);
-                            if (result <= 0)
+                            if (result >= 0)
                                 MessageBox.Show("La fecha de venicmiento debe ser mayor a la fecha de inicio.");
                             else
                             {

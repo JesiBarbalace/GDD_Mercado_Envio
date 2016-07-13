@@ -64,6 +64,7 @@
             this.HABILITADOCLI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.USERNAMECLI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxDatosPersonales = new System.Windows.Forms.GroupBox();
+            this.dpNac = new System.Windows.Forms.DateTimePicker();
             this.txtPassE = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.txtPassCli = new System.Windows.Forms.TextBox();
@@ -76,7 +77,6 @@
             this.txtDocE2 = new System.Windows.Forms.TextBox();
             this.txtDocE1 = new System.Windows.Forms.TextBox();
             this.txtRazonEmp = new System.Windows.Forms.TextBox();
-            this.txtFechNac = new System.Windows.Forms.TextBox();
             this.txtDoc1 = new System.Windows.Forms.TextBox();
             this.txtNombreCli = new System.Windows.Forms.TextBox();
             this.txtApeCli = new System.Windows.Forms.TextBox();
@@ -444,6 +444,7 @@
             // 
             // groupBoxDatosPersonales
             // 
+            this.groupBoxDatosPersonales.Controls.Add(this.dpNac);
             this.groupBoxDatosPersonales.Controls.Add(this.txtPassE);
             this.groupBoxDatosPersonales.Controls.Add(this.label30);
             this.groupBoxDatosPersonales.Controls.Add(this.txtPassCli);
@@ -456,7 +457,6 @@
             this.groupBoxDatosPersonales.Controls.Add(this.txtDocE2);
             this.groupBoxDatosPersonales.Controls.Add(this.txtDocE1);
             this.groupBoxDatosPersonales.Controls.Add(this.txtRazonEmp);
-            this.groupBoxDatosPersonales.Controls.Add(this.txtFechNac);
             this.groupBoxDatosPersonales.Controls.Add(this.txtDoc1);
             this.groupBoxDatosPersonales.Controls.Add(this.txtNombreCli);
             this.groupBoxDatosPersonales.Controls.Add(this.txtApeCli);
@@ -475,6 +475,13 @@
             this.groupBoxDatosPersonales.Visible = false;
             this.groupBoxDatosPersonales.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // dpNac
+            // 
+            this.dpNac.Location = new System.Drawing.Point(143, 136);
+            this.dpNac.Name = "dpNac";
+            this.dpNac.Size = new System.Drawing.Size(200, 20);
+            this.dpNac.TabIndex = 29;
+            // 
             // txtPassE
             // 
             this.txtPassE.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -483,6 +490,7 @@
             this.txtPassE.Name = "txtPassE";
             this.txtPassE.Size = new System.Drawing.Size(365, 20);
             this.txtPassE.TabIndex = 28;
+            this.txtPassE.UseSystemPasswordChar = true;
             // 
             // label30
             // 
@@ -502,6 +510,7 @@
             this.txtPassCli.Name = "txtPassCli";
             this.txtPassCli.Size = new System.Drawing.Size(307, 20);
             this.txtPassCli.TabIndex = 26;
+            this.txtPassCli.UseSystemPasswordChar = true;
             // 
             // label29
             // 
@@ -582,16 +591,6 @@
             this.txtRazonEmp.Name = "txtRazonEmp";
             this.txtRazonEmp.Size = new System.Drawing.Size(366, 20);
             this.txtRazonEmp.TabIndex = 15;
-            // 
-            // txtFechNac
-            // 
-            this.txtFechNac.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtFechNac.Enabled = false;
-            this.txtFechNac.Location = new System.Drawing.Point(143, 137);
-            this.txtFechNac.Name = "txtFechNac";
-            this.txtFechNac.Size = new System.Drawing.Size(134, 20);
-            this.txtFechNac.TabIndex = 14;
-            this.txtFechNac.TextChanged += new System.EventHandler(this.txtFechNac_TextChanged);
             // 
             // txtDoc1
             // 
@@ -1117,7 +1116,6 @@
         private System.Windows.Forms.TextBox txtDocE2;
         private System.Windows.Forms.TextBox txtDocE1;
         private System.Windows.Forms.TextBox txtRazonEmp;
-        private System.Windows.Forms.TextBox txtFechNac;
         private System.Windows.Forms.TextBox txtDoc1;
         private System.Windows.Forms.TextBox txtNombreCli;
         private System.Windows.Forms.TextBox txtApeCli;
@@ -1189,5 +1187,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn USERNAMEEMP;
         private System.Windows.Forms.Button btnHabilitar;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dpNac;
     }
 }

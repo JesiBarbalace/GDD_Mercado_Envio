@@ -35,6 +35,7 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.cmbRolUsu = new System.Windows.Forms.ComboBox();
             this.gbDatosPersonales = new System.Windows.Forms.GroupBox();
+            this.dpNac = new System.Windows.Forms.DateTimePicker();
             this.cmbRubros = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.txtDocE2 = new System.Windows.Forms.TextBox();
             this.txtDocE1 = new System.Windows.Forms.TextBox();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
-            this.txtFechNac = new System.Windows.Forms.TextBox();
             this.txtDoc1 = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -137,6 +137,7 @@
             // 
             // gbDatosPersonales
             // 
+            this.gbDatosPersonales.Controls.Add(this.dpNac);
             this.gbDatosPersonales.Controls.Add(this.cmbRubros);
             this.gbDatosPersonales.Controls.Add(this.label14);
             this.gbDatosPersonales.Controls.Add(this.label13);
@@ -145,7 +146,6 @@
             this.gbDatosPersonales.Controls.Add(this.txtDocE2);
             this.gbDatosPersonales.Controls.Add(this.txtDocE1);
             this.gbDatosPersonales.Controls.Add(this.txtRazonSocial);
-            this.gbDatosPersonales.Controls.Add(this.txtFechNac);
             this.gbDatosPersonales.Controls.Add(this.txtDoc1);
             this.gbDatosPersonales.Controls.Add(this.txtNombre);
             this.gbDatosPersonales.Controls.Add(this.txtApellido);
@@ -161,6 +161,13 @@
             this.gbDatosPersonales.TabIndex = 6;
             this.gbDatosPersonales.TabStop = false;
             this.gbDatosPersonales.Text = "Datos Personales del Usuario";
+            // 
+            // dpNac
+            // 
+            this.dpNac.Location = new System.Drawing.Point(143, 159);
+            this.dpNac.Name = "dpNac";
+            this.dpNac.Size = new System.Drawing.Size(200, 20);
+            this.dpNac.TabIndex = 25;
             // 
             // cmbRubros
             // 
@@ -209,6 +216,7 @@
             this.txtDocE3.Size = new System.Drawing.Size(30, 20);
             this.txtDocE3.TabIndex = 18;
             this.txtDocE3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocE3_KeyPress_1);
+            this.txtDocE3.Leave += new System.EventHandler(this.txtDocE3_Leave);
             // 
             // txtDocE2
             // 
@@ -242,16 +250,6 @@
             this.txtRazonSocial.Size = new System.Drawing.Size(366, 20);
             this.txtRazonSocial.TabIndex = 15;
             // 
-            // txtFechNac
-            // 
-            this.txtFechNac.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtFechNac.Enabled = false;
-            this.txtFechNac.Location = new System.Drawing.Point(143, 155);
-            this.txtFechNac.MaxLength = 18;
-            this.txtFechNac.Name = "txtFechNac";
-            this.txtFechNac.Size = new System.Drawing.Size(134, 20);
-            this.txtFechNac.TabIndex = 14;
-            // 
             // txtDoc1
             // 
             this.txtDoc1.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -262,6 +260,7 @@
             this.txtDoc1.Size = new System.Drawing.Size(167, 20);
             this.txtDoc1.TabIndex = 11;
             this.txtDoc1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDoc1_KeyPress_1);
+            this.txtDoc1.Leave += new System.EventHandler(this.txtDoc1_Leave);
             // 
             // txtNombre
             // 
@@ -591,7 +590,6 @@
         private System.Windows.Forms.TextBox txtDocE2;
         private System.Windows.Forms.TextBox txtDocE1;
         private System.Windows.Forms.TextBox txtRazonSocial;
-        private System.Windows.Forms.TextBox txtFechNac;
         private System.Windows.Forms.TextBox txtDoc1;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
@@ -621,5 +619,6 @@
         private System.Windows.Forms.TextBox txtCalle;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnAlta;
+        private System.Windows.Forms.DateTimePicker dpNac;
     }
 }

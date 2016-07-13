@@ -14,6 +14,8 @@ namespace MercadoEnvio.Generar_Publicación
 {
     public partial class ModificarPublicacion : Form
     {
+        public string estado_ant = "";
+
         public ModificarPublicacion()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace MercadoEnvio.Generar_Publicación
         {
             if (txtCodigo.Text == "")
                 MessageBox.Show("Debe completar el Código de Publicación para iniciar la búsqueda");
-            else 
+            else
             {
                 ObtenerPublicacion();
             }
@@ -42,9 +44,9 @@ namespace MercadoEnvio.Generar_Publicación
         public void ObtenerPublicacion()
         {
             DataTable dtable;
-            decimal codigo =  decimal.Parse(txtCodigo.Text);
+            decimal codigo = decimal.Parse(txtCodigo.Text);
             dtable = new Publicacion().getCodPubli(codigo);
-           
+
             if (dtable.Rows.Count == 0)
                 MessageBox.Show("No se encuentraron resultados para la búsqueda realizada");
             else
@@ -58,6 +60,10 @@ namespace MercadoEnvio.Generar_Publicación
                     btnBuscar.Visible = false;
                     btnLimpiar.Visible = true;
 
+                  
+                    LlenarVisibilidad_ComboBox();
+                    LlenarRubro_ComboBox();
+
                     cmbPubli.Text = Convert.ToString(dtRow["PUBLI_TIPO_DESC"]);
                     txtDescripcion.Text = Convert.ToString(dtRow["PUBLICACION_DESC"]);
                     txtStock.Text = Convert.ToString(dtRow["PUBLICACION_STOCK"]);
@@ -69,8 +75,11 @@ namespace MercadoEnvio.Generar_Publicación
                     txtCosto.Text = Convert.ToString(dtRow["VISIBILIDAD_COSTO_FIJO"]);
                     txtUsuario.Text = Convert.ToString(dtRow["USUARIO_USERNAME"]);
                     cmbEstado.Text = Convert.ToString(dtRow["ESTADO_DESC"]);
+                    estado_ant = Convert.ToString(dtRow["ESTADO_DESC"]);
                     string envio = Convert.ToString(dtRow["PUBLICACION_ENVIO"]);
                     string preguntas = Convert.ToString(dtRow["PUBLICACION_PREGUNTA"]);
+
+
                     if (envio == "False")
                         cbEnvio.Checked = false;
                     else
@@ -87,9 +96,9 @@ namespace MercadoEnvio.Generar_Publicación
                     {
                         cmbEstado.Items.Add("Borrador");
                         cmbEstado.Items.Add("Activa");
-                         LlenarRubro_ComboBox();
-                         LlenarVisibilidad_ComboBox();
-                        
+                        txtUsuario.Enabled = false;
+                        txtCosto.Enabled = false;
+
                     }
 
                     if (cmbEstado.Text == "Activa" || cmbEstado.Text == "Pausada")
@@ -108,7 +117,7 @@ namespace MercadoEnvio.Generar_Publicación
                         txtUsuario.ReadOnly = true;
                         cbPreguntas.Enabled = false;
                         cbEnvio.Enabled = false;
-                                                   
+
                     }
 
                     if (cmbEstado.Text == "Finalizada")
@@ -128,6 +137,11 @@ namespace MercadoEnvio.Generar_Publicación
                         btnGrabar.Visible = false;
                     }
 
+                    if (cmbPubli.Text == "Subasta")
+                    {
+                        txtStock.Enabled = false;
+
+                    }
                 }
             }
         }
@@ -151,10 +165,11 @@ namespace MercadoEnvio.Generar_Publicación
                 btnBuscar.Visible = true;
                 txtCodigo.ReadOnly = false;
                 txtCodigo.Clear();
+                cmbEstado.Items.Clear();
 
             }
-          
-                
+
+
         }
 
         public void LlenarVisibilidad_ComboBox()
@@ -188,9 +203,75 @@ namespace MercadoEnvio.Generar_Publicación
             cmbRubro.Text = "Seleccionar Rubro";
         }
 
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            int resultado = 0;
+            DateTime fecha = Properties.Settings.Default.FechaSistema;
+            Int64 codigo = Int64.Parse(txtCodigo.Text);
+            bool envio = cbEnvio.Checked;
+            string visibilidad = cmbVisibilidad.Text;
+            string estado_actual = cmbEstado.Text;
+
+            if (estado_ant == "Borrador" && cmbEstado.Text == "Activa")
+            {
+                resultado = new Publicacion().GenerarFactura(codigo, fecha, envio, visibilidad);
+
+                if (resultado == 1)
+                {
+                    MessageBox.Show("La publicación se modificó correctamente");
+
+                     groupBox1.Visible = false;
+                txtDescripcion.Clear();
+                txtStock.Clear();
+                txtPrecio.Clear();
+                txtCosto.Clear();
+                txtUsuario.Clear();
+                cbPreguntas.Checked = false;
+                cbEnvio.Checked = false;
+                btnGrabar.Visible = false;
+                btnLimpiar.Visible = false;
+                btnBuscar.Visible = true;
+                txtCodigo.ReadOnly = false;
+                txtCodigo.Clear();
+                cmbEstado.Items.Clear();
 
 
                 }
-        
+                else
+
+                    MessageBox.Show("Hubo un problema al modificar la publicación, intente nuevamente");
+            }
+            else
+            {
+                resultado = new Publicacion().ModifEstadoPublic(codigo, estado_actual);
+
+                if (resultado == 1)
+                {
+                    MessageBox.Show("La publicación se modificó correctamente");
+
+                  groupBox1.Visible = false;
+                txtDescripcion.Clear();
+                txtStock.Clear();
+                txtPrecio.Clear();
+                txtCosto.Clear();
+                txtUsuario.Clear();
+                cbPreguntas.Checked = false;
+                cbEnvio.Checked = false;
+                btnGrabar.Visible = false;
+                btnLimpiar.Visible = false;
+                btnBuscar.Visible = true;
+                txtCodigo.ReadOnly = false;
+                txtCodigo.Clear();
+                cmbEstado.Items.Clear();
+
+
+                }
+                else
+
+                    MessageBox.Show("Hubo un problema al modificar la publicación, intente nuevamente");
+            }
+
+        }
+    }
     }
 

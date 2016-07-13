@@ -205,5 +205,77 @@ namespace MercadoEnvio.Mappings
             return dt;
         }
 
+        public int GenerarFactura(Int64 codigo, DateTime fecha, bool envio, string visib)
+        {
+         
+            int retorno = 0;
+                     
+            BasedeDatosForm bd = new BasedeDatosForm();
+            bd.openConnection();
+            SqlCommand cmd = new SqlCommand("[RECUR].[GenerarFactura]", bd.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                cmd.Parameters.Add("@COD_PUBLI", SqlDbType.Int).Value = codigo;
+                cmd.Parameters.Add("@FECHA_SIST", SqlDbType.DateTime).Value = fecha;
+                cmd.Parameters.Add("@ENVIO", SqlDbType.Bit).Value = envio;
+                cmd.Parameters.Add("@VISIB", SqlDbType.NVarChar).Value = visib;
+
+                cmd.ExecuteNonQuery();
+                retorno = 1;
+
+            }
+            catch (SqlException db)
+            {
+                retorno = 0;
+                throw db;
+            }
+            finally
+            {
+                bd.closeConnection();
+                cmd.Dispose();
+            }
+            return retorno;
+        }
+
+        public int ModifEstadoPublic(Int64 codigo, string estado)
+        {
+
+            int retorno = 0;
+
+            BasedeDatosForm bd = new BasedeDatosForm();
+            bd.openConnection();
+            SqlCommand cmd = new SqlCommand("[RECUR].[ModifEstadoPublic]", bd.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                cmd.Parameters.Add("@COD_PUBLI", SqlDbType.Int).Value = codigo;
+                cmd.Parameters.Add("@ESTADO_PUB", SqlDbType.NVarChar).Value = estado;
+
+                cmd.ExecuteNonQuery();
+                retorno = 1;
+
+            }
+            catch (SqlException db)
+            {
+                retorno = 0;
+                throw db;
+            }
+            finally
+            {
+                bd.closeConnection();
+                cmd.Dispose();
+            }
+            return retorno;
+        }
+
     }
 }

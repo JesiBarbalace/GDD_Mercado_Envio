@@ -191,7 +191,6 @@ namespace MercadoEnvio.ABM_Usuario
                 txtNombreCli.Clear();
                 txtDoc1.Clear();
                 txtPassCli.Clear();
-                txtFechNac.Clear();
                 txtCalle.Clear();
                 txtNroCalle.Clear();
                 txtPiso.Clear();
@@ -205,13 +204,13 @@ namespace MercadoEnvio.ABM_Usuario
                 txtNombreCli.Enabled = false;
                 txtDoc1.Enabled = false;
                 txtPassCli.Enabled = false;
-                txtFechNac.Enabled = false;
+                dpNac.Enabled = false;
 
                 txtApeCli.BackColor = SystemColors.ControlLight;
                 txtNombreCli.BackColor = SystemColors.ControlLight;
                 txtDoc1.BackColor = SystemColors.ControlLight;
                 txtPassCli.BackColor = SystemColors.ControlLight;
-                txtFechNac.BackColor = SystemColors.ControlLight;
+                dpNac.BackColor = SystemColors.ControlLight;
 
             }
 
@@ -568,7 +567,7 @@ namespace MercadoEnvio.ABM_Usuario
             txtNombreCli.Visible = true;
             txtDoc1.Visible = true;
             txtPassCli.Visible = true;
-            txtFechNac.Visible = true;
+            dpNac.Visible = true;
             txtCalle.Visible = true;
             txtNroCalle.Visible = true;
             txtPiso.Visible = true;
@@ -582,7 +581,7 @@ namespace MercadoEnvio.ABM_Usuario
             txtNombreCli.Enabled = true;
             txtDoc1.Enabled = false;
             txtPassCli.Enabled = true;
-            txtFechNac.Enabled = true;
+            dpNac.Enabled = true;
             txtCalle.Enabled = true;
             txtNroCalle.Enabled = true;
             txtPiso.Enabled = true;
@@ -595,7 +594,7 @@ namespace MercadoEnvio.ABM_Usuario
             txtApeCli.BackColor = SystemColors.HighlightText;
             txtNombreCli.BackColor = SystemColors.HighlightText;
             txtDoc1.BackColor = SystemColors.ControlLight;
-            txtFechNac.BackColor = SystemColors.HighlightText;
+            dpNac.BackColor = SystemColors.HighlightText;
             txtPassCli.BackColor = SystemColors.HighlightText;
             txtCalle.BackColor = SystemColors.HighlightText;
             txtNroCalle.BackColor = SystemColors.HighlightText;
@@ -619,7 +618,7 @@ namespace MercadoEnvio.ABM_Usuario
             txtCP.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["CPCLI"].Value);
             txtTelefono.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["TELCLI"].Value);
             txtMailB.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["MAILCLI"].Value);
-            txtFechNac.Text = Convert.ToString(dgvBusqCli.Rows[fila].Cells["FECHANAC"].Value);
+            dpNac.Value = Convert.ToDateTime(dgvBusqCli.Rows[fila].Cells["FECHANAC"].Value);
 
 
 
@@ -632,11 +631,11 @@ namespace MercadoEnvio.ABM_Usuario
 
             int resultado = 0;
             string vacio = "";
-
+            DateTime fechaInicio = Properties.Settings.Default.FechaSistema;
 
             if (cmbRoles.Text == "Cliente")
             {
-                if ((String.Compare(txtApeCli.Text, vacio) == 0) || (String.Compare(txtNombreCli.Text, vacio) == 0) || (String.Compare(txtDoc1.Text, vacio) == 0) || (String.Compare(txtPassCli.Text, vacio) == 0) || (String.Compare(txtFechNac.Text, vacio) == 0) || (String.Compare(txtCalle.Text, vacio) == 0) || (String.Compare(txtNroCalle.Text, vacio) == 0) || (String.Compare(txtDepto.Text, vacio) == 0) || (String.Compare(txtPiso.Text, vacio) == 0) || (String.Compare(txtCP.Text, vacio) == 0) || (String.Compare(txtLocalidad.Text, vacio) == 0) || (String.Compare(txtTelefono.Text, vacio) == 0) || (String.Compare(txtMailB.Text, vacio) == 0))
+                if ((String.Compare(txtApeCli.Text, vacio) == 0) || (String.Compare(txtNombreCli.Text, vacio) == 0) || (String.Compare(txtDoc1.Text, vacio) == 0) || (String.Compare(txtPassCli.Text, vacio) == 0)  || (String.Compare(txtCalle.Text, vacio) == 0) || (String.Compare(txtNroCalle.Text, vacio) == 0) || (String.Compare(txtDepto.Text, vacio) == 0) || (String.Compare(txtPiso.Text, vacio) == 0) || (String.Compare(txtCP.Text, vacio) == 0) || (String.Compare(txtLocalidad.Text, vacio) == 0) || (String.Compare(txtTelefono.Text, vacio) == 0) || (String.Compare(txtMailB.Text, vacio) == 0))
                 {
                     MessageBox.Show("Faltan completar algunos campos obligatorios. Revise los campos en rojo.");
                     groupBoxDatosPersonales.Visible = true;
@@ -659,84 +658,89 @@ namespace MercadoEnvio.ABM_Usuario
 
                 }
                 else
-                {
-                    Usuario usu = new Usuario();
-                    string apellido = txtApeCli.Text;
-                    string nombre = txtNombreCli.Text;
-                    Int64 dni = Int64.Parse(txtDoc1.Text);
-                    string pass = usu.SHA256Encripta(txtPassCli.Text);
-                    string fechanac = txtFechNac.Text;
-                    string calle = txtCalle.Text;
-                    Int64 nrocalle = Int64.Parse(txtNroCalle.Text);
-                    Int64 piso = Int64.Parse(txtPiso.Text);
-                    string depto = txtDepto.Text;
-                    string localidad = txtLocalidad.Text;
-                    string cp = txtCP.Text;
-                    Int64 tel = Int64.Parse(txtTelefono.Text);
-                    string mail = txtMailB.Text;
+                     {
+                     DateTime fechanaci = dpNac.Value;
+                     int result = DateTime.Compare(fechanaci, fechaInicio);
+                     if (result > 0)
+                         MessageBox.Show("La fecha de Nacimiento debe ser mayor que la fecha actual.");
+                     else
+                     {
+                         Usuario usu = new Usuario();
+                         string apellido = txtApeCli.Text;
+                         string nombre = txtNombreCli.Text;
+                         Int64 dni = Int64.Parse(txtDoc1.Text);
+                         string pass = usu.SHA256Encripta(txtPassCli.Text);
+                         DateTime fechanac = dpNac.Value;
+                         string calle = txtCalle.Text;
+                         Int64 nrocalle = Int64.Parse(txtNroCalle.Text);
+                         Int64 piso = Int64.Parse(txtPiso.Text);
+                         string depto = txtDepto.Text;
+                         string localidad = txtLocalidad.Text;
+                         string cp = txtCP.Text;
+                         Int64 tel = Int64.Parse(txtTelefono.Text);
+                         string mail = txtMailB.Text;
 
-                    resultado = new CliEmp().ModificarCliente(apellido, nombre, dni, pass, fechanac, calle, nrocalle, depto, piso, cp, localidad, tel, mail);
+                         resultado = new CliEmp().ModificarCliente(apellido, nombre, dni, pass, fechanac, calle, nrocalle, depto, piso, cp, localidad, tel, mail);
 
-                    if (resultado == 1)
-                    {
-                        MessageBox.Show("El Usuario fue modificado correctamente");
-                        ObtenerClientes_DataGridView();
-                        label19.ForeColor = SystemColors.ControlText;
-                        label18.ForeColor = SystemColors.ControlText;
-                        label16.ForeColor = SystemColors.ControlText;
-                        label29.ForeColor = SystemColors.ControlText;
-                        label15.ForeColor = SystemColors.ControlText;
+                         if (resultado == 1)
+                         {
+                             MessageBox.Show("El Usuario fue modificado correctamente");
+                             ObtenerClientes_DataGridView();
+                             label19.ForeColor = SystemColors.ControlText;
+                             label18.ForeColor = SystemColors.ControlText;
+                             label16.ForeColor = SystemColors.ControlText;
+                             label29.ForeColor = SystemColors.ControlText;
+                             label15.ForeColor = SystemColors.ControlText;
 
-                        label28.ForeColor = SystemColors.ControlText;
-                        label21.ForeColor = SystemColors.ControlText;
-                        label26.ForeColor = SystemColors.ControlText;
-                        label27.ForeColor = SystemColors.ControlText;
-                        label22.ForeColor = SystemColors.ControlText;
-                        label25.ForeColor = SystemColors.ControlText;
-                        label24.ForeColor = SystemColors.ControlText;
-                        label23.ForeColor = SystemColors.ControlText;
-                        label20.ForeColor = SystemColors.ControlText;
+                             label28.ForeColor = SystemColors.ControlText;
+                             label21.ForeColor = SystemColors.ControlText;
+                             label26.ForeColor = SystemColors.ControlText;
+                             label27.ForeColor = SystemColors.ControlText;
+                             label22.ForeColor = SystemColors.ControlText;
+                             label25.ForeColor = SystemColors.ControlText;
+                             label24.ForeColor = SystemColors.ControlText;
+                             label23.ForeColor = SystemColors.ControlText;
+                             label20.ForeColor = SystemColors.ControlText;
 
-                        txtApeCli.Clear();
-                        txtNombreCli.Clear();
-                        txtDoc1.Clear();
-                        txtPassCli.Clear();
-                        txtFechNac.Clear();
-                        txtCalle.Clear();
-                        txtNroCalle.Clear();
-                        txtPiso.Clear();
-                        txtDepto.Clear();
-                        txtLocalidad.Clear();
-                        txtCP.Clear();
-                        txtTelefono.Clear();
-                        txtMailB.Clear();
+                             txtApeCli.Clear();
+                             txtNombreCli.Clear();
+                             txtDoc1.Clear();
+                             txtPassCli.Clear();
+                             txtCalle.Clear();
+                             txtNroCalle.Clear();
+                             txtPiso.Clear();
+                             txtDepto.Clear();
+                             txtLocalidad.Clear();
+                             txtCP.Clear();
+                             txtTelefono.Clear();
+                             txtMailB.Clear();
 
 
-                        txtRazonEmp.Clear();
-                        txtDocE1.Clear();
-                        txtDocE2.Clear();
-                        txtDocE3.Clear();
-                        txtContacto.Clear();
-                        txtPassE.Clear();
-                        cmbRubros.Text = "";
-                        txtCalle.Clear();
-                        txtNroCalle.Clear();
-                        txtPiso.Clear();
-                        txtDepto.Clear();
-                        txtLocalidad.Clear();
-                        txtCP.Clear();
-                        txtCiudad.Clear();
-                        txtTelefono.Clear();
-                        txtMailB.Clear();
-                        groupBoxDatosPersonales.Visible = false;
-                        groupBoxDireccion.Visible = false;
-                        label10.Visible = false;
-                        btnGrabar.Visible = false;
-                        btnHabilitar.Visible = false;
-                    }
-                    else
-                        MessageBox.Show("Hubo un problema al querer modificar el Usuario, intente nuevamente");
-
+                             txtRazonEmp.Clear();
+                             txtDocE1.Clear();
+                             txtDocE2.Clear();
+                             txtDocE3.Clear();
+                             txtContacto.Clear();
+                             txtPassE.Clear();
+                             cmbRubros.Text = "";
+                             txtCalle.Clear();
+                             txtNroCalle.Clear();
+                             txtPiso.Clear();
+                             txtDepto.Clear();
+                             txtLocalidad.Clear();
+                             txtCP.Clear();
+                             txtCiudad.Clear();
+                             txtTelefono.Clear();
+                             txtMailB.Clear();
+                             groupBoxDatosPersonales.Visible = false;
+                             groupBoxDireccion.Visible = false;
+                             label10.Visible = false;
+                             btnGrabar.Visible = false;
+                             btnHabilitar.Visible = false;
+                         }
+                         else
+                             MessageBox.Show("Hubo un problema al querer modificar el Usuario, intente nuevamente");
+                     }
                 }
             }
             if (cmbRoles.Text == "Empresa")
@@ -808,7 +812,6 @@ namespace MercadoEnvio.ABM_Usuario
                         txtNombreCli.Clear();
                         txtDoc1.Clear();
                         txtPassCli.Clear();
-                        txtFechNac.Clear();
                         txtCalle.Clear();
                         txtNroCalle.Clear();
                         txtPiso.Clear();

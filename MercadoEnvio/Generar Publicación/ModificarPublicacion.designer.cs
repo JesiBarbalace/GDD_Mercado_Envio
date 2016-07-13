@@ -164,6 +164,7 @@
             this.btnGrabar.Text = "Grabar Publicación";
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Visible = false;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // cbPreguntas
             // 

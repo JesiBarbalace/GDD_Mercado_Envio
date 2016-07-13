@@ -18,6 +18,7 @@ namespace MercadoEnvio.ABM_Usuario
         public AltaUsuario()
         {
             InitializeComponent();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -39,6 +40,8 @@ namespace MercadoEnvio.ABM_Usuario
            */
         private void cmbRolUsu_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+
             if (cmbRolUsu.Text == "System.Data.DataRowView")
             {
                 cmbRolUsu.Text = "Seleccione un Rol";
@@ -53,17 +56,17 @@ namespace MercadoEnvio.ABM_Usuario
                 txtNombre.Enabled = true;
                 txtApellido.Enabled = true;
                 txtDoc1.Enabled = true;
-                txtFechNac.Enabled = true;
+                dpNac.Enabled = true;
 
                 txtNombre.Visible = true;
                 txtApellido.Visible = true;
                 txtDoc1.Visible = true;
-                txtFechNac.Visible = true;
+                dpNac.Visible = true;
 
                 txtNombre.BackColor = SystemColors.HighlightText;
                 txtApellido.BackColor = SystemColors.HighlightText;
                 txtDoc1.BackColor = SystemColors.HighlightText;
-                txtFechNac.BackColor = SystemColors.HighlightText;
+                dpNac.BackColor = SystemColors.HighlightText;
 
                 txtRazonSocial.Enabled = false;
                 txtDocE1.Enabled = false;
@@ -146,17 +149,17 @@ namespace MercadoEnvio.ABM_Usuario
                 txtNombre.Enabled = false;
                 txtApellido.Enabled = false;
                 txtDoc1.Enabled = false;
-                txtFechNac.Enabled = false;
+                dpNac.Enabled = false;
 
                 txtNombre.Visible = true;
                 txtApellido.Visible = true;
                 txtDoc1.Visible = true;
-                txtFechNac.Visible = true;
+                dpNac.Visible = true;
 
                 txtNombre.BackColor = SystemColors.ControlLight;
                 txtApellido.BackColor = SystemColors.ControlLight;
                 txtDoc1.BackColor = SystemColors.ControlLight;
-                txtFechNac.BackColor = SystemColors.ControlLight;
+                dpNac.BackColor = SystemColors.ControlLight;
 
                 txtRazonSocial.Enabled = true;
                 txtDocE1.Enabled = true;
@@ -336,10 +339,11 @@ namespace MercadoEnvio.ABM_Usuario
         {
             int resultado = 0;
             string vacio = "";
+            DateTime fechaInicio = Properties.Settings.Default.FechaSistema;
 
             if (cmbRolUsu.Text == "Cliente")
             {
-                if ((String.Compare(txtApellido.Text, vacio) == 0) || (String.Compare(txtNombre.Text, vacio) == 0) || (String.Compare(txtDoc1.Text, vacio) == 0) || (String.Compare(txtFechNac.Text, vacio) == 0) || (String.Compare(txtCalle.Text, vacio) == 0) || (String.Compare(txtNroCalle.Text, vacio) == 0) || (String.Compare(txtDepto.Text, vacio) == 0) || (String.Compare(txtPiso.Text, vacio) == 0) || (String.Compare(txtCP.Text, vacio) == 0) || (String.Compare(txtLocalidad.Text, vacio) == 0) || (String.Compare(txtTelefono.Text, vacio) == 0) || (String.Compare(txtMail.Text, vacio) == 0))
+                if ((String.Compare(txtApellido.Text, vacio) == 0) || (String.Compare(txtNombre.Text, vacio) == 0) || (String.Compare(txtDoc1.Text, vacio) == 0) || (String.Compare(txtCalle.Text, vacio) == 0) || (String.Compare(txtNroCalle.Text, vacio) == 0) || (String.Compare(txtDepto.Text, vacio) == 0) || (String.Compare(txtPiso.Text, vacio) == 0) || (String.Compare(txtCP.Text, vacio) == 0) || (String.Compare(txtLocalidad.Text, vacio) == 0) || (String.Compare(txtTelefono.Text, vacio) == 0) || (String.Compare(txtMail.Text, vacio) == 0))
                 {
                     MessageBox.Show("Faltan completar algunos campos obligatorios. Revise los campos en rojo.");
                     gbDatosPersonales.Visible = true;
@@ -364,68 +368,73 @@ namespace MercadoEnvio.ABM_Usuario
                 }
                 else
                 {
-                    Usuario usu = new Usuario();
-                    string apellido = txtApellido.Text;
-                    string nombre = txtNombre.Text;
-                    Int64 dni = Int64.Parse(txtDoc1.Text);
-                    string pass = usu.SHA256Encripta(txtPass.Text);
-                    string fechanac = txtFechNac.Text;
-                    string calle = txtCalle.Text;
-                    Int64 nrocalle = Int64.Parse(txtNroCalle.Text);
-                    Int64 piso = Int64.Parse(txtPiso.Text);
-                    string depto = txtDepto.Text;
-                    string localidad = txtLocalidad.Text;
-                    string cp = txtCP.Text;
-                    Int64 tel = Int64.Parse(txtTelefono.Text);
-                    string mail = txtMail.Text;
-
-                    resultado = new CliEmp().InsertarCliente(apellido, nombre, dni, pass, fechanac, calle, nrocalle, depto, piso, cp, localidad, tel, mail);
-
-                    if (resultado == 1)
-                    {
-                        MessageBox.Show("El Usuario fue ingresado correctamente");
-
-                        gbDatosPersonales.Visible = false;
-                        gbDireccion.Visible = false;
-                        cmbRolUsu.Text = "Seleccione un Rol";
-
-                        label2.ForeColor = SystemColors.ControlText;
-
-                        label4.ForeColor = SystemColors.ControlText;
-                        label5.ForeColor = SystemColors.ControlText;
-                        label7.ForeColor = SystemColors.ControlText;
-                        label8.ForeColor = SystemColors.ControlText;
-
-                        label15.ForeColor = SystemColors.ControlText;
-                        label21.ForeColor = SystemColors.ControlText;
-                        label17.ForeColor = SystemColors.ControlText;
-                        label16.ForeColor = SystemColors.ControlText;
-                        label22.ForeColor = SystemColors.ControlText;
-                        label18.ForeColor = SystemColors.ControlText;
-                        label19.ForeColor = SystemColors.ControlText;
-                        label20.ForeColor = SystemColors.ControlText;
-
-                        txtApellido.Clear();
-                        txtNombre.Clear();
-                        txtDoc1.Clear();
-                        txtPass.Clear();
-                        txtFechNac.Clear();
-                        txtCalle.Clear();
-                        txtNroCalle.Clear();
-                        txtPiso.Clear();
-                        txtDepto.Clear();
-                        txtLocalidad.Clear();
-                        txtCP.Clear();
-                        txtTelefono.Clear();
-                        txtMail.Clear();
-                        txtUser.Clear();
-
-                        btnAlta.Visible = false;
-
-                    }
+                     DateTime fechanaci = dpNac.Value;
+                     int result = DateTime.Compare(fechanaci, fechaInicio);
+                     if (result > 0)
+                        MessageBox.Show("La fecha de Nacimiento debe ser mayor que la fecha actual.");
                     else
-                        MessageBox.Show("Hubo un problema al querer dar de alta el Usuario, intente nuevamente");
+                    {
+                        Usuario usu = new Usuario();
+                        string apellido = txtApellido.Text;
+                        string nombre = txtNombre.Text;
+                        Int64 dni = Int64.Parse(txtDoc1.Text);
+                        string pass = usu.SHA256Encripta(txtPass.Text);
+                        DateTime fechanac = dpNac.Value;
+                        string calle = txtCalle.Text;
+                        Int64 nrocalle = Int64.Parse(txtNroCalle.Text);
+                        Int64 piso = Int64.Parse(txtPiso.Text);
+                        string depto = txtDepto.Text;
+                        string localidad = txtLocalidad.Text;
+                        string cp = txtCP.Text;
+                        Int64 tel = Int64.Parse(txtTelefono.Text);
+                        string mail = txtMail.Text;
 
+                        resultado = new CliEmp().InsertarCliente(apellido, nombre, dni, pass, fechanac, calle, nrocalle, depto, piso, cp, localidad, tel, mail);
+
+                        if (resultado == 1)
+                        {
+                            MessageBox.Show("El Usuario fue ingresado correctamente");
+
+                            gbDatosPersonales.Visible = false;
+                            gbDireccion.Visible = false;
+                            cmbRolUsu.Text = "Seleccione un Rol";
+
+                            label2.ForeColor = SystemColors.ControlText;
+
+                            label4.ForeColor = SystemColors.ControlText;
+                            label5.ForeColor = SystemColors.ControlText;
+                            label7.ForeColor = SystemColors.ControlText;
+                            label8.ForeColor = SystemColors.ControlText;
+
+                            label15.ForeColor = SystemColors.ControlText;
+                            label21.ForeColor = SystemColors.ControlText;
+                            label17.ForeColor = SystemColors.ControlText;
+                            label16.ForeColor = SystemColors.ControlText;
+                            label22.ForeColor = SystemColors.ControlText;
+                            label18.ForeColor = SystemColors.ControlText;
+                            label19.ForeColor = SystemColors.ControlText;
+                            label20.ForeColor = SystemColors.ControlText;
+
+                            txtApellido.Clear();
+                            txtNombre.Clear();
+                            txtDoc1.Clear();
+                            txtPass.Clear();
+                            txtCalle.Clear();
+                            txtNroCalle.Clear();
+                            txtPiso.Clear();
+                            txtDepto.Clear();
+                            txtLocalidad.Clear();
+                            txtCP.Clear();
+                            txtTelefono.Clear();
+                            txtMail.Clear();
+                            txtUser.Clear();
+
+                            btnAlta.Visible = false;
+
+                        }
+                        else
+                            MessageBox.Show("Hubo un problema al querer dar de alta el Usuario, intente nuevamente");
+                    }
                 }
             }
 
@@ -458,84 +467,85 @@ namespace MercadoEnvio.ABM_Usuario
                 }
                 else
                 {
-                    Usuario usu = new Usuario();
-                    string razonsoc = txtRazonSocial.Text;
-                    string username = documento;
-                    string doc;
-                    if (txtDocE1.TextLength == 1)
-                        doc = "0" + txtDocE1.Text + "-" + txtDocE2.Text + "-" + txtDocE3.Text;
-                    else
-                    {
-                        doc = txtDocE1.Text + "-" + txtDocE2.Text + "-" + txtDocE3.Text;
+                   
+                        Usuario usu = new Usuario();
+                        string razonsoc = txtRazonSocial.Text;
+                        string username = documento;
+                        string doc;
+                        if (txtDocE1.TextLength == 1)
+                            doc = "0" + txtDocE1.Text + "-" + txtDocE2.Text + "-" + txtDocE3.Text;
+                        else
+                        {
+                            doc = txtDocE1.Text + "-" + txtDocE2.Text + "-" + txtDocE3.Text;
+                        }
+                        string pass = usu.SHA256Encripta(txtPass.Text);
+                        string contacto = txtContacto.Text;
+                        string rubro = cmbRubros.Text;
+                        string calle = txtCalle.Text;
+                        Int64 nrocalle = Int64.Parse(txtNroCalle.Text);
+                        Int64 piso = Int64.Parse(txtPiso.Text);
+                        string depto = txtDepto.Text;
+                        string localidad = txtLocalidad.Text;
+                        string cp = txtCP.Text;
+                        Int64 tel = Int64.Parse(txtTelefono.Text);
+                        string mail = txtMail.Text;
+                        string ciudad = txtCiudad.Text;
+
+                        resultado = new CliEmp().InsertarEmpresa(razonsoc, username, doc, pass, contacto, rubro, calle, nrocalle, depto, piso, cp, localidad, tel, mail, ciudad);
+
+                        if (resultado == 1)
+                        {
+                            MessageBox.Show("El Usuario fue ingresado correctamente");
+
+                            gbDatosPersonales.Visible = false;
+                            gbDireccion.Visible = false;
+                            cmbRolUsu.Text = "Seleccione un Rol";
+
+                            label2.ForeColor = SystemColors.ControlText;
+
+                            label9.ForeColor = SystemColors.ControlText;
+                            label13.ForeColor = SystemColors.ControlText;
+                            label12.ForeColor = SystemColors.ControlText;
+                            label14.ForeColor = SystemColors.ControlText;
+
+                            label15.ForeColor = SystemColors.ControlText;
+                            label21.ForeColor = SystemColors.ControlText;
+                            label17.ForeColor = SystemColors.ControlText;
+                            label16.ForeColor = SystemColors.ControlText;
+                            label22.ForeColor = SystemColors.ControlText;
+                            label18.ForeColor = SystemColors.ControlText;
+                            label19.ForeColor = SystemColors.ControlText;
+                            label20.ForeColor = SystemColors.ControlText;
+                            label23.ForeColor = SystemColors.ControlText;
+
+
+                            txtRazonSocial.Clear();
+                            txtDocE2.Clear();
+                            txtDocE1.Clear();
+                            txtDocE3.Clear();
+                            txtPass.Clear();
+                            txtContacto.Clear();
+                            cmbRubros.Text = "";
+                            txtCalle.Clear();
+                            txtNroCalle.Clear();
+                            txtPiso.Clear();
+                            txtDepto.Clear();
+                            txtLocalidad.Clear();
+                            txtCP.Clear();
+                            txtTelefono.Clear();
+                            txtMail.Clear();
+                            txtUser.Clear();
+                            txtCiudad.Clear();
+
+                            btnAlta.Visible = false;
+
+                        }
+                        else
+                            MessageBox.Show("Hubo un problema al querer dar de alta el Usuario, intente nuevamente");
+
                     }
-                    string pass = usu.SHA256Encripta(txtPass.Text);
-                    string contacto = txtContacto.Text;
-                    string rubro = cmbRubros.Text;
-                    string calle = txtCalle.Text;
-                    Int64 nrocalle = Int64.Parse(txtNroCalle.Text);
-                    Int64 piso = Int64.Parse(txtPiso.Text);
-                    string depto = txtDepto.Text;
-                    string localidad = txtLocalidad.Text;
-                    string cp = txtCP.Text;
-                    Int64 tel = Int64.Parse(txtTelefono.Text);
-                    string mail = txtMail.Text;
-                    string ciudad = txtCiudad.Text;
-
-                    resultado = new CliEmp().InsertarEmpresa(razonsoc, username, doc, pass, contacto, rubro, calle, nrocalle, depto, piso, cp, localidad, tel, mail, ciudad);
-
-                    if (resultado == 1)
-                    {
-                        MessageBox.Show("El Usuario fue ingresado correctamente");
-
-                        gbDatosPersonales.Visible = false;
-                        gbDireccion.Visible = false;
-                        cmbRolUsu.Text = "Seleccione un Rol";
-
-                        label2.ForeColor = SystemColors.ControlText;
-
-                        label9.ForeColor = SystemColors.ControlText;
-                        label13.ForeColor = SystemColors.ControlText;
-                        label12.ForeColor = SystemColors.ControlText;
-                        label14.ForeColor = SystemColors.ControlText;
-
-                        label15.ForeColor = SystemColors.ControlText;
-                        label21.ForeColor = SystemColors.ControlText;
-                        label17.ForeColor = SystemColors.ControlText;
-                        label16.ForeColor = SystemColors.ControlText;
-                        label22.ForeColor = SystemColors.ControlText;
-                        label18.ForeColor = SystemColors.ControlText;
-                        label19.ForeColor = SystemColors.ControlText;
-                        label20.ForeColor = SystemColors.ControlText;
-                        label23.ForeColor = SystemColors.ControlText;
-
-
-                        txtRazonSocial.Clear();
-                        txtDocE2.Clear();
-                        txtDocE1.Clear();
-                        txtDocE3.Clear();
-                        txtPass.Clear();
-                        txtContacto.Clear();
-                        cmbRubros.Text = "";
-                        txtCalle.Clear();
-                        txtNroCalle.Clear();
-                        txtPiso.Clear();
-                        txtDepto.Clear();
-                        txtLocalidad.Clear();
-                        txtCP.Clear();
-                        txtTelefono.Clear();
-                        txtMail.Clear();
-                        txtUser.Clear();
-                        txtCiudad.Clear();
-
-                        btnAlta.Visible = false;
-
-                    }
-                    else
-                        MessageBox.Show("Hubo un problema al querer dar de alta el Usuario, intente nuevamente");
-
                 }
-            }
-
+            
         }
 
         private void txtDoc1_Leave(object sender, EventArgs e)
