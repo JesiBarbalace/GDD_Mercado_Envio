@@ -200,6 +200,7 @@
       <DependentUpon>BasedeDatosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Mappings\CliEmp.cs" />
+    <Compile Include="Mappings\EstadoPublicaciones.cs" />
     <Compile Include="Mappings\Factura.cs" />
     <Compile Include="Mappings\Publicacion.cs" />
     <Compile Include="Mappings\Rol.cs" />

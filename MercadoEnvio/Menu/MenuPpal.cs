@@ -80,7 +80,8 @@ namespace MercadoEnvio.Menu
 
         private void MenuPpal_Load(object sender, EventArgs e)
         {
-
+            Mappings.EstadoPublicaciones estadoPublicaciones = new EstadoPublicaciones();
+            estadoPublicaciones.VerificarPublicaciones();
         }
 
         private void calificarAlVendedorToolStripMenuItem_Click(object sender, EventArgs e)

@@ -25,7 +25,7 @@ namespace MercadoEnvio.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2017-01-31")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2015-06-30")]
         public global::System.DateTime FechaSistema {
             get {
                 return ((global::System.DateTime)(this["FechaSistema"]));
