@@ -55,7 +55,7 @@ namespace MercadoEnvio.Listado_Estadistico
                 case "1":// "Vendedores con Productos No Vendidos":
                     view = "RECUR.VW_VENDEDORES_PRODUCTOS_SIN_VENDER";
                     where = " AND UPPER(GRADO_DE_VISIBILIDAD) = RTRIM(LTRIM('" + cmbVisibilidad.SelectedValue.ToString().ToUpper() + "'))";
-                    orderby = "ORDER BY TRIMESTRE DESC, AÑO DESC, GRADO_DE_VISIBILIDAD DESC";
+                    orderby = "ORDER BY TRIMESTRE DESC, AÑO DESC, PRODUCTOS_NO_VENDIDOS DESC, GRADO_DE_VISIBILIDAD DESC";
                     break;
                 case "2":// "Clientes con Productos Comprados":
                     view = "RECUR.VW_MEJORES_COMPRADORES";
